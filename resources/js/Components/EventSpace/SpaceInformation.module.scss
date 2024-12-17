@@ -1,0 +1,213 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+// Superior Area
+.superiorArea {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nameArea {
+        h1 {
+            font-size: 28px;
+            font-weight: 500;
+            color: #0C9C95;
+        }
+        span {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+
+    .areaButtons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .bookButton {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 12px 12px 25px;
+            border-radius: 40px;
+            border: 1px dashed #F57C29;
+            color: #F57C29;
+
+            svg {
+                height: 14px;
+                width: auto;
+                 path {
+                    fill: #F57C29;
+                 }
+            }
+        }
+
+        .favoriteButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            border: 1px dashed #0c9c95;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+// Imaegs Container
+.imagesContainer {
+    display: flex;
+    margin-top: 50px;
+    gap: 20px;
+
+    .listImages {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 250px;
+        max-height: 400px;
+        overflow: hidden;
+
+        img {
+            border-radius: 20px;
+        }
+    }
+
+    .principalImage {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+
+// Information Area
+.informationContainer {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    gap: 40px;
+
+    .informationArea {
+        width: 60%;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .infoSpots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+    
+            .spotInfo {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                h3 {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #2B2B2B;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: #777777;
+                }
+            }
+
+            .spotInfo.spotDescription {
+                grid-column: span 2;
+            }
+        }
+    }
+
+    .mapArea {
+        width: 40%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0px 20px;
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    .superiorArea {
+        .nameArea {
+            h1 {
+                font-size: 22px;
+            }
+            span {
+                font-size: 14px;
+            }
+        }
+
+        .areaButtons {
+            .bookButton {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .imagesContainer {
+        .listImages {
+            width: 180px;
+
+            img {
+                border-radius: 8px;
+            }
+        }
+    }
+
+    .informationContainer {
+        flex-direction: column;
+
+        .informationArea {
+            width: 100%;
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+
+        .mapArea {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .superiorArea {
+        gap: 10px;
+        flex-direction: column;
+    }
+    .imagesContainer {
+        flex-direction: column-reverse;
+
+        .listImages {
+            max-width: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            overflow: visible;
+        }
+    }
+}

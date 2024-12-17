@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-color: #FFF9ED;
+    overflow-x: hidden;
+    font-family: 'Urbanist'!important;
+}
+
+main.white {
+    background-color: #fff;
+}
+
+@font-face {
+    font-family: 'Neulis';
+    src: url('/fonts/Neulis.otf') format('opentype');
+    /* font-weight: 900; */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Urbanist';
+    src: url('/fonts/Urbanist.ttf') format('opentype');
+    /* font-weight: 900; */
+    font-style: normal;
+  }
+

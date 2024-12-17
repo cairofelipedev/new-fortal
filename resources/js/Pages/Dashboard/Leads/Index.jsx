@@ -1,0 +1,22 @@
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import { Head } from '@inertiajs/react';
+import LeadsList from './List';
+
+export default function Dashboard({ auth }) {
+    return (
+        <AuthenticatedLayout
+            user={auth.user}
+            header={<h2 className="font-semibold text-[24px] text-[#0C9C95] leading-tight">Leads</h2>}
+        >
+            <Head title="Leads" />
+
+            <div className="py-12">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10">
+                        <LeadsList />
+                    </div>
+                </div>
+            </div>
+        </AuthenticatedLayout>
+    );
+}

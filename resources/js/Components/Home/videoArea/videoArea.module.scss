@@ -1,0 +1,105 @@
+.container {
+    display: flex;
+    gap: 80px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.lineDeco {
+    position: absolute;
+    left: 0px;
+}
+
+// Info Area
+.infoArea {
+    width: 45%;
+    font-weight: 500;
+    
+    span {
+        font-size: 14px;
+        color: #373737;
+    }
+    .title {
+        font-size: 36px;
+        line-height: 120%;
+
+        b {
+            font-weight: 500;
+            color: #0C9C95;
+        }
+    }
+    .description {
+        margin-top: 20px;
+        max-width: 390px;
+        color: #948A77;
+    }
+
+    .differencils {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 30px;
+
+        li {
+            display: flex;
+            gap: 20px;
+            font-weight: 600;
+
+            svg {
+                min-width: 20px;
+                height: 20px;
+                width: auto;
+                fill: #f57c29;
+            }
+        }
+    }
+}
+
+// Video area
+.videoArea {
+    width: 55%;
+
+    img {
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0px 20px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .infoArea {
+        width: 100%;
+    }
+
+    .videoArea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .infoArea {
+        .title {
+            font-size: 28px;
+        }
+    }
+}

@@ -1,0 +1,150 @@
+.container {
+    display: flex;
+    position: relative;
+    max-width: 1200px;
+    gap: 60px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    padding-top: 140px;
+}
+
+// TOp Icon Area
+.topIconArea {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 45px);
+    padding-top: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #fff9ed;
+
+    svg {
+        height: 24px;
+        width: auto;
+    }
+}
+
+// Image Area
+.imageArea {
+    width: 350px;
+    height: auto;
+}
+
+// Info Area
+.infoArea {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    width: 390px;
+
+    h1 {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 120%;
+    }
+    
+    b {
+        font-weight: 500;
+        color: #0C9C95;
+    }
+
+    p {
+        font-size: 15px;
+        font-weight: 500;
+        color: #948A77;
+        line-height: 140%;
+    }
+
+    .viewVideo {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        gap: 18px;
+        
+        .iconArea {
+            position: relative;
+        }
+        .iconArea::after {
+            content: '';
+            position: absolute;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px dashed #F57C29;
+        }
+        p {
+            position: relative;
+            color: #000;
+        }
+        p::after {
+            content: '';
+            position: absolute;
+            left: 0px;
+            bottom: -4px;
+            width: 60%;
+            height: 2px;
+            background-color: #F57C29;
+        }
+    }
+}
+
+// Floating Images
+.floatingImages {
+    position: absolute;
+    right: 0px;
+    top: 100px;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0px 20px;
+        padding-top: 140px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .floatingImages {
+        height: 250px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .floatingImages {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 390px;
+        gap: 20px;
+        padding-top: 80px;
+    }
+    
+    .imageArea {
+        width: 100%;
+    }
+    
+    .infoArea {
+        width: 100%;
+    }
+
+    .infoArea {
+        gap: 20px;
+
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+}

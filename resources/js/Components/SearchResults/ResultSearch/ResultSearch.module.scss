@@ -1,0 +1,117 @@
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-top: 40px;
+}
+
+.titleArea {
+    display: flex;
+    justify-content: space-between;
+
+    .textArea {
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+
+            b {
+                color: #0C9C95;
+            }
+        }
+        span {
+            color: #484848;
+        }
+    }
+
+    .numberResults {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:50px ;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px dashed #F57C29;
+    }
+}
+
+
+.AreaResults {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 60px;
+
+    .card {
+        display: flex;
+        padding: 20px;
+        gap: 60px;
+        background-color: #FCF4E6;
+        border-radius: 20px;
+
+        .areaImage {
+            min-width: 300px;
+            height: 210px;
+            position: relative;
+            .iconArea {
+                background-color: #fff;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+        }
+
+        .infoArea {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+
+            .nameArea {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1 {
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+
+                a {
+                    border: 1px dashed #F57C29;
+                    color: #F57C29;
+                    padding: 10px 16px;
+                    font-size: 14px;
+                    border-radius: 40px;
+                }
+            }
+
+            .generalInfoArea {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                row-gap: 20px;
+
+                .listItem {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    h2 {
+                        font-weight: 600;
+                        color: #3C3C3C;
+                    }
+                    p {
+                        color: #777777;
+                    }
+                }
+            }
+        }
+    }
+}

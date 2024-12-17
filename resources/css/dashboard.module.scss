@@ -1,0 +1,55 @@
+.gridInfos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;    
+    gap: 20px;
+    padding: 40px 40px;
+}
+
+.areaTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 0px 20px;
+
+    .buttonArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ED5C1C;
+
+        svg {
+            fill: #fff;
+            height: 12px;
+        }
+    }
+}
+
+.areaInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+    padding: 20px;
+    gap: 20px;
+
+    .infoLabel {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            font-size: 14px;
+        }
+
+        b {
+            font-size: 18px;
+            font-weight: 800;
+        }
+    }
+
+}
+
+.button {
+    font-weight: 600;
+    border-radius: 0px 0px 20px 20px;
+}

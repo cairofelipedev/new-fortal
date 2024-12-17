@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    max-width: 1200px;
+    gap: 80px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    padding-top: 60px;
+}
+
+.lineDeco {
+    position: absolute;
+    left: 0px;
+}
+
+// Image Area
+.imageArea {
+    position: relative;
+    width: 50%;
+    height: auto;
+
+    img {
+        border-radius: 40px;
+    }
+
+    .decorador {
+        position: absolute;
+        right: -90px;
+        bottom: -40px;
+        z-index: -1;
+    }
+}
+
+// Info Area
+.infoArea {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    width: 50%;
+
+    h1 {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 120%;
+    }
+    
+    b {
+        font-weight: 500;
+        color: #0C9C95;
+    }
+
+    p {
+        font-size: 15px;
+        font-weight: 500;
+        color: #948A77;
+        line-height: 140%;
+        max-width: 400px;
+    }
+}
