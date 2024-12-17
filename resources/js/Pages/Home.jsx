@@ -22,11 +22,9 @@ export default function Welcome() {
 
             <Highlights />
 
-            {/* <BannerDestak /> */}
+            <BannerDestak />
 
             <EnjoyFortaleza />
-
-            <VideoArea />
 
             <NextEvents 
                 month={'Eventos em fortaleza'}

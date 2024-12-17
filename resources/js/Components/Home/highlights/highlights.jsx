@@ -1,4 +1,5 @@
 import style from './highlights.module.scss'
+import { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import Swiper core and required modules
@@ -11,6 +12,21 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export default function Highlights() {
+
+    const prevRef = useRef(null)
+    const nextRef = useRef(null)
+    const swiperInstance = useRef(null);
+
+    useEffect(() => {
+        if (swiperInstance.current) {
+            // Atualize os botões de navegação após a montagem
+            swiperInstance.current.params.navigation.prevEl = prevRef.current;
+            swiperInstance.current.params.navigation.nextEl = nextRef.current;
+            swiperInstance.current.navigation.init();
+            swiperInstance.current.navigation.update();
+        }
+    }, [])
+
     return (
         <section className={style.container}>
             {/* Map bg */}
@@ -50,6 +66,10 @@ export default function Highlights() {
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={20}
                 slidesPerView={3.5}
+                navigation={{
+                    prevEl: prevRef.current,
+                    nextEl: nextRef.current,
+                }}
                 breakpoints={{
                     100: {
                         slidesPerView: 1.3, // 2 slides a partir de 640px
@@ -67,12 +87,10 @@ export default function Highlights() {
                         slidesPerView: 3.5, // 4 slides a partir de 1024px
                         spaceBetween: 20,
                     },
-
                 }}
-                // navigation
-
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => {
+                    swiperInstance.current = swiper; // Salva a instância do Swiper
+                }}
             >
                 <SwiperSlide>
                     <Card
@@ -111,6 +129,32 @@ export default function Highlights() {
                     />
                 </SwiperSlide>
             </Swiper>
+
+            <button ref={prevRef} className={style.prevtButton}>
+                <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_528_767)">
+                    <path d="M5.75684 0.75708L1.51484 5.00008L5.75684 9.24308" stroke="black" stroke-width="1.5"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_528_767">
+                    <rect width="7" height="10" fill="white" transform="matrix(-1 0 0 1 7 0)"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </button>
+
+            <button ref={nextRef} className={style.nextButton}>
+                <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_528_765)">
+                    <path d="M1.24316 0.75708L5.48516 5.00008L1.24316 9.24308" stroke="black" stroke-width="1.5"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_528_765">
+                    <rect width="7" height="10" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </button>
         </section>
     )
 }
