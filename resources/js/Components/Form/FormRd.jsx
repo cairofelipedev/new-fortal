@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import style from './FormRd.module.scss'
+import style from './FormRd.module.scss';
 
-const ContactForm = ({ optionalFields = [], isOpen, onClose }) => {
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
-
+const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -31,6 +28,9 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose }) => {
                 text: "Contato enviado com sucesso.",
             });
 
+            // Utilizando os parâmetros de consulta para redirecionamento
+            window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity_min=${query.capacity_min}&capacity_max=${query.capacity_max}`;
+
             // Limpa os campos após o envio
             setFormData({
                 name: "",
@@ -50,7 +50,7 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose }) => {
         }
     };
 
-    if (!isOpen) return null
+    if (!isOpen) return null;
 
     const fieldLabels = {
         mobile_phone: "WhatsApp Business",
@@ -58,11 +58,14 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose }) => {
         birthdate: "Data de Nascimento",
         // Adicione mais campos personalizados aqui, conforme necessário
     };
+
     return (
         <section className={style.containerContent}>
             <div className={style.areaModal}>
                 <button className={style.closeButton} onClick={onClose}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                    </svg>
                 </button>
 
                 <h1 className={style.title}>Quero <b>Reservar!</b></h1>
@@ -80,6 +83,7 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose }) => {
                         />
                         {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
                     </div>
+
                     <div className={style.areaInput}>
                         <label htmlFor="email">E-mail</label>
                         <input
@@ -93,7 +97,6 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose }) => {
                         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
                     </div>
 
-
                     {optionalFields.map((field) => (
                         <div className={style.areaInput} key={field}>
                             <label htmlFor={field}>
@@ -105,11 +108,11 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose }) => {
                                 name={field}
                                 value={formData[field]}
                                 onChange={handleChange}
-                                // placeholder={`Digite ${field.replace(/_/g, " ")}`}
                             />
                             {errors[field] && <p style={{ color: "red" }}>{errors[field]}</p>}
                         </div>
                     ))}
+                    
                     <button className={style.buttonSubmit} type="submit">Enviar</button>
                 </form>
             </div>
