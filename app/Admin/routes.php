@@ -18,4 +18,5 @@ Route::group([
     $router->resource('eventos', 'EventSpaceController');
     $router->resource('calendario-eventos', 'EventCalendarController');
     $router->resource('tipo-eventos', 'EventTypeController');
+    $router->resource('leads', 'ContactController');
 });
