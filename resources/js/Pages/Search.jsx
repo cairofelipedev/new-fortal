@@ -8,7 +8,7 @@ import Testemonial from '@/Components/Search/testemonial/testemonial';
 import Footer from '@/Components/Footer';
 import EnjoyFortaleza from '@/Components/Search/enjoyFortaleza/enjoyFortaleza';
 import VideoArea from '@/Components/Search/videoArea/videoArea';
-import Baixar from '@/Components/Search/baixar/Baixar';
+import Baixar from '@/Components/Search/baixar/baixar';
 
 export default function Welcome() {
     return (
