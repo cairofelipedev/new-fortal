@@ -42,6 +42,7 @@ class EventSpace extends Model
         'total_event_area',
         'largest_room_area',
         'largest_room_ceiling_height',
+        'pavilion_ceiling_height_value', // Novo campo
         'pavilion_ceiling_height',
         'smallest_event_room_area',
         'total_rentable_event_rooms',
@@ -58,6 +59,9 @@ class EventSpace extends Model
         'floor_plan',
         'status',
         'publish',
+        'neighborhood', // Novo campo
+        'respondent_full_name', // Novo campo
+        'respondent_whatsapp', // Novo campo
     ];
 
     // Relacionamento com Company

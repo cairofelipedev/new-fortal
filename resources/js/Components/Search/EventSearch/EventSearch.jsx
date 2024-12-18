@@ -98,14 +98,7 @@ const EventSearch = () => {
                             placeholder="Localização"
                         />
 
-                        {/* Capacidade Mínima */}
-                        <input
-                            type="number"
-                            id="capacity_min"
-                            value={capacityMin}
-                            onChange={(e) => setCapacityMin(e.target.value)}
-                            placeholder="Capacidade Mínima"
-                        />
+
 
                         {/* Capacidade Máxima */}
                         <input

@@ -220,8 +220,8 @@ class EventSpaceController extends Controller
     public function importFromStoredFile()
     {
         // Define o caminho do arquivo armazenado
-        $filePath = public_path('fortal.xlsx');
-
+        $filePath = public_path('fortal_consolidado.xlsx');
+        
         // Verifica se o arquivo existe
         if (!file_exists($filePath)) {
             return response()->json(['error' => 'Arquivo não encontrado!'], 404);
