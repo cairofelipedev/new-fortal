@@ -8,6 +8,7 @@ import Testemonial from '@/Components/Search/testemonial/testemonial';
 import Footer from '@/Components/Footer';
 import EnjoyFortaleza from '@/Components/Search/enjoyFortaleza/enjoyFortaleza';
 import VideoArea from '@/Components/Search/videoArea/videoArea';
+import Baixar from '@/Components/Search/baixar/Baixar';
 
 export default function Welcome() {
     return (
@@ -25,6 +26,8 @@ export default function Welcome() {
             <BannerDestak />
 
             <Testemonial /> 
+
+            <Baixar />
 
             <Footer />
             {/* <FormRd /> */}

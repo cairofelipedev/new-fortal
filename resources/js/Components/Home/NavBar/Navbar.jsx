@@ -60,7 +60,7 @@ export default function NavBar({ scrollEffect = false }) {
 
                     {/* Call To Action */}
                     <div className="flex items-center space-x-[8px]">
-                        {/* <Link href="/login" className="lg:flex flex font-criteria hidden lg:block text-[13px] text-white h-max box-border py-[10px] px-[20px] rounded-full bg-[#ea580c]  hover:bg-[#f86e23] hover:text-white duration-[.3s]">
+                        <Link href="/login" className="lg:flex flex font-criteria hidden lg:block text-[13px] text-white h-max box-border py-[10px] px-[20px] rounded-full bg-[#ea580c]  hover:bg-[#f86e23] hover:text-white duration-[.3s]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                                 <g clip-path="url(#clip0_207_678)">
                                     <path d="M8.50002 7.79167C10.0648 7.79167 11.3334 6.52314 11.3334 4.95833C11.3334 3.39353 10.0648 2.125 8.50002 2.125C6.93521 2.125 5.66669 3.39353 5.66669 4.95833C5.66669 6.52314 6.93521 7.79167 8.50002 7.79167Z" stroke="white" stroke-width="1.0303" stroke-linecap="round" stroke-linejoin="round" />
@@ -73,7 +73,7 @@ export default function NavBar({ scrollEffect = false }) {
                                 </defs>
                             </svg>
                             Associados
-                        </Link> */}
+                        </Link>
                         <Link href="https://visiteceara.com">
                             <div className="flex space-x-2">
                                 <div className={`${style.buttonVisite} text-white items-center lg:flex flex font-criteria hidden lg:block text-[13px] h-max box-border  bg-[#0C9C95] rounded-full border border-transparent hover:bg-orange-600 hover:border-orange-800 hover:text-white duration-[.3s]`}>
