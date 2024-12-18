@@ -18,6 +18,7 @@
 
         a,
         .linkNav {
+            position: relative;
             display: flex;
             gap: 8px;
             font-size: 14px;
@@ -75,6 +76,7 @@
 
 .linkNavDropDown {
     position: relative;
+    z-index: 99;
 
     .link {
         cursor: pointer;
@@ -82,6 +84,7 @@
 
     .capulseDrop {
         position: absolute;
+        z-index: 999;
         top: 100%;
         left: calc(1000vh);
     }
