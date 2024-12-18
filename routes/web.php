@@ -41,6 +41,9 @@ Route::get('/planejador-de-eventos', function () {
 Route::get('/resultado-busca', function () {
     return Inertia::render('SearchResults/Index');
 });
+Route::get('/imprensa', function () {
+    return Inertia::render('Imprensa');
+});
 
 // Route::get('/event-spaces', [EventSpaceController::class, 'search'])->name('event-spaces');
 
