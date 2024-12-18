@@ -29,7 +29,7 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
             });
 
             // Utilizando os parâmetros de consulta para redirecionamento
-            window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity_min=${query.capacity_min}&capacity_max=${query.capacity_max}`;
+            window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity_max=${query.capacity_max}`;
 
             // Limpa os campos após o envio
             setFormData({

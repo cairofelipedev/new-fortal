@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { router } from "@inertiajs/react"; // Usando Inertia.js para navegação
 import style from "./EventSearch.module.scss";
 import ContactForm from "@/Components/Form/FormRd";
 
 const EventSearch = () => {
     const [type, setType] = useState("");
-    const [capacityMin, setCapacityMin] = useState("");
     const [capacityMax, setCapacityMax] = useState("");
     const [eventTypes, setEventTypes] = useState([]); // Novo estado para os tipos de eventos
     const optionalFields = ["mobile_phone", "website"];
@@ -46,7 +44,7 @@ const EventSearch = () => {
                     onClose={handleCloseModal}
                     optionalFields={optionalFields}
                     onSubmit={handleContactFormSubmit}
-                    query={{ type, capacity_min: capacityMin, capacity_max: capacityMax }}  // Passando o estado da consulta
+                    query={{ type, capacity_max: capacityMax }}  // Passando o estado da consulta
                 />
             )}
             <svg className={style.divisorLine} width="1201" height="3" viewBox="0 0 1201 3" fill="none" xmlns="http://www.w3.org/2000/svg">

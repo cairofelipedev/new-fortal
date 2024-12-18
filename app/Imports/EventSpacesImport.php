@@ -31,7 +31,8 @@ class EventSpacesImport implements ToCollection, WithHeadingRow
                 'address' => $row['address'],
                 'respondent_full_name' => $row['respondent_full_name'], // Adicionando o campo respondent_full_name
                 'respondent_whatsapp' => $row['respondent_whatsapp'], // Adicionando o campo respondent_whatsapp
-                'type' => $eventType ? $eventType->id : null, // Aqui armazena o id do tipo de evento
+                // 'type' => $eventType ? $eventType->id : null, // Aqui armazena o id do tipo de evento
+                'type' => $row['type'],
                 'description' => $row['description'],
                 'linkedin' => isset($row['linkedin']) ? $row['linkedin'] : null, // Agora, você usa a variável $linkedin
                 'instagram' => isset($row['instagram']) ? $row['instagram'] : null,
