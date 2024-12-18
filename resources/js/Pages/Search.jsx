@@ -20,7 +20,6 @@ export default function Welcome() {
 
             <EventSearch />
 
-
             <EnjoyFortaleza />
 
             <BannerDestak />

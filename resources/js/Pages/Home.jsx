@@ -7,6 +7,7 @@ import InitialExplain from '@/Components/Home/initialExplain/initialExplain';
 import NavBar from '@/Components/Home/NavBar/Navbar';
 import NextEvents from '@/Components/CalendarEvents/nextEvents/nextEvents';
 import { Head } from '@inertiajs/react';
+import HowToGet from '@/Components/About/howToGet/howToGet';
 
 export default function Welcome() {
     return (
@@ -24,6 +25,8 @@ export default function Welcome() {
             <BannerDestak />
 
             <EnjoyFortaleza />
+
+            <HowToGet />
 
             <NextEvents 
                 month={'Eventos em fortaleza'}

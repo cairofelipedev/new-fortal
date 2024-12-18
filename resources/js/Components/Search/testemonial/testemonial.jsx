@@ -83,11 +83,11 @@ export default function Testemonial() {
                             <div className={style.superiorArea}>
                                 {/* <img src="./images/testemonial/1.png" alt="" /> */}
                                 <div className={style.textArea}>
-                                    <h1>Julia</h1>
-                                    {/* <span>Maria Rita</span> */}
+                                    <h1>Clarisse Linhares </h1>
+                                    <span>Presidente do Fortaleza Convention </span>
                                 </div> 
                             </div>
-                            <p>A experiência foi maravilhosa do começo ao final da nossa hospedagem. Que hotel maravilhoso em todos os aspectos, limpo, organizado,funcionários educados</p>
+                            <p>Estamos muito felizes com esse programa muito especial, o Fortaleza Meeting. O Portal traz para o mercado de promotor de eventos ferramentas de marketing, CRM, e todas as informações que se precisa para trazer um evento e/ou Congresso para Fortaleza</p>
                         </article>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -96,10 +96,10 @@ export default function Testemonial() {
                                 {/* <img src="./images/testemonial/2.png" alt="" /> */}
                                 <div className={style.textArea}>
                                     <h1>Felipe</h1>
-                                    {/* <span>Maria Rita</span> */}
+                                    <span>AXR EVENTOS</span>
                                 </div>
                             </div>
-                            <p>Os quartos são amplos, limpos e muito confortáveis, com uma decoração moderna que faz você se sentir em casa. A cama era extremamente confortável, e a vista do meu quarto era incrível. </p>
+                            <p>Um evento corporativo necessita mais da experiência. Precisa de um ambiente mais receptivo, mais acolhedor, que possa receber as pessoas de forma mais leve e lúdica. O que eu acho fantástico de Fortaleza? Além de ser uma cidade extremamente atrativa do ponto de vista turístico, ou seja, esse participante do evento corporativo quando vem para a nossa cidade, ele pode trazer a família, ele pode ter momentos de lazer, além de oferecer para o público participante oportunidades de relacionamento, networking e entretenimento</p>
                         </article>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -107,11 +107,23 @@ export default function Testemonial() {
                             <div className={style.superiorArea}>
                                 {/* <img src="./images/testemonial/3.png" alt="" /> */}
                                 <div className={style.textArea}>
-                                    <h1>Sonia</h1>
-                                    {/* <span>Maria Rita</span> */}
+                                    <h1>Leonard Araripe</h1>
+                                    <span>E + e Presidente da ABEOC CE </span>
                                 </div>
                             </div>
-                            <p>Lugar bonito, limpo, bem cuidado, equipe disponível e simpática. Perfeito para quem busca conforto e qualidade! Ambiente acolhedor, ideal para momentos inesquecíveis em família ou com amigos.</p>
+                            <p>Fortaleza, além de toda a infraestrutura que oferece, existe também a possibilidade de termos a programação pré e pós o evento. Você participa do seu evento, congresso ou reunião e usufrui de uma orla maravilhosa, com hotelaria, casas de shows, shows de humor. Fortaleza é o lugar que você trabalha e também se diverte</p>
+                        </article>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <article className={style.testemonialArea}>
+                            <div className={style.superiorArea}>
+                                {/* <img src="./images/testemonial/3.png" alt="" /> */}
+                                <div className={style.textArea}>
+                                    <h1>Stella Pavan</h1>
+                                    <span>Presidente do SindeEventos e organizadora da  FENASCE</span>
+                                </div>
+                            </div>
+                            <p>Na FENASCE trabalhamos com varia instituições que trabalho com a reciclagem de materiais e promovemos um evento que se preocupa com a sustentabilidade e o meio ambiente. Hoje, a as questões de ESG devem ser primordial nos eventos, o que vai agregar mais valor</p>
                         </article>
                     </SwiperSlide>
                 </Swiper>
