@@ -59,7 +59,7 @@ const EventSearch = () => {
 
                     <div className={style.filterArea}>
                         <button className={style.filterActive}>Descobrir</button>
-                        <button>Estabelecimentos</button>
+                        <button>Todos os espaços</button>
                     </div>
 
                     <form className={style.form} onSubmit={handleSubmit}>

@@ -35,7 +35,38 @@
         margin-top: 20px;
         max-width: 390px;
         color: #948A77;
+        margin-bottom: 30px;
     }
+
+    .download {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        position: relative;
+        background-color: #0C9C95;
+        color: #fff;
+        z-index: 99;
+        padding: 8px 8px 8px 16px;
+        border-radius: 40px;
+        margin-top: 20px;
+
+        .iconArea {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            background-color: #fff;
+            border-radius: 50%;
+
+            svg {
+                height: 13px;
+                fill: #f57c29;
+            }
+        }
+    }
+    
 
     .differencils {
         display: grid;

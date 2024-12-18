@@ -19,15 +19,15 @@ export default function Welcome() {
             <VideoArea />
 
             <EventSearch />
-{/* 
-            <BannerDestak /> */}
 
-            <Testemonial /> 
 
             <EnjoyFortaleza />
 
-            <Footer />
+            <BannerDestak />
 
+            <Testemonial /> 
+
+            <Footer />
             {/* <FormRd /> */}
         </>
     );

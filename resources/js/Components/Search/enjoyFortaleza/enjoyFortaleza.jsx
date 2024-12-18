@@ -57,6 +57,12 @@ export default function EnjoyFortaleza(){
                     name={'Operadores de turismo receptivo'}
                     description={'Para transporte e passeios complementares, temos especialistas de destinos para tornar a  logística perfeita!'}
                 />
+                <Card 
+                    img={'./images/enjoy/4.png'}
+                    alt={'Serviços de apoio a eventos'}
+                    name={'Serviços de apoio a eventos'}
+                    // description={'Para transporte e passeios complementares, temos especialistas de destinos para tornar a  logística perfeita!'}
+                />
             </div>
         </section>
     )

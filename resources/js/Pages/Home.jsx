@@ -6,7 +6,6 @@ import Highlights from '@/Components/Home/highlights/highlights';
 import InitialExplain from '@/Components/Home/initialExplain/initialExplain';
 import NavBar from '@/Components/Home/NavBar/Navbar';
 import NextEvents from '@/Components/CalendarEvents/nextEvents/nextEvents';
-import VideoArea from '@/Components/Home/videoArea/videoArea';
 import { Head } from '@inertiajs/react';
 
 export default function Welcome() {

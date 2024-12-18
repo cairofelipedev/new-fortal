@@ -34,53 +34,29 @@ export default function EnjoyFortaleza(){
             {/* Area Cards */}
             <div className={style.areaCards}>
                 <Card 
-                    img={'./images/differencials/4.jpg'}
-                    alt={'Diversão'}
-                    name={'Espaços para eventos'}
-                    description={'Escolha entre centro de convenções, salões em hotéis ou lugares singulares incríveis como cenários!'}
-                />
-                <Card 
-                    img={'./images/differencials/1.jpg'}
-                    alt={'Acomodaçoes'}
-                    name={'Acomodaçoes'}
-                    description={'De pousadas a hotéis temáticos ou luxuosos temos as melhores opções para seu evento.'}
-                />
-                <Card 
-                    img={'./images/differencials/2.jpg'}
-                    alt={'Organizadores locais'}
-                    name={'Organizadores locais'}
-                    description={'encontre parceiros  com grande experiência na gestão e realização de eventos para auxiliar o seu planejamento ou  execução e criar experiências memoráveis.'}
-                />
-                <Card 
-                    img={'./images/enjoy/4.png'}
-                    alt={'Operadores de turismo receptivo'}
-                    name={'Operadores de turismo receptivo'}
-                    description={'Para transporte e passeios complementares, temos especialistas de destinos para tornar a  logística perfeita!'}
-                />
-                {/* <Card 
                     img={'./images/enjoy/1.png'}
                     alt={'Diversão'}
                     name={'Diversão'}
-                    description={'Bem vindo a Fortaleza, onde o trabalho e o bem estar se encontram'}
+                    // description={'Escolha entre centro de convenções, salões em hotéis ou lugares singulares incríveis como cenários!'}
                 />
                 <Card 
                     img={'./images/enjoy/2.png'}
                     alt={'Alimentação'}
                     name={'Alimentação'}
-                    description={'Bem vindo a Fortaleza, onde o trabalho e o bem estar se encontram'}
+                    // description={'De pousadas a hotéis temáticos ou luxuosos temos as melhores opções para seu evento.'}
                 />
                 <Card 
                     img={'./images/enjoy/3.png'}
                     alt={'Lugares para trabalhar'}
                     name={'Lugares para trabalhar'}
-                    description={'Bem vindo a Fortaleza, onde o trabalho e o bem estar se encontram'}
+                    // description={'encontre parceiros  com grande experiência na gestão e realização de eventos para auxiliar o seu planejamento ou  execução e criar experiências memoráveis.'}
                 />
                 <Card 
                     img={'./images/enjoy/4.png'}
-                    alt={'Conheça nossa Fotaleza'}
-                    name={'Conheça nossa Fotaleza'}
-                    description={'Bem vindo a Fortaleza, onde o trabalho e o bem estar se encontram'}
-                /> */}
+                    alt={'Conheça nosso Ceará'}
+                    name={'Conheça nosso Ceará'}
+                    // description={'Para transporte e passeios complementares, temos especialistas de destinos para tornar a  logística perfeita!'}
+                />
             </div>
         </section>
     )
