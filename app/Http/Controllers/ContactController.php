@@ -18,6 +18,13 @@ class ContactController extends Controller
 
     public function createContact(Request $request)
     {
+
+        if ($request->filled('website')) {
+            $request->merge([
+                'website' => $this->addHttpsIfMissing($request->input('website'))
+            ]);
+        }
+
         $validated = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
@@ -56,6 +63,20 @@ class ContactController extends Controller
 
         // Retorna sucesso se salvou no banco
         return response()->json(['message' => 'Contato criado com sucesso!'], 200);
+    }
+
+    /**
+     * Adiciona "https://" ao valor se estiver ausente
+     *
+     * @param string $url
+     * @return string
+     */
+    private function addHttpsIfMissing(string $url): string
+    {
+        if (!preg_match('#^https?://#', $url)) {
+            return 'https://' . ltrim($url, '/');
+        }
+        return $url;
     }
 
     public function index()
