@@ -40,12 +40,8 @@ class EventSpaceController extends Controller
         }
 
         // Filtro para capacidade
-        if ($request->filled('capacity_min') && $request->filled('capacity_max')) {
-            $query->whereBetween('capacity', [$request->capacity_min, $request->capacity_max]);
-        } elseif ($request->filled('capacity_min')) {
-            $query->where('capacity', '>=', $request->capacity_min);
-        } elseif ($request->filled('capacity_max')) {
-            $query->where('capacity', '<=', $request->capacity_max);
+        if ($request->filled('capacity')) {
+            $query->where('capacity', '>=', $request->capacity);
         }
 
         if ($request->filled('phone')) {
@@ -56,19 +52,11 @@ class EventSpaceController extends Controller
             $query->where('type', 'like', "%{$request->type}%");
         }
 
-        // Debug: Inspecione a consulta
-        // $sqlQuery = $query->toSql();
-        // $bindings = $query->getBindings();
-
-        // Log::info('Consulta SQL:', ['query' => $sqlQuery, 'bindings' => $bindings]);
-
         // Execute a consulta
         $eventSpaces = $query->get();
 
         // Retorne os resultados
         return response()->json([
-            // 'sql' => $sqlQuery,
-            // 'bindings' => $bindings,
             'results' => $eventSpaces,
         ]);
     }
@@ -99,12 +87,8 @@ class EventSpaceController extends Controller
         }
 
         // Filtro para capacidade
-        if ($request->filled('capacity_min') && $request->filled('capacity_max')) {
-            $query->whereBetween('capacity', [$request->capacity_min, $request->capacity_max]);
-        } elseif ($request->filled('capacity_min')) {
-            $query->where('capacity', '>=', $request->capacity_min);
-        } elseif ($request->filled('capacity_max')) {
-            $query->where('capacity', '<=', $request->capacity_max);
+        if ($request->filled('capacity')) {
+            $query->where('capacity', '>=', $request->capacity);
         }
 
         if ($request->filled('phone')) {
@@ -221,7 +205,7 @@ class EventSpaceController extends Controller
     {
         // Define o caminho do arquivo armazenado
         $filePath = public_path('fortal_consolidado.xlsx');
-        
+
         // Verifica se o arquivo existe
         if (!file_exists($filePath)) {
             return response()->json(['error' => 'Arquivo não encontrado!'], 404);

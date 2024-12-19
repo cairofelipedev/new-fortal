@@ -4,7 +4,7 @@ import ContactForm from "@/Components/Form/FormRd";
 
 const EventSearch = () => {
     const [type, setType] = useState("");
-    const [capacityMax, setCapacityMax] = useState("");
+    const [capacity, setCapacity] = useState("");
     const [eventTypes, setEventTypes] = useState([]); // Novo estado para os tipos de eventos
     const optionalFields = ["mobile_phone", "website"];
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,7 +28,7 @@ const EventSearch = () => {
         setIsModalOpen(false);
 
         // Redireciona para a página de resultados após o envio do formulário
-        window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity_min=${query.capacity_min}&capacity_max=${query.capacity_max}`;
+        window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}`;
     };
 
     const handleCloseModal = () => {
@@ -44,7 +44,7 @@ const EventSearch = () => {
                     onClose={handleCloseModal}
                     optionalFields={optionalFields}
                     onSubmit={handleContactFormSubmit}
-                    query={{ type, capacity_max: capacityMax }}  // Passando o estado da consulta
+                    query={{ type, capacity: capacity }}  // Passando o estado da consulta
                 />
             )}
             <svg className={style.divisorLine} width="1201" height="3" viewBox="0 0 1201 3" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,9 +101,9 @@ const EventSearch = () => {
                         {/* Capacidade Máxima */}
                         <input
                             type="number"
-                            id="capacity_max"
-                            value={capacityMax}
-                            onChange={(e) => setCapacityMax(e.target.value)}
+                            id="capacity"
+                            value={capacity}
+                            onChange={(e) => setCapacity(e.target.value)}
                             placeholder="Capacidade Máxima"
                         />
 

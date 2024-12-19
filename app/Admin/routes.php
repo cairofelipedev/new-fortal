@@ -19,4 +19,5 @@ Route::group([
     $router->resource('calendario-eventos', 'EventCalendarController');
     $router->resource('tipo-eventos', 'EventTypeController');
     $router->resource('leads', 'ContactController');
+    $router->resource('blog', 'PostController');
 });

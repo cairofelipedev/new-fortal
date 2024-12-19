@@ -3,16 +3,15 @@ import { router } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function SearchSpace({searchPage}) {
+export default function SearchSpace({ searchPage }) {
 
     let onSearchpage = ''
-    if(searchPage) {
+    if (searchPage) {
         onSearchpage = `${style.onSearchPage}`
     }
 
     const [type, setType] = useState("");
-    const [capacityMin, setCapacityMin] = useState("");
-    const [capacityMax, setCapacityMax] = useState("");
+    const [capacity, setCapacity] = useState("");
     const [eventTypes, setEventTypes] = useState([]);
 
     useEffect(() => {
@@ -35,12 +34,11 @@ export default function SearchSpace({searchPage}) {
         // Monta os parâmetros de busca
         const query = {
             type,
-            capacity_min: capacityMin,
-            capacity_max: capacityMax,
+            capacity: capacity,
         };
 
         // Redireciona para a página de resultados com os parâmetros
-        router.get("/event-spaces/search", query);
+        window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}`;
     };
 
     return (
@@ -54,8 +52,8 @@ export default function SearchSpace({searchPage}) {
                 {/* Tipo de Espaço */}
                 <select
                     id="type"
-                    // value={type}
-                    // onChange={(e) => setType(e.target.value)}
+                // value={type}
+                // onChange={(e) => setType(e.target.value)}
                 >
                     <option value="">Tipo de Espaço</option>
                     {eventTypes.map((eventType) => (
@@ -65,21 +63,12 @@ export default function SearchSpace({searchPage}) {
                     ))}
                 </select>
 
-                {/* Capacidade Mínima */}
-                <input
-                    type="number"
-                    id="capacity_min"
-                    value={capacityMin}
-                    onChange={(e) => setCapacityMin(e.target.value)}
-                    placeholder="Capacidade Mínima"
-                />
-
                 {/* Capacidade Máxima */}
                 <input
                     type="number"
-                    id="capacity_max"
-                    value={capacityMax}
-                    onChange={(e) => setCapacityMax(e.target.value)}
+                    id="capacity"
+                    value={capacity}
+                    onChange={(e) => setCapacity(e.target.value)}
                     placeholder="Capacidade Máxima"
                 />
 
