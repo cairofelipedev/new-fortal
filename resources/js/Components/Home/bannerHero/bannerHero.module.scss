@@ -90,3 +90,9 @@
         width: fit-content;
     }
 }
+
+@media (max-width: 900px) {
+    .container {
+        gap: 40px;
+    }
+}

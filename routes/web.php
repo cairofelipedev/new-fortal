@@ -59,6 +59,10 @@ Route::get('/calendario-eventos', function () {
     return Inertia::render('CalendarEvents/index');
 });
 
+Route::get('/inspecao', function () {
+    return Inertia::render('inspecao');
+});
+
 Route::get('/porque-fortaleza', function () {
     return Inertia::render('About/Index');
 });
