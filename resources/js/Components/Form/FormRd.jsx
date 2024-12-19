@@ -29,7 +29,7 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
             });
 
             // Utilizando os parâmetros de consulta para redirecionamento
-            window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}`;
+            window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}&total_event_area=${query.total_event_area}&total_rentable_event_rooms=${query.total_rentable_event_rooms}`;
 
             // Limpa os campos após o envio
             setFormData({

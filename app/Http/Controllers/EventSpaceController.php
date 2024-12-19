@@ -44,6 +44,16 @@ class EventSpaceController extends Controller
             $query->where('capacity', '>=', $request->capacity);
         }
 
+        // Filtro para total_rentable_event_rooms
+        if ($request->filled('total_rentable_event_rooms')) {
+            $query->where('total_rentable_event_rooms', '>=', $request->total_rentable_event_rooms);
+        }
+
+        // Filtro para total_event_area
+        if ($request->filled('total_event_area')) {
+            $query->where('total_event_area', '>=', $request->total_event_area);
+        }
+
         if ($request->filled('phone')) {
             $query->where('phone', 'like', "%{$request->phone}%");
         }
@@ -89,6 +99,16 @@ class EventSpaceController extends Controller
         // Filtro para capacidade
         if ($request->filled('capacity')) {
             $query->where('capacity', '>=', $request->capacity);
+        }
+
+        // Filtro para total_rentable_event_rooms
+        if ($request->filled('total_rentable_event_rooms')) {
+            $query->where('total_rentable_event_rooms', '>=', $request->total_rentable_event_rooms);
+        }
+
+        // Filtro para total_event_area
+        if ($request->filled('total_event_area')) {
+            $query->where('total_event_area', '>=', $request->total_event_area);
         }
 
         if ($request->filled('phone')) {
