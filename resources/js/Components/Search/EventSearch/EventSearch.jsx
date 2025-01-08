@@ -8,7 +8,7 @@ const EventSearch = () => {
     const [total_event_area, setTotalArea] = useState(""); // Estado para Metragem Total
     const [total_rentable_event_rooms, setNumberOfRooms] = useState(""); // Estado para Número de Salas
     const [eventTypes, setEventTypes] = useState([]); // Novo estado para os tipos de eventos
-    const optionalFields = ["mobile_phone", "website"];
+    const optionalFields = ["mobile_phone", "bio"];
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
