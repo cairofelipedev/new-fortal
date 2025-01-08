@@ -9,7 +9,7 @@ export default function EventSpaceDetails() {
     const { slug } = props;
     const [eventSpace, setEventSpace] = useState(null);
     const [loading, setLoading] = useState(true);
-    const optionalFields = ["mobile_phone", "website"]; 
+    const optionalFields = ["mobile_phone", "bio"]; 
 
     useEffect(() => {
         const fetchEventSpace = async () => {

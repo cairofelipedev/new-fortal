@@ -54,8 +54,7 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
 
     const fieldLabels = {
         mobile_phone: "WhatsApp Business",
-        job_title: "Cargo",
-        birthdate: "Data de Nascimento",
+        bio: "Nome da Empresa",
         // Adicione mais campos personalizados aqui, conforme necessário
     };
 
@@ -72,7 +71,7 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
                 <p className={style.description}>Preencha o formulário abaixo, e a equipe responsável pelo local entrará em contato com você a respeito da sua solicitação!</p>
                 <form className={style.form} onSubmit={handleSubmit}>
                     <div className={style.areaInput}>
-                        <label htmlFor="name">Nome da empresa</label>
+                        <label htmlFor="name">Seu Nome</label>
                         <input
                             type="text"
                             id="name"
