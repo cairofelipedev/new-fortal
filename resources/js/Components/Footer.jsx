@@ -1,5 +1,5 @@
 import { FaRegSun } from "react-icons/fa6";
-import { MdPhone } from "react-icons/md";
+import { MdPhone, MdWork } from "react-icons/md";
 
 export default function Footer() {
     return (
@@ -55,7 +55,7 @@ export default function Footer() {
                             </div>
                             <div class="mt-10 md:mt-0">
                                 <h3 class="flex gap-[8px] fill-[#ff5b00]  text-sm font-semibold leading-6 text-[#83400e]">
-                                    <MdPhone className="text-xl" />
+                                    <MdWork className="text-xl" />
                                     Serviços
                                 </h3>
                                 <ul role="list" class="mt-6 space-y-4">
@@ -92,7 +92,7 @@ export default function Footer() {
                             </div>
                             <div class="mt-10 md:mt-0">
                                 <h3 class="flex gap-[8px] fill-[#ff5b00]  text-sm font-semibold leading-6 text-[#83400e]">
-                                    <MdPhone className="text-xl" />
+                                    <FaRegSun className="text-xl" />
                                     Visite Ceará
                                 </h3>
                                 <ul role="list" class="mt-6 space-y-4">
