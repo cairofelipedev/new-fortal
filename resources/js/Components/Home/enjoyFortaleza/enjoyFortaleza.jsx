@@ -18,7 +18,7 @@ export default function EnjoyFortaleza(){
                             </defs>
                         </svg>
                     </div>
-                    <div className={style.text}>
+                    <div className={style.text} id="aproveite-fortaleza">
                         <span>Lazer e Cultura</span>
                         <h2 className="font-neulis">Aproveite Fortaleza</h2>
                     </div>
