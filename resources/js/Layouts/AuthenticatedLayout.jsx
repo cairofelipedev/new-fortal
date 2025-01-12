@@ -45,7 +45,7 @@ export default function Authenticated({ user, header, children }) {
                             </NavLink>
                         </div>
                     </div>
-                    <div className="absolute right-0">
+                    <div className="absolute right-0 top-2">
                         <Dropdown>
                             <Dropdown.Trigger>
                                 <span className="inline-flex rounded-md w-full">

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use App\Imports\EventSpacesImport;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
@@ -115,8 +116,23 @@ class EventSpaceController extends Controller
             $query->where('phone', 'like', "%{$request->phone}%");
         }
 
+        // Ajuste do filtro para 'type' com base no nome
         if ($request->filled('type')) {
-            $query->where('type', 'like', "%{$request->type}%");
+            $typeName = $request->type;
+
+            // Subconsulta para buscar o ID do tipo
+            $typeId = DB::table('event_types')
+                ->where('name', $typeName)
+                ->value('id');
+
+            if ($typeId) {
+                $query->where('type', $typeId);
+            } else {
+                // Se o tipo não for encontrado, retorna um resultado vazio
+                return Inertia::render('Search/SearchResults', [
+                    'results' => [],
+                ]);
+            }
         }
 
         $results = $query->get();

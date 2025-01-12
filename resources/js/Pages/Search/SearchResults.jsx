@@ -1,4 +1,4 @@
-import { usePage } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import style from './ResultSearch.module.scss';
 import NavBar from "@/Components/Home/NavBar/Navbar";
 import Footer from "@/Components/Footer";
@@ -10,6 +10,7 @@ export default function ResultSearch() {
 
     return (
         <>
+        <Head title="Resultado da Busca"/>
             <NavBar />
             <SearchSpace 
                 searchPage={true}

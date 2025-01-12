@@ -103,10 +103,10 @@ class EventSpaceController extends AdminController
         $form->text('name', 'Nome')->rules('required|min:3|max:255');
         $form->text('slug', 'Slug')->rules('required|min:3|max:255');
         $form->text('city', 'Cidade')->rules('required');
-        $form->text('state', 'Estado')->rules('required');
+        $form->text('state', 'Estado');
         $form->text('zip_code', 'CEP');
         $form->text('address', 'Endereço')->rules('required|min:3|max:255');
-        $form->number('capacity', 'Capacidade')->rules('required|integer|min:1');
+        $form->number('capacity', 'Capacidade')->rules('integer|min:1');
         $form->text('phone', 'Telefone');
         $form->select('type', 'Tipo')->options(EventType::pluck('name', 'id'));
         $form->textarea('description', 'Descrição')->rows(10)->rules('nullable');
