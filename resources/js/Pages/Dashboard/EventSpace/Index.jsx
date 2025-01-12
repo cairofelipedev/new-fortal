@@ -1,6 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import LeadsList from './List';
+import SpaceList from './List';
 
 export default function Dashboard({ auth }) {
     return (
@@ -13,7 +13,7 @@ export default function Dashboard({ auth }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden  sm:rounded-lg p-10">
-                        <LeadsList />
+                        <SpaceList />
                     </div>
                 </div>
             </div>

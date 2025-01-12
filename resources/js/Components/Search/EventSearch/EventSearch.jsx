@@ -5,15 +5,14 @@ import ContactForm from "@/Components/Form/FormRd";
 const EventSearch = () => {
     const [type, setType] = useState("");
     const [capacity, setCapacity] = useState("");
-    const [total_event_area, setTotalArea] = useState(""); // Estado para Metragem Total
-    const [total_rentable_event_rooms, setNumberOfRooms] = useState(""); // Estado para Número de Salas
-    const [eventTypes, setEventTypes] = useState([]); // Novo estado para os tipos de eventos
+    const [total_event_area, setTotalArea] = useState("");
+    const [total_rentable_event_rooms, setNumberOfRooms] = useState("");
+    const [eventTypes, setEventTypes] = useState([]);
     const optionalFields = ["mobile_phone", "bio"];
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        // Busca os tipos de eventos ao carregar o componente
-        fetch("/api/event-types")  // Substitua pela rota correta do seu backend
+        fetch("/api/event-types") 
             .then((response) => response.json())
             .then((data) => setEventTypes(data))
             .catch((error) => console.error("Erro ao buscar tipos de eventos:", error));
@@ -21,15 +20,12 @@ const EventSearch = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Abre o modal de contato ao invés de ir diretamente para a página de resultados
         setIsModalOpen(true);
     };
 
     const handleContactFormSubmit = (query) => {
-        // Fecha o modal de contato
         setIsModalOpen(false);
 
-        // Redireciona para a página de resultados após o envio do formulário
         window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}&total_event_area=${query.total_event_area}&total_rentable_event_rooms=${query.total_rentable_event_rooms}`;
     };
 
@@ -39,7 +35,6 @@ const EventSearch = () => {
 
     return (
         <section className={style.container}>
-            {/* Renderiza o modal ContactForm se isModalOpen for true */}
             {isModalOpen && (
                 <ContactForm
                     isOpen={isModalOpen}
@@ -51,7 +46,7 @@ const EventSearch = () => {
                         capacity,
                         total_event_area,
                         total_rentable_event_rooms,
-                    }} // Passando o estado da consulta
+                    }}
                 />
             )}
             <svg className={style.divisorLine} width="1201" height="3" viewBox="0 0 1201 3" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +94,6 @@ const EventSearch = () => {
                             ))}
                         </select>
 
-                        {/* Metragem Total */}
                         <input
                             type="number"
                             id="total_event_area"
@@ -108,7 +102,6 @@ const EventSearch = () => {
                             placeholder="Metragem Total"
                         />
 
-                        {/* Capacidade Máxima */}
                         <input
                             type="number"
                             id="capacity"
@@ -117,7 +110,6 @@ const EventSearch = () => {
                             placeholder="Capacidade Máxima"
                         />
 
-                        {/* Número de Salas */}
                         <input
                             type="number"
                             id="numberOfRooms"
@@ -144,7 +136,6 @@ const EventSearch = () => {
                         </button>
                     </form>
                 </div>
-
                 <div className={style.rightArea}>
                     <img className={style.map} src="./images/map.png" alt="Mapa" />
                 </div>
