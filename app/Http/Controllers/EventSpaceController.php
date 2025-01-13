@@ -247,6 +247,8 @@ class EventSpaceController extends Controller
             return response()->json(['error' => 'Arquivo não encontrado!'], 404);
         }
 
+        //EventSpace::truncate(); // Limpa todos os registros da tabela event_spaces
+
         // Executa a importação
         Excel::import(new EventSpacesImport, $filePath);
 
