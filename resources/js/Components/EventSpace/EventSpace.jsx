@@ -18,7 +18,7 @@ export default function EventSpaceDetails() {
                 setEventSpace(response.data.data);
 
                 // Atualiza optionalFields com company_id se disponível
-                // const companyId = response.data.data.company_id;
+                const companyId = response.data.data.company_id;
                 // if (companyId) {
                 //     setOptionalFields([{ key: "id_company", value: companyId }]);
                 // }
@@ -157,7 +157,8 @@ export default function EventSpaceDetails() {
             <ContactForm 
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
-                optionalFields={optionalFields} 
+                optionalFields={optionalFields}
+                companyId={eventSpace.company_id} 
             />
         </>
     );

@@ -3,10 +3,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import style from './FormRd.module.scss';
 
-const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
+const ContactForm = ({ optionalFields = [], companyId, isOpen, onClose, query }) => {
+    // Adiciona company_id ao estado do formulário, mas preserva os campos em optionalFields
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        id_company: companyId || "", // Mantém o company_id no estado
         ...optionalFields.reduce((acc, field) => ({ ...acc, [field]: "" }), {}),
     });
 
@@ -29,12 +31,17 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
             });
 
             // Utilizando os parâmetros de consulta para redirecionamento
-            window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}&total_event_area=${query.total_event_area}&total_rentable_event_rooms=${query.total_rentable_event_rooms}`;
+            if (query && query.type && query.capacity && query.total_event_area && query.total_rentable_event_rooms) {
+                window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}&total_event_area=${query.total_event_area}&total_rentable_event_rooms=${query.total_rentable_event_rooms}`;
+            } else {
+                window.location.reload(); // Atualiza a página
+            }
 
             // Limpa os campos após o envio
             setFormData({
                 name: "",
                 email: "",
+                company_id: companyId || "", // Preserva o valor de company_id
                 ...optionalFields.reduce((acc, field) => ({ ...acc, [field]: "" }), {}),
             });
         } catch (error) {
@@ -96,6 +103,9 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
                         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
                     </div>
 
+                    {/* Campo oculto para company_id */}
+                    <input type="hidden" name="company_id" value={formData.company_id} />
+
                     {optionalFields.map((field) => (
                         <div className={style.areaInput} key={field}>
                             <label htmlFor={field}>
@@ -111,7 +121,7 @@ const ContactForm = ({ optionalFields = [], isOpen, onClose, query }) => {
                             {errors[field] && <p style={{ color: "red" }}>{errors[field]}</p>}
                         </div>
                     ))}
-                    
+
                     <button className={style.buttonSubmit} type="submit">Enviar</button>
                 </form>
             </div>
