@@ -26,6 +26,13 @@ export default function Authenticated({ user, header, children }) {
                     </div>
                     <div className="overflow-y-auto">
                         <div className="space-y-1 p-2">
+                            <NavLink href={route('dashboard/espacos-de-eventos')} active={route().current('dashboard/espacos-de-eventos')}>
+                                Espaços
+                            </NavLink>
+                        </div>
+                    </div>
+                    <div className="overflow-y-auto">
+                        <div className="space-y-1 p-2">
                             <NavLink href={route('dashboard/leads')} active={route().current('dashboard/leads')}>
                                 Leads
                             </NavLink>

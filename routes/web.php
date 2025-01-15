@@ -80,7 +80,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             function () {
                 return Inertia::render('Dashboard/EventSpace/Index');
             }
-        )->name('dashboard/espaco-de-eventos');
+        )->name('dashboard/espacos-de-eventos');
         Route::get(
             '/espacos-de-eventos/{id}',
             [EventSpaceController::class, 'showSpace']
