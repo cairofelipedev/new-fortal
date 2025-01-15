@@ -38,20 +38,6 @@ export default function Authenticated({ user, header, children }) {
                             </NavLink>
                         </div>
                     </div>
-                    <div className="overflow-y-auto">
-                        <div className="space-y-1 p-2">
-                            <NavLink className="" href="profile" active={route().current('profile')}>
-                                Perfil
-                            </NavLink>
-                        </div>
-                    </div>
-                    <div className="overflow-y-auto">
-                        <div className="space-y-1 p-2">
-                            <NavLink href="">
-                                Sair
-                            </NavLink>
-                        </div>
-                    </div>
                     <div className="absolute right-0 top-2">
                         <Dropdown>
                             <Dropdown.Trigger>
