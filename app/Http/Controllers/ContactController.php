@@ -44,6 +44,10 @@ class ContactController extends Controller
             'id_company' => 'nullable|integer',
         ]);
 
+        // Remover o campo 'id_company' antes de enviar para o RD Station
+        $rdStationData = $validated;
+        unset($rdStationData['id_company']); // Remove o campo que não é aceito pela API
+
         try {
             // Salva o contato no banco de dados
             $contact = Contact::create($validated);
@@ -53,9 +57,9 @@ class ContactController extends Controller
             return response()->json(['error' => 'Erro ao salvar o contato no banco.'], 500);
         }
 
-        // Tenta enviar o contato para o serviço RD Station, mas ignora falhas
+        // Tenta enviar o contato para o serviço RD Station, sem o campo 'id_company'
         try {
-            $this->rdService->makeRequest('/platform/contacts', $validated, 'POST');
+            $this->rdService->makeRequest('/platform/contacts', $rdStationData, 'POST');
         } catch (\Exception $e) {
             // Registra o erro do serviço, mas não afeta a resposta
             Log::warning('Erro ao enviar contato para RD Station: ' . $e->getMessage());

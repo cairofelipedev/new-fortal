@@ -21,8 +21,14 @@ const ContactForm = ({ optionalFields = [], companyId, isOpen, onClose, query })
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Adiciona o campo "tags" fixo
+        const dataToSend = {
+            ...formData,
+            tags: ["site"],  // Adicionando as tags fixas
+        };
+
         try {
-            await axios.post("/api/rd/contacts", formData);
+            await axios.post("/api/rd/contacts", dataToSend);
 
             Swal.fire({
                 icon: "success",
