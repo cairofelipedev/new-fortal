@@ -34,25 +34,25 @@ export default function EnjoyFortaleza(){
             {/* Area Cards */}
             <div className={style.areaCards}>
                 <Card 
-                    img={'./images/enjoy/1.png'}
+                    img={'./images/a-photo-of-a-lively-event-in-fortaleza-brazil.jpeg'}
                     alt={'Diversão'}
                     name={'Diversão'}
                     // description={'Escolha entre centro de convenções, salões em hotéis ou lugares singulares incríveis como cenários!'}
                 />
                 <Card 
-                    img={'./images/enjoy/2.png'}
+                    img={'./images/news/9_Easy-Resize.com.jpg'}
                     alt={'Alimentação'}
                     name={'Alimentação'}
                     // description={'De pousadas a hotéis temáticos ou luxuosos temos as melhores opções para seu evento.'}
                 />
                 <Card 
-                    img={'./images/enjoy/3.png'}
+                    img={'./images/news/4_Easy-Resize.com.jpg'}
                     alt={'Lugares para trabalhar'}
                     name={'Lugares para trabalhar'}
                     // description={'encontre parceiros  com grande experiência na gestão e realização de eventos para auxiliar o seu planejamento ou  execução e criar experiências memoráveis.'}
                 />
                 <Card 
-                    img={'./images/enjoy/4.png'}
+                    img={'./images/news/27_Easy-Resize.com.jpg'}
                     alt={'Conheça nosso Ceará'}
                     name={'Conheça nosso Ceará'}
                     // description={'Para transporte e passeios complementares, temos especialistas de destinos para tornar a  logística perfeita!'}

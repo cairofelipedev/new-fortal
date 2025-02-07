@@ -2,7 +2,19 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+
+    h1 {
+        font-weight: 500;
+ 
+        line-height: 120%;
+    }
+    
+    b {
+        font-weight: 500;
+        color: #0C9C95;
+    }
 }
+
 
 .bannerDesk {
     // width: 100%;

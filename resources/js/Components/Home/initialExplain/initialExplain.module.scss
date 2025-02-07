@@ -4,8 +4,8 @@
     max-width: 1200px;
     gap: 60px;
     margin: 0 auto;
-    margin-bottom: 100px;
-    padding-top: 140px;
+    margin-bottom: 50px;
+    padding-top: 120px;
 }
 
 // TOp Icon Area
@@ -29,16 +29,16 @@
 
 // Image Area
 .imageArea {
-    width: 350px;
+    width: 500px;
     height: auto;
 }
 
 // Info Area
 .infoArea {
-    display: flex;
-    gap: 30px;
-    flex-direction: column;
-    width: 390px;
+    // display: flex;
+    // gap: 30px;
+    // flex-direction: column;
+    // width: 390px;
 
     h1 {
         font-weight: 500;
@@ -98,6 +98,7 @@
     position: absolute;
     right: 0px;
     top: 100px;
+    width: 300px;
 }
 
 @media (max-width: 1200px) {
