@@ -11,7 +11,7 @@ export default function InitialExplain(){
 
             {/* Info Area */}
             <div className={style.infoArea}>
-                <h1>Porque<br /><b>Fortaleza?</b></h1>
+                <h1>Por que<br /><b>Fortaleza?</b></h1>
                 <p>Escolher Fortaleza como destino para realizar eventos de MICE (Meetings, Incentives, Conferences, and Exhibitions) é uma decisão estratégica que traz uma série de vantagens. Aqui estão alguns motivos que destacam a cidade como um local ideal para eventos e negócios:
                 </p>
             </div>
