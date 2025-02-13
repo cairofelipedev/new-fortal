@@ -6,12 +6,12 @@ export default function BannerHero() {
       {/* Substituindo a imagem pelo vídeo */}
       <video
         className={style.bannerImage} // Usando o mesmo estilo da imagem para manter consistência
-        src="https://res.cloudinary.com/dzutjxuvt/video/upload/v1734376957/nosaxp08pf1d92yokhhv.mp4"
+        src="https://acainograu.blob.core.windows.net/posts/PRONTO.mp4"
         autoPlay
         loop
         muted
         playsInline
-        poster="https://res.cloudinary.com/dzutjxuvt/video/upload/v1734374612/yeoicuyl8mjdqialfcui.jpg" // Opcional
+        poster="https://acainograu.blob.core.windows.net/posts/PRONTO.mp4" // Opcional
       >
         Seu navegador não suporta vídeos HTML5.
       </video>
@@ -27,10 +27,10 @@ export default function BannerHero() {
       </div>
 
       {/* Decorações na parte inferior */}
-      <div className={`${style.bottomDecorations}`}></div>
+      {/* <div className={`${style.bottomDecorations}`}></div> */}
 
       {/* Linha decorativa em SVG */}
-      <svg
+      {/* <svg
         className={`${style.lineDeco} lg:block hidden`}
         width="207"
         height="454"
@@ -43,7 +43,7 @@ export default function BannerHero() {
           stroke="#0C9C95"
           strokeWidth="8"
         />
-      </svg>
+      </svg> */}
     </section>
   );
 }
