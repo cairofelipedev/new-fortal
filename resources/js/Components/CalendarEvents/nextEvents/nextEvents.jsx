@@ -46,7 +46,7 @@ export default function NextEvents({ month }) {
                         </svg>
                     </div>
                     <div className={style.text}>
-                        <span>Aqui você encontra o espaço ideal para seu enveto</span>
+                        <span>Aqui você encontra o espaço ideal para seu evento</span>
                         <h2 className="font-neulis">{month}</h2>
                     </div>
                 </div>
