@@ -53,7 +53,7 @@ export default function InitialExplain() {
             <div className={`${style.infoArea} lg:grid lg:grid-cols-3 gap-10 space-y-5`}>
 
                 {/* Texto fixo */}
-                <div className="col-span-1 sticky top-5 self-start pt-20">
+                <div className="col-span-1 lg:sticky top-5 lg:self-start lg:pt-20">
                     <h1 className="font-neulis text-7xl font-regular">
                         Conheça <b className="font-black text-[#0C9C95]">Fortaleza</b>
                     </h1>

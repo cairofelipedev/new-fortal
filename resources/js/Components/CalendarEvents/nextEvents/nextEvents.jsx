@@ -154,7 +154,7 @@ export function Card({ img, alt, name, description }) {
 
             {/* Area Image */}
             <div className={style.areaImage}>
-                <img src={img} alt={alt} />
+                <img loading="lazy" src={img} alt={alt} />
 {/* 
                 <div className={style.iconArea}></div> */}
             </div>

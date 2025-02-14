@@ -19,11 +19,11 @@ export default function BannerHero() {
       <div className="absolute inset-0 bg-black opacity-10"></div>
 
       {/* Conteúdo */}
-      <div className="relative flex flex-col justify-center h-full px-20">
-        <p className="text-9xl text-white font-bold">Fortaleza</p>
-        <p className="text-7xl text-white font-bold">Onde o trabalho</p>
-        <p className="text-7xl text-white font-bold">e o bem estar se encontram!</p>
-        <a href="#" className="mt-10">
+      <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full px-20">
+        <p className="lg:text-9xl text-6xl text-white font-bold">Fortaleza</p>
+        <p className="lg:text-7xl text-5xl text-white font-bold">Onde o trabalho</p>
+        <p className="lg:text-7xl text-5xl text-white font-bold">e o bem estar se encontram!</p>
+        <a href="#" className="lg:mt-10 mt-5">
           <button className="text-3xl font-bold text-gray-700 bg-white px-10 py-4 rounded-full flex gap-3 items-center">
             Planeje seu evento
             <a href="#" target="_blank" rel="noopener noreferrer"
