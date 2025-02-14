@@ -20,13 +20,13 @@ export default function Welcome() {
 
             <InitialExplain />
 
-            <Highlights />
+            {/* <Highlights /> */}
 
             <BannerDestak />
 
             <EnjoyFortaleza />
 
-            <HowToGet />
+            {/* <HowToGet /> */}
 
             <NextEvents 
                 month={'Eventos em fortaleza'}

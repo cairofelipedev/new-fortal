@@ -46,8 +46,8 @@ export default function NextEvents({ month }) {
                         </svg>
                     </div>
                     <div className={style.text}>
-                        <span>Aqui você encontra o espaço ideal para seu evento</span>
-                        <h2 className="font-neulis">{month}</h2>
+                        <span className="text-2xl">Aqui você encontra o espaço ideal para seu evento</span>
+                        <h2 className="font-neulis text-4xl">{month}</h2>
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@ export function Card({ img, alt, name, description }) {
 
             {/* Area Image */}
             <div className={style.areaImage}>
-                <img src={img} alt={alt} />
+                <img loading="lazy" src={img} alt={alt} />
 {/* 
                 <div className={style.iconArea}></div> */}
             </div>

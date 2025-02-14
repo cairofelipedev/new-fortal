@@ -19,8 +19,8 @@ export default function EnjoyFortaleza(){
                         </svg>
                     </div>
                     <div className={style.text} id="aproveite-fortaleza">
-                        <span>Lazer e Cultura</span>
-                        <h2 className="font-neulis">Aproveite Fortaleza</h2>
+                        <span className="text-2xl">Lazer e Cultura</span>
+                        <h2 className="font-neulis text-4xl font-black">Aproveite Fortaleza</h2>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@ export default function EnjoyFortaleza(){
 export function Card({img, alt, name, description}) {
     return (
         <article className={style.card}>
-            <img className={style.bgImage} src={img} alt={alt} />
+            <img loading="lazy" className={style.bgImage} src={img} alt={alt} />
 
             <div className={style.areaText}>
                 <h1>{name}</h1>
