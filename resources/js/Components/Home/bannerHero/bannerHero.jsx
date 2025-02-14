@@ -17,11 +17,11 @@ export default function BannerHero() {
       <div className="absolute inset-0 bg-black opacity-10"></div>
 
       {/* Conteúdo */}
-      <div className="relative flex flex-col justify-end h-full p-8">
+      <div className="relative flex flex-col justify-center h-full px-20">
         <p className="text-9xl text-white font-bold">Fortaleza</p>
         <p className="text-7xl text-white font-bold">Onde o trabalho</p>
         <p className="text-7xl text-white font-bold">e o bem estar se encontram!</p>
-        <a href="/calendario-eventos">
+        <a href="#" className="mt-10">
           <button className="text-3xl font-bold text-gray-700 bg-white px-10 py-4 rounded-full">
             Planeje seu evento
           </button>
