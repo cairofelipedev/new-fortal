@@ -1,4 +1,5 @@
 import style from './initialExplain.module.scss'
+import { FiHeart } from "react-icons/fi";
 
 export default function InitialExplain() {
     const videos = [
@@ -39,8 +40,11 @@ export default function InitialExplain() {
                                     muted
                                     playsInline
                                 />
-                                <div className="absolute bottom-2 left-2 right-2 bg-gray-500 bg-opacity-50 backdrop-blur-md text-white text-center p-2 rounded-lg">
-                                    {item.title}
+                                <div className="absolute bottom-2 left-2 right-2 flex items-center text-[#fff] bg-gray-500 bg-opacity-50 backdrop-blur-md gap-2 p-2 rounded-lg">
+                                    <button className='border-0 bg-white p-1 rounded-md'>
+                                        <FiHeart className='h-6 w-6 text-teal-700'/>
+                                    </button>
+                                    <p className='text-[#fff]'>{item.title}</p>
                                 </div>
                             </div>
                         ))}
