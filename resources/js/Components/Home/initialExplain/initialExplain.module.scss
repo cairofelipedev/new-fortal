@@ -1,11 +1,11 @@
 .container {
     display: flex;
     position: relative;
-    max-width: 1200px;
+    max-width: 1400px;
     gap: 60px;
     margin: 0 auto;
     margin-bottom: 50px;
-    padding-top: 120px;
+    padding-top: 40px;
 }
 
 // TOp Icon Area
@@ -41,19 +41,17 @@
     // width: 390px;
 
     h1 {
-        font-weight: 500;
         // font-size: 32px;
         line-height: 120%;
     }
     
-    b {
-        font-weight: 500;
-        color: #0C9C95;
-    }
+    // b {
+    //     color: #0C9C95;
+    // }
 
     p {
         // font-size: 15px;
-        font-weight: 500;
+        // font-weight: 500;
         // color: #948A77;
         line-height: 140%;
     }

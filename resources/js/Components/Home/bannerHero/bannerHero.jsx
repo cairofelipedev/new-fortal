@@ -1,3 +1,5 @@
+import { IoMdSend } from "react-icons/io";
+
 export default function BannerHero() {
   return (
     <section className="relative lg:h-[600px]">
@@ -22,8 +24,12 @@ export default function BannerHero() {
         <p className="text-7xl text-white font-bold">Onde o trabalho</p>
         <p className="text-7xl text-white font-bold">e o bem estar se encontram!</p>
         <a href="#" className="mt-10">
-          <button className="text-3xl font-bold text-gray-700 bg-white px-10 py-4 rounded-full">
+          <button className="text-3xl font-bold text-gray-700 bg-white px-10 py-4 rounded-full flex gap-3 items-center">
             Planeje seu evento
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              className="text-white bg-orange-500 hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-full">
+              <IoMdSend className="text-2xl" />
+            </a>
           </button>
         </a>
       </div>

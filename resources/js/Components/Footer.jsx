@@ -6,14 +6,9 @@ import { LinkMap } from "./LinksMap";
 export default function Footer() {
     return (
         <>
-            <div
-                className="h-10 bg-cover bg-center"
-                style={{ backgroundImage: "url('/images/retangle-footer.png')" }}
-            >
-            </div>
             <footer class="" aria-labelledby="footer-heading">
                 <h2 id="footer-heading" class="sr-only">Footer</h2>
-                <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+                <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-2">
                     <div class="">
                         {/* <div class="xl:grid xl:grid-cols-5 xl:gap-8 mt-16  gap-8 xl:mt-0"> */}
                         <div class="flex justify-center md:justify-between items-center flex-col md:flex-row w-full gap-8">
