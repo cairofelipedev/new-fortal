@@ -67,6 +67,11 @@ Route::get('/porque-fortaleza', function () {
     return Inertia::render('About/Index');
 });
 
+Route::get('/associados', function () {
+    return Inertia::render('Associados');
+});
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get(
