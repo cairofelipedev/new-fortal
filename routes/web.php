@@ -68,7 +68,7 @@ Route::get('/porque-fortaleza', function () {
 });
 
 Route::get('/associados', function () {
-    return Inertia::render('Associados');
+    return Inertia::render('Associates');
 });
 
 

@@ -18,35 +18,20 @@ const associados = [
   { nome: "LUMINART", categoria: "montagem" },
   { nome: "PHOENIX SOLUÇÕES", categoria: "montagem" },
   { nome: "FIRMA PRODUÇÕES", categoria: "montagem" },
-  { nome: "ITI - INSTITUDO DE TRADUÇÃO E INTERPRETAÇÃO", categoria: "traducao-simultanea" },
+  { nome: "ITI - INSTITUTO DE TRADUÇÃO E INTERPRETAÇÃO", categoria: "traducao-simultanea" },
   { nome: "GRUPO PERES", categoria: "seguranca-para-eventos" },
-  { nome: "COLOSSO FORTALEZA", categoria: "restaurantes" },
-  { nome: "CERVEJARIA TURATTI", categoria: "restaurantes" },
-  { nome: "ILLA MARE", categoria: "restaurantes" },
-  { nome: "BOTECO DO ILLA", categoria: "restaurantes" },
-  { nome: "BOTECO DONA MARIA", categoria: "restaurantes" },
-  { nome: "COMPLEXO CROCOBEACH", categoria: "restaurantes" },
-  { nome: "GUARDERIA BRAISL", categoria: "restaurantes" },
-  { nome: "CHICO DO CARANGUEIJO PRAIA DO FUTURO", categoria: "restaurantes" },
-  { nome: "ARX EVENTOS", categoria: "organizadora-de-eventos" },
-  { nome: "E + EVENTOS", categoria: "organizadora-de-eventos" },
-  { nome: "ALAS EVENTOS", categoria: "organizadora-de-eventos" },
-  { nome: "KANGURU PROMOÇÕES", categoria: "organizadora-de-eventos" },
-  { nome: "KAKTUS EVENTOS", categoria: "organizadora-de-eventos" },
-  { nome: "MAESTRIA COMUNICAÇÃO E EVENTOS", categoria: "organizadora-de-eventos" },
-  { nome: "OFICINA DE EVENTOS", categoria: "organizadora-de-eventos" },
-  { nome: "PRÁTICA EVENTOS", categoria: "organizadora-de-eventos" },
-  { nome: "THAIS SOMBRA EVENTOS CORPORATIVOS", categoria: "organizadora-de-eventos" },
-  { nome: "VM TURISMO", categoria: "receptivo-e-transporte" },
-  { nome: "VITORINO TURISMO", categoria: "receptivo-e-transporte" },
-  { nome: "GRUPO INOVAR", categoria: "limpeza-geral" },
-  { nome: "CSI LOCAÇÕES DE EQUIPAMENTOS LTDA", categoria: "equipamentos-para-eventos" },
-  { nome: "NEW LIGTH", categoria: "equipamentos-para-eventos" },
-  { nome: "STUDIO F3", categoria: "equipamentos-para-eventos" },
-  { nome: "STAND SHOW", categoria: "equipamentos-para-eventos" },
-  { nome: "TERRA VISTA", categoria: "equipamentos-para-eventos" },
-  { nome: "CITLOC", categoria: "equipamentos-para-eventos" },
 ];
+
+const categoriasTraduzidas = {
+  "agencia-de-viagem": "Agência de Viagem",
+  "assessoria-de-imprensa": "Assessoria de Imprensa",
+  "agencia-de-marketing-digital": "Agência de Marketing Digital",
+  "buffet": "Buffet",
+  "mestre-de-cerimonia": "Mestre de Cerimônia",
+  "montagem": "Montagem",
+  "traducao-simultanea": "Tradução Simultânea",
+  "seguranca-para-eventos": "Segurança para Eventos",
+};
 
 const ListaAssociados = () => {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("todos");
@@ -60,40 +45,25 @@ const ListaAssociados = () => {
     return correspondeCategoria && correspondeNome;
   });
 
-  // Agrupa os associados por categoria
-  const associadosAgrupados = associadosFiltrados.reduce((acc, associado) => {
-    if (!acc[associado.categoria]) {
-      acc[associado.categoria] = [];
-    }
-    acc[associado.categoria].push(associado);
-    return acc;
-  }, {});
-
   return (
-    <div className="p-5 font-sans bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-8 text-blue-800">Associados</h1>
+    <div className="p-5 font-sans bg-gray-50 min-h-screen px-20">
+      <p className="lg:text-4xl text-xl font-bold text-center mb-6">
+        Conheça nossos Associados
+      </p>
 
-      {/* Filtros: Select de Categoria e Campo de Busca */}
-      <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
+      {/* Filtros */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8 p-4 bg-gray-600 rounded-full shadow-lg mx-auto max-w-xl">
         <select
           value={categoriaSelecionada}
           onChange={(e) => setCategoriaSelecionada(e.target.value)}
-          className="px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-auto"
         >
           <option value="todos">Todos</option>
-          <option value="agencia-de-viagem">Agência de Viagem</option>
-          <option value="assessoria-de-imprensa">Assessoria de Imprensa</option>
-          <option value="agencia-de-marketing-digital">Agência de Marketing Digital</option>
-          <option value="buffet">Buffet</option>
-          <option value="mestre-de-cerimonia">Mestre de Cerimônia</option>
-          <option value="montagem">Montagem</option>
-          <option value="traducao-simultanea">Tradução Simultânea</option>
-          <option value="seguranca-para-eventos">Segurança para Eventos</option>
-          <option value="restaurantes">Restaurantes</option>
-          <option value="organizadora-de-eventos">Organizadora de Eventos</option>
-          <option value="receptivo-e-transporte">Receptivo e Transporte</option>
-          <option value="limpeza-geral">Limpeza Geral</option>
-          <option value="equipamentos-para-eventos">Equipamentos para Eventos</option>
+          {Array.from(new Set(associados.map((a) => a.categoria))).map((categoria) => (
+            <option key={categoria} value={categoria}>
+              {categoriasTraduzidas[categoria] || categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+            </option>
+          ))}
         </select>
 
         <input
@@ -101,32 +71,34 @@ const ListaAssociados = () => {
           placeholder="Buscar por nome..."
           value={termoBusca}
           onChange={(e) => setTermoBusca(e.target.value)}
-          className="px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-80"
         />
       </div>
 
-      {/* Lista de Associados Agrupados por Categoria */}
-      <div className="space-y-8">
-        {Object.entries(associadosAgrupados).map(([categoria, associados]) => (
-          <div key={categoria}>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              {categoria.replace(/-/g, " ")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {associados.map((associado, index) => (
-                <div
-                  key={index}
-                  className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
-                  <p className="text-gray-600">
-                    <strong>Categoria:</strong> {associado.categoria.replace(/-/g, " ")}
-                  </p>
-                </div>
-              ))}
+      {/* Grid de Associados */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {associadosFiltrados.length > 0 ? (
+          associadosFiltrados.map((associado, index) => (
+            <div
+              key={index}
+              className="p-5 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Associado"
+                className="w-24 h-24 rounded-full mb-4"
+              />
+              <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
+              <p className="text-gray-600 text-sm">
+                {categoriasTraduzidas[associado.categoria] || associado.categoria}
+              </p>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="text-gray-600 col-span-3 text-center">
+            Nenhum associado encontrado.
+          </p>
+        )}
       </div>
     </div>
   );
