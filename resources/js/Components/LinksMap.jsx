@@ -6,7 +6,7 @@ export const LinkMap = () => {
 
 
     return (
-        <div className="flex md:gap-12 gap-4">
+        <div className="lg:flex md:gap-12 gap-4">
             <div>
                 <TitleItem title="Fortaleza Meetings" icon={<FaRegSun className="text-xl" />}/>
                 <ul role="list" class="mt-6 space-y-4">

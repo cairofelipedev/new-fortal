@@ -41,9 +41,9 @@ Route::get('/planejador-de-eventos', function () {
 Route::get('/resultado-busca', function () {
     return Inertia::render('SearchResults/Index');
 });
-Route::get('/imprensa', function () {
-    return Inertia::render('Imprensa');
-});
+// Route::get('/imprensa', function () {
+//     return Inertia::render('Imprensa');
+// });
 
 // Route::get('/event-spaces', [EventSpaceController::class, 'search'])->name('event-spaces');
 
@@ -55,17 +55,17 @@ Route::get('/espaco-para-seu-evento/{slug}', [EventSpaceController::class, 'even
 //     return Inertia::render('Space/index');
 // });
 
-Route::get('/calendario-eventos', function () {
-    return Inertia::render('CalendarEvents/index');
-});
+// Route::get('/calendario-eventos', function () {
+//     return Inertia::render('CalendarEvents/index');
+// });
 
-Route::get('/inspecao', function () {
-    return Inertia::render('inspecao');
-});
+// Route::get('/inspecao', function () {
+//     return Inertia::render('inspecao');
+// });
 
-Route::get('/porque-fortaleza', function () {
-    return Inertia::render('About/Index');
-});
+// Route::get('/porque-fortaleza', function () {
+//     return Inertia::render('About/Index');
+// });
 
 Route::get('/associados', function () {
     return Inertia::render('Associates');

@@ -1,7 +1,7 @@
 export const SocialMedia = () => {
 
     return (
-        <div class="flex justify-between w-full min-w-24 flex-col sm:flex-row">
+        <div class="flex justify-between w-full">
             <a href="#" class="flex justify-center items-center text-[#f97316] w-[30px] h-[30px] bg-[#fff] rounded-full hover:text-gray-500">
                 <span class="sr-only">Facebook</span>
                 <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -41,8 +41,9 @@ export default function NavBar({ scrollEffect = false }) {
 
                     {/* Desktop Menu */}
                     <div className={`${style.listLink}`}>
-                        <Link href="#aproveite-fortaleza">Home</Link>
-                        <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
+                        <Link href="/">Home</Link>
+                        <Link href="/planejador-de-eventos">Planeje seu evento</Link>
+                        {/* <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                             <p className={style.link}>Planeje seu evento</p>
                             <div className={`${style.capulseDrop}`}>
                                 <div className={style.dropDown}>
@@ -67,22 +68,22 @@ export default function NavBar({ scrollEffect = false }) {
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <Link href="/calendario-eventos">Associados</Link>
+                        </div> */}
+                        <Link href="/associados">Associados</Link>
                     </div>
 
                     {/* Call To Action */}
                     <div className="flex items-center space-x-[8px]">
                         <div className="lg:flex hidden space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.facebook.com/fortalezaconvention" target="_blank" rel="noopener noreferrer"
                                 className="text-gray-500 bg-[#F9F9F9] hover:bg-gray-300 duration-300 w-10 h-10 flex items-center justify-center rounded-full">
                                 <FaFacebookF className="text-lg" />
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.instagram.com/conventionfortaleza/" target="_blank" rel="noopener noreferrer"
                                 className="text-gray-500 bg-[#F9F9F9] hover:bg-gray-300 duration-300 w-10 h-10 flex items-center justify-center rounded-full">
                                 <FaInstagram className="text-lg" />
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer"
+                            <a href="https://br.linkedin.com/company/fortaleza-convention-&-visitors-bureau" target="_blank" rel="noopener noreferrer"
                                 className="text-gray-500 bg-[#F9F9F9] hover:bg-gray-300 duration-300 w-10 h-10 flex items-center justify-center rounded-full">
                                 <FaLinkedinIn className="text-lg" />
                             </a>
@@ -92,7 +93,7 @@ export default function NavBar({ scrollEffect = false }) {
                                 <div className={`${style.buttonVisite} text-white items-center lg:flex flex font-criteria hidden lg:block text-[13px] h-max box-border bg-[#0C9C95] rounded-full border border-transparent hover:bg-orange-600 hover:border-orange-800 hover:text-white duration-[.3s]`}>
                                     Visite Ceará
                                     <div className={`${style.iconArea}`}>
-                                        <FaArrowRightLong  className="text-lg text-[#0C9C95]" />
+                                        <FaArrowRightLong className="text-lg text-[#0C9C95]" />
                                     </div>
                                 </div>
                                 <button className={style.menuButton} onClick={toggleMenu}>

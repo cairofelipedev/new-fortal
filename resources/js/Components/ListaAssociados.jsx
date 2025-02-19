@@ -92,13 +92,13 @@ const ListaAssociados = () => {
   });
 
   return (
-    <div className="p-5 font-sans bg-gray-50 min-h-screen px-20">
+    <div className="p-5 font-sans bg-gray-50 min-h-screen lg:px-20">
       <p className="lg:text-4xl text-xl font-bold text-center mb-6">
         Conheça nossos Associados
       </p>
 
       {/* Filtros */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8 p-4 bg-gray-800 rounded-full shadow-lg mx-auto max-w-xl">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8 p-4 bg-gray-800 lg:rounded-full shadow-lg lg:mx-auto lg:max-w-xl rounded-lg">
         <select
           value={categoriaSelecionada}
           onChange={(e) => setCategoriaSelecionada(e.target.value)}
