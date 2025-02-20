@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 export default function BannerHero() {
-  const items = ["Atrações", "Hotéis e Resorts", "Gastronomia", "Saúde", "Alimentação", "Turismo", "Lazer", "Cultura"];
-
+  const items = ["Restaurantes", "Eventos", "Marketing", "Segurança", "Imprensa", "Transporte", "Buffet"];
+  
   return (
     <section className="relative lg:h-[600px] overflow-hidden">
       <img
