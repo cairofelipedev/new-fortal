@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-// Dados dos associados
 const associados = [
   // Agência de Viagem
   { nome: "CHANGE TURISMO", categoria: "agencia-de-viagem", imagem: "CHANGE TURISMO.jpg" },
@@ -18,7 +18,6 @@ const associados = [
   { nome: "ILMAR GOURMET", categoria: "buffet", imagem: "ILMAR GOURMET.png" },
 
   // Mestre de Cerimônia
-  { nome: "NORMA ZELIA", categoria: "mestre-de-cerimonia", imagem: "LOGO FIRMA - Administrativo Firma.png" },
   { nome: "MILENA GADELHA", categoria: "mestre-de-cerimonia", imagem: "logo_milena_preta - Milena Gadelha Voz.png" },
 
   // Montagem
@@ -83,26 +82,24 @@ const ListaAssociados = () => {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("todos");
   const [termoBusca, setTermoBusca] = useState("");
 
-  // Filtra os associados com base na categoria selecionada e no termo de busca
   const associadosFiltrados = associados.filter((associado) => {
-    const correspondeCategoria =
-      categoriaSelecionada === "todos" || associado.categoria === categoriaSelecionada;
+    const correspondeCategoria = categoriaSelecionada === "todos" || associado.categoria === categoriaSelecionada;
     const correspondeNome = associado.nome.toLowerCase().includes(termoBusca.toLowerCase());
     return correspondeCategoria && correspondeNome;
   });
 
   return (
-    <div className="p-5 font-sans bg-gray-50 min-h-screen lg:px-20">
-      <p className="lg:text-4xl text-xl font-bold text-center mb-6">
-        Conheça nossos Associados
+    <div className="p-5 bg-gray-50 min-h-screen lg:px-20">
+      <p className="lg:text-4xl text-4xl text-center mb-6">
+        Conheça nossas empresas <b>associadas</b>
       </p>
 
       {/* Filtros */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8 p-4 bg-gray-800 lg:rounded-full shadow-lg lg:mx-auto lg:max-w-xl rounded-lg">
+      <div className="grid grid-cols-2 justify-center items-center gap-4 mb-8 p-4 bg-[#0C9C95] lg:rounded-full shadow-lg rounded-lg">
         <select
           value={categoriaSelecionada}
           onChange={(e) => setCategoriaSelecionada(e.target.value)}
-          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-auto"
+          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
         >
           <option value="todos">Todos</option>
           {Array.from(new Set(associados.map((a) => a.categoria))).map((categoria) => (
@@ -117,29 +114,36 @@ const ListaAssociados = () => {
           placeholder="Buscar por nome..."
           value={termoBusca}
           onChange={(e) => setTermoBusca(e.target.value)}
-          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-80"
+          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
         />
       </div>
 
-      {/* Grid de Associados */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Grid Masonry */}
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
         {associadosFiltrados.length > 0 ? (
           associadosFiltrados.map((associado, index) => (
-            <div
+            <motion.div
               key={index}
-              className="p-5 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center"
+              className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow break-inside-avoid"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }} // Prioriza os primeiros
             >
               <img
                 src={`./images/associados/${associado.imagem}`}
-                alt="Associado"
-                className="w-full h-72 mb-4"
-                loading="lazy"
+                alt={associado.nome}
+                className="w-full rounded-t-lg object-cover min-h-[200px]"
+                loading={index < 6 ? "eager" : "lazy"} // Prioriza carregamento das primeiras imagens
+                fetchpriority={index < 6 ? "high" : "low"} // Força prioridade no carregamento inicial
               />
-              <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
-              <p className="text-gray-600 text-sm">
-                {categoriasTraduzidas[associado.categoria] || associado.categoria}
-              </p>
-            </div>
+              <div className="p-4 text-center">
+                <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
+                <p className="text-gray-600 text-sm">
+                  {categoriasTraduzidas[associado.categoria] || associado.categoria}
+                </p>
+              </div>
+            </motion.div>
           ))
         ) : (
           <p className="text-gray-600 col-span-3 text-center">

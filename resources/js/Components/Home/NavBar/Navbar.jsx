@@ -4,6 +4,9 @@ import { FiMenu, FiHome } from 'react-icons/fi';
 import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaUser } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { RiHome2Fill } from "react-icons/ri";
+import { FaHandsHelping } from "react-icons/fa";
+
 
 import style from './Navbar.module.scss'
 
@@ -109,21 +112,21 @@ export default function NavBar({ scrollEffect = false }) {
                     <div className={style.areaLinksMobile}>
                         <Link className={style.linkMobile} href="/">
                             <div className={style.areaIcon}>
-                                <FiHome className="text-xl" />
+                                <RiHome2Fill className="text-xl" />
                             </div>
                             <h1>Home</h1>
                         </Link>
-                        <Link className={style.linkMobile} href="/porque-fortaleza?">
-                            <div className={style.areaIcon}>
-                                <FaRegSun className="text-xl" />
-                            </div>
-                            <h1>Porque Fortaleza</h1>
-                        </Link>
-                        <Link className={style.linkMobile} href="/calendario-eventos">
+                        <Link className={style.linkMobile} href="/planejador-de-eventos">
                             <div className={style.areaIcon}>
                                 <FaCalendarAlt className="text-xl" />
                             </div>
-                            <h1>Calendário de Eventos</h1>
+                            <h1>Planeje seu Evento</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/associados">
+                            <div className={style.areaIcon}>
+                                <FaHandsHelping className="text-xl" />
+                            </div>
+                            <h1>Associados</h1>
                         </Link>
                     </div>
                 </div>
