@@ -14,24 +14,24 @@ export const LinkMap = () => {
                         <a href="/planejador-de-eventos" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Planeje seu evento</a>
                     </li>
                     <li>
-                        <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Associados</a>
+                        <a href="/associados" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Associados</a>
                     </li>
-                    <li>
+                    {/* <li>
                         <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Suporte</a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className="">
                 <TitleItem title="Contato" icon={<MdPhone className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
-                        <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Instagram</a>
+                        <a href="https://www.instagram.com/conventionfortaleza/" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Instagram</a>
                     </li>
                     <li>
-                        <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">WhatsApp</a>
+                        <a href="https://www.facebook.com/fortalezaconvention" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Facebook</a>
                     </li>
                     <li>
-                        <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Linkedin</a>
+                        <a href="https://br.linkedin.com/company/fortaleza-convention-&-visitors-bureau" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Linkedin</a>
                     </li>
                 </ul>
             </div>
@@ -39,13 +39,13 @@ export const LinkMap = () => {
                 <TitleItem title="Visite Ceará" icon={<FaRegSun className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
-                        <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Site</a>
+                        <a href="www.visiteceara.com" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Site</a>
                     </li>
                     <li>
-                        <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Youtube</a>
+                        <a href="https://www.youtube.com/c/VisiteCear%C3%A1" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Youtube</a>
                     </li>
                     <li>
-                        <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Email</a>
+                        <a href="mailto: eventos@visiteceara.com" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Email</a>
                     </li>
                 </ul>
             </div>
