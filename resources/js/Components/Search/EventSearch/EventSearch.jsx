@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import style from "./EventSearch.module.scss";
-import ContactForm from "@/Components/Form/FormRd";
 
 const EventSearch = () => {
     const [type, setType] = useState("");
@@ -8,11 +7,9 @@ const EventSearch = () => {
     const [total_event_area, setTotalArea] = useState("");
     const [total_rentable_event_rooms, setNumberOfRooms] = useState("");
     const [eventTypes, setEventTypes] = useState([]);
-    const optionalFields = ["mobile_phone", "bio"];
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        fetch("/api/event-types") 
+        fetch("/api/event-types")
             .then((response) => response.json())
             .then((data) => setEventTypes(data))
             .catch((error) => console.error("Erro ao buscar tipos de eventos:", error));
@@ -20,35 +17,14 @@ const EventSearch = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsModalOpen(true);
-    };
 
-    const handleContactFormSubmit = (query) => {
-        setIsModalOpen(false);
-
-        window.location.href = `/resultado-buscar-evento/search?type=${query.type}&capacity=${query.capacity}&total_event_area=${query.total_event_area}&total_rentable_event_rooms=${query.total_rentable_event_rooms}`;
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
+        // Monta a URL com todos os parâmetros, mesmo que estejam vazios
+        const url = `/resultado-buscar-evento/search?type=${type || ""}&capacity=${capacity || ""}&total_event_area=${total_event_area || ""}&total_rentable_event_rooms=${total_rentable_event_rooms || ""}`;
+        window.location.href = url;
     };
 
     return (
         <section className={style.container}>
-            {isModalOpen && (
-                <ContactForm
-                    isOpen={isModalOpen}
-                    onClose={handleCloseModal}
-                    optionalFields={optionalFields}
-                    onSubmit={handleContactFormSubmit}
-                    query={{
-                        type,
-                        capacity,
-                        total_event_area,
-                        total_rentable_event_rooms,
-                    }}
-                />
-            )}
             <svg className={style.divisorLine} width="1201" height="3" viewBox="0 0 1201 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.5 1.5H1200.5" stroke="#E8DCC6" strokeWidth="2" strokeDasharray="8 8" />
             </svg>
@@ -61,11 +37,6 @@ const EventSearch = () => {
                             <h2 className="text-4xl">Organize seu evento no Ceará</h2>
                         </div>
                     </div>
-
-                    {/* <div className={style.filterArea}>
-                        <button className={style.filterActive}>Descobrir</button>
-                        <button>Todos os espaços</button>
-                    </div> */}
 
                     <form className={style.form} onSubmit={handleSubmit}>
                         {/* Tipo de Espaço */}

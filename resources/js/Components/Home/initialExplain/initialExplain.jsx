@@ -60,7 +60,7 @@ export default function InitialExplain() {
                     <p className="text-3xl pb-5">
                         Aqui, você encontrará um <b className="text-black font-black">destino completo</b> para o turismo de negócios e eventos.
                     </p>
-                    <a href="#" className="mt-10">
+                    <a href="/planejador-de-eventos" className="mt-10">
                         <button className="border text-xl font-semibold text-gray-700 bg-white px-5 rounded-lg flex gap-3 items-center">
                             Planeje seu evento
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"

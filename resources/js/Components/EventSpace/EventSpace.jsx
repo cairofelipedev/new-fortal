@@ -101,16 +101,16 @@ export default function EventSpaceDetails() {
                 <div className={style.imagesContainer}>
 
                     {/* List Images */}
-                    <div className={style.listImages}>
+                    {/* <div className={style.listImages}>
                         <img src="https://beachpark.com.br/app/uploads/2024/05/Home-OP.jpg" alt="" />
                         <img src="https://viajocomfilhos.com.br/wp-content/uploads/2020/02/acquacirco-1024x768.jpg" alt="" />
                         <img src="https://beachpark.com.br/app/uploads/2024/05/Parque-Aquatico-OP.jpg" alt="" />
 
-                    </div>
+                    </div> */}
 
                     {/* Principal Image */}
                     <div className={style.principalImage}>
-                        <img src={`/uploads/${eventSpace.floor_plan}`} alt={`Imagem de ${eventSpace.name}`} />
+                        <img src={`/uploads/${eventSpace.image}`} alt={`Imagem de ${eventSpace.name}`} />
                         {/* <img src={`/images/principalImage.png`} alt={`Imagem de ${eventSpace.name}`} /> */}
                     </div>
                 </div>
