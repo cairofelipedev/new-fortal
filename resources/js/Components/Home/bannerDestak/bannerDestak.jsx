@@ -50,7 +50,7 @@ export default function BannerDestak() {
                 <p className='text-justify lg:text-3xl text-2xl pb-5'>
                     Os melhores eventos, festivais e atividades estão aqui
                 </p>
-                <a href="#" className="mt-10">
+                <a href="/planejador-de-evento" className="mt-10">
                     <button className="border text-xl font-semibold text-white bg-[#0C9C95] px-5 rounded-lg flex gap-3 items-center">
                         Planeje seu evento
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"

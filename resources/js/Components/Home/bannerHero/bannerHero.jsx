@@ -21,12 +21,12 @@ export default function BannerHero() {
       {/* Conteúdo */}
       <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full lg:px-20 px-5">
         <p className="lg:text-9xl text-6xl text-white font-bold">Fortaleza</p>
-        <p className="lg:text-7xl text-5xl text-white font-bold">Onde o trabalho</p>
-        <p className="lg:text-7xl text-5xl text-white font-bold">e o bem estar se encontram!</p>
-        <a href="planejador-de-eventos" className="lg:mt-10 mt-5">
+        <p className="lg:text-7xl text-5xl text-white font-bold">Um evento pra se viver</p>
+        {/* <p className="lg:text-7xl text-5xl text-white font-bold">e o bem estar se encontram!</p> */}
+        <a href="/planejador-de-eventos" className="lg:mt-10 mt-5">
           <button className="lg:text-3xl text-2xl font-bold text-gray-700 bg-white px-10 py-4 rounded-full flex gap-3 items-center">
             Planeje seu evento
-            <a href="#" target="_blank" rel="noopener noreferrer"
+            <a href="/planejador-de-evento" target="_blank" rel="noopener noreferrer"
               className="text-white bg-orange-500 hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-full">
               <IoMdSend className="text-2xl" />
             </a>
