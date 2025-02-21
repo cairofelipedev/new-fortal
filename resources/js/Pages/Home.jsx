@@ -27,10 +27,10 @@ export default function Welcome() {
             <EnjoyFortaleza />
 
             {/* <HowToGet /> */}
-
+{/* 
             <NextEvents 
                 month={'Eventos em fortaleza'}
-            />
+            /> */}
 
             {/* <OtherFortal /> */}
             <Footer />

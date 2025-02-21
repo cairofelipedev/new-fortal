@@ -6,9 +6,9 @@ export const LinkMap = () => {
 
 
     return (
-        <div className="lg:flex md:gap-12 gap-4">
+        <div className="flex gap-12">
             <div className="">
-                <TitleItem title="Serviços" icon={<MdWork className="text-xl" />}/>
+                <TitleItem title="Serviços" icon={<MdWork className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
                         <a href="/planejador-de-eventos" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Planeje seu evento</a>
@@ -22,11 +22,8 @@ export const LinkMap = () => {
                 </ul>
             </div>
             <div className="">
-                <TitleItem title="Contato" icon={<MdPhone className="text-xl" />}/>
+                <TitleItem title="Contato" icon={<MdPhone className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
-                    {/* <li>
-                                                        <a href="/login" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Área dos associados</a>
-                                                    </li> */}
                     <li>
                         <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Instagram</a>
                     </li>
@@ -39,11 +36,8 @@ export const LinkMap = () => {
                 </ul>
             </div>
             <div className="">
-                <TitleItem title="Visite Ceará" icon={<FaRegSun className="text-xl" />}/>
+                <TitleItem title="Visite Ceará" icon={<FaRegSun className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
-                    {/* <li>
-                                                        <a href="/login" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Área dos associados</a>
-                                                    </li> */}
                     <li>
                         <a href="#" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Site</a>
                     </li>

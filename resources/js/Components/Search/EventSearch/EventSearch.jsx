@@ -56,28 +56,16 @@ const EventSearch = () => {
             <div className={style.interContainer}>
                 <div className={style.leftArea}>
                     <div className={style.titleArea}>
-                        <div className={style.areaIcon}>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#clip0_319_741)">
-                                    <path d="..." fill="#F57C29" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_319_741">
-                                        <rect width="20" height="20" fill="white" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
                         <div className={style.textArea}>
-                            <span>Encontre o local ideal em hotéis, centros de convenções e espaços</span>
-                            <h2>Organize seu evento no Ceará</h2>
+                            <span className="text-2xl"><b>Encontre</b> o local ideal em hotéis, centros de convenções e espaços</span>
+                            <h2 className="text-4xl">Organize seu evento no Ceará</h2>
                         </div>
                     </div>
 
-                    <div className={style.filterArea}>
+                    {/* <div className={style.filterArea}>
                         <button className={style.filterActive}>Descobrir</button>
                         <button>Todos os espaços</button>
-                    </div>
+                    </div> */}
 
                     <form className={style.form} onSubmit={handleSubmit}>
                         {/* Tipo de Espaço */}
