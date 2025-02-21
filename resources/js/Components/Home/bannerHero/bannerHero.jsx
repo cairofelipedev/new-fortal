@@ -26,7 +26,7 @@ export default function BannerHero() {
         <a href="/planejador-de-eventos" className="lg:mt-10 mt-5">
           <button className="lg:text-3xl text-2xl font-bold text-gray-700 bg-white px-10 py-4 rounded-full flex gap-3 items-center">
             Planeje seu evento
-            <a href="/planejador-de-evento" target="_blank" rel="noopener noreferrer"
+            <a href="/planejador-de-eventos" target="_blank" rel="noopener noreferrer"
               className="text-white bg-orange-500 hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-full">
               <IoMdSend className="text-2xl" />
             </a>
