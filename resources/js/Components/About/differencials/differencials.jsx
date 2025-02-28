@@ -5,27 +5,22 @@ export default function Differencials() {
         <section className={style.container}>
 
             <svg className={style.verticalLine} width="2" height="2263" viewBox="0 0 2 2263" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 0L0.999901 2263" stroke="#E8DCC6" stroke-width="2" stroke-dasharray="8 8"/>
+                <path d="M1 0L0.999901 2263" stroke="#E8DCC6" stroke-width="2" stroke-dasharray="8 8" />
             </svg>
-
-
-
             {/* 1 */}
-            <div className={`${style.cardInfo}`}>
-                <div className={style.areaText}>
-                    <h2>Infraestrutura Moderna</h2>
-                    <p>Fortaleza possui uma infraestrutura de eventos bem desenvolvida, com centros de convenções de classe mundial, como o Centro de Eventos do Ceará, que é um dos maiores do Brasil. Além de outros espaços em hotéis, restaurantes e centros culturais</p>
-                </div>
+            <div className={style.areaText}>
+                <h1 className="font-neulis text-5xl font-regular">
+                    Infraestrutura<b className="font-black text-[#0C9C95]"> Moderna</b>
+                </h1>
+                <p className="text-xl pb-5">
+                    Fortaleza possui uma infraestrutura de eventos bem desenvolvida, com centros de convenções de <b className="text-black font-black">classe mundial</b>, como o Centro de Eventos do Ceará, que é um dos maiores do Brasil. Além de outros espaços em hotéis, restaurantes e centros culturais
+                </p>
             </div>
-
-            <div className={`${style.areaImage}`}>
-                <img src="./images/differencials/2.jpg" alt="Imagem Diferencial" />
+            <div>
+                <img className="rounded-xl m-10" src="./images/differencials/2.jpg" alt="Imagem Diferencial" />
             </div>
-
-
-            {/* 2 */}
-            <div className={`${style.areaImage} ${style.another}`}>
-                <img src="./images/differencials/5.jpg" alt="Imagem Diferencial" />
+            <div>
+                <img className="rounded-xl object-cover" src="./images/differencials/5.jpg" alt="Imagem Diferencial" />
             </div>
 
             <div className={`${style.cardInfo} ${style.another}`}>
