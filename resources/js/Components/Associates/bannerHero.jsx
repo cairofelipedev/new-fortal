@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 export default function BannerHero() {
   const items = ["Restaurantes", "Eventos", "Marketing", "Segurança", "Imprensa", "Transporte", "Buffet"];
   
