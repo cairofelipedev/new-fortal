@@ -53,7 +53,7 @@ export default function BannerDestak() {
                 <a href="/planejador-de-eventos" className="mt-10">
                     <button className="border text-xl font-semibold text-white bg-[#0C9C95] px-5 rounded-lg flex gap-3 items-center">
                         Planeje seu evento
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                        <a href=""
                             className="hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
                             <FaArrowRightLong className="text-2xl" />
                         </a>

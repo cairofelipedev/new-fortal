@@ -37,7 +37,7 @@ export default function NavBar({ scrollEffect = false }) {
             <nav className={`w-full transition-colors duration-300 ${isMenuOpen ? 'bg-white' : scrollEffect ? (isScrolled ? 'bg-white' : 'bg-transparent') : 'bg-white'} z-20`}>
                 <div className="h-4 bg-gradient-to-r from-[#F57C29] to-[#FFCC00]"></div>
 
-                <div className={`${style.internalNav}`}>
+                <div className={`${style.internalNav} max-w-7xl`}>
                     <a href="/">
                         <img src="/images/logo.jpg" alt="Logo" className={`${style.logo} ${scrollEffect ? (isScrolled ? 'bg-transparent' : 'bg-white') : 'bg-white'}`} />
                     </a>

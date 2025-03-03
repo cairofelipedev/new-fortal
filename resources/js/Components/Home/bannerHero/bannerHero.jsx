@@ -19,7 +19,7 @@ export default function BannerHero() {
       <div className="absolute inset-0 bg-black opacity-10"></div>
 
       {/* Conteúdo */}
-      <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full lg:px-20 px-5">
+      <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full lg:px-40 px-5">
         <p className="lg:text-9xl text-6xl text-white font-bold">Fortaleza</p>
         <p className="lg:text-7xl text-5xl text-white font-bold">Um evento pra se viver</p>
         {/* <p className="lg:text-7xl text-5xl text-white font-bold">e o bem estar se encontram!</p> */}
