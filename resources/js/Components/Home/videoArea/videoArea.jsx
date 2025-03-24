@@ -37,7 +37,7 @@ export default function VideoArea() {
 
             {/* Video Area */}
             <div className={style.videoArea}>
-                <iframe width="1522" height="598" src="https://www.youtube.com/embed/VE5CKKl2Gjo" title="Fortaleza 04" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="1522" height="598" src="https://www.youtube.com/embed/3pqHYTK9Gqg?si=XROim3gqeqLwmBVL" title="Fortaleza 04" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 {/* <img src="./images/coverVideo.png" alt="Tumbnail Video" /> */}
             </div>
         </section>

@@ -23,7 +23,7 @@ export default function Welcome() {
 
             <EnjoyFortaleza />
 
-            <BannerDestak />
+            {/* <BannerDestak /> */}
 
             <Testemonial /> 
 
