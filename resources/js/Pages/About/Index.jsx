@@ -23,13 +23,13 @@ export default function Welcome() {
 
             <Differencials />
 
-            <HowToGet />
+            {/* <HowToGet /> */}
 
             <Highlights />
 
             <EnjoyFortaleza />
-
-            <VideoArea />
+{/* 
+            <VideoArea /> */}
 
             {/* <OtherFortal /> */}
             <Footer />
