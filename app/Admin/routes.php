@@ -20,4 +20,5 @@ Route::group([
     $router->resource('tipo-eventos', 'EventTypeController');
     $router->resource('leads', 'ContactController');
     $router->resource('blog', 'PostController');
+    $router->resource('associados', 'AssociadoController');
 });

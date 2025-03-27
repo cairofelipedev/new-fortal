@@ -1,67 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-
-const associados = [
-  // Agência de Viagem
-  { nome: "CHANGE TURISMO", categoria: "agencia-de-viagem", imagem: "CHANGE TURISMO.jpg" },
-  { nome: "NAJA TURISMO", categoria: "agencia-de-viagem", imagem: "NAJA TURISMO.png" },
-
-  // Assessoria de Imprensa
-  { nome: "CAPUCHINO PRESS", categoria: "assessoria-de-imprensa", imagem: "CAPUCHINO.png" },
-
-  // Agência de Marketing Digital
-  { nome: "CS7 MKT DIGITAL", categoria: "agencia-de-marketing-digital", imagem: "CS7MKT.png" },
-  { nome: "AGÊNCIA ZEAL", categoria: "agencia-de-marketing-digital", imagem: "AGENCIA ZEAL.png" },
-
-  // Buffet
-  { nome: "LA MAISON", categoria: "buffet", imagem: "LA MAISON.png" },
-  { nome: "ILMAR GOURMET", categoria: "buffet", imagem: "ILMAR GOURMET.png" },
-
-  // Mestre de Cerimônia
-  { nome: "MILENA GADELHA", categoria: "mestre-de-cerimonia", imagem: "logo_milena_preta - Milena Gadelha Voz.png" },
-
-  // Montagem
-  { nome: "A&M PRODUÇÕES ARTÍSTICAS", categoria: "montagem", imagem: "A&M.jpg" },
-  { nome: "ARTE PRODUÇÕES", categoria: "montagem", imagem: "ARTE PRODUÇÕES.jpeg" },
-  { nome: "BRILHANTE EVENTOS", categoria: "montagem", imagem: "BRILHANTE EVENTOS.jpg" },
-  { nome: "MONTADORA EXPO PRODUÇÕES", categoria: "montagem", imagem: "MONTADORAEXPO.png" },
-  { nome: "LUMINART", categoria: "montagem", imagem: "LUMINART.png" },
-  { nome: "PHOENIX SOLUÇÕES", categoria: "montagem", imagem: "PHOENIX.png" },
-  { nome: "FIRMA PRODUÇÕES", categoria: "montagem", imagem: "FIRMA.png" },
-
-  // Tradução Simultânea
-  { nome: "ITI - INSTITUTO DE TRADUÇÃO E INTERPRETAÇÃO", categoria: "traducao-simultanea", imagem: "I.T.I..jpeg" },
-
-  // Segurança para Eventos
-  { nome: "GRUPO PERES", categoria: "seguranca-para-eventos", imagem: "PEREZ.jpg" },
-
-  // Restaurantes
-  { nome: "COLOSSO FORTALEZA", categoria: "restaurantes", imagem: "logo-colosso FORTALEZA.png" },
-  { nome: "CERVEJARIA TURATTI", categoria: "restaurantes", imagem: "TURATTI.png" },
-  { nome: "ILLA MARE", categoria: "restaurantes", imagem: "ILLA MARE.png" },
-  { nome: "BOTECO DO ILLA", categoria: "restaurantes", imagem: "BOTECO DO ILLA.png" },
-  { nome: "BOTECO DONA MARIA", categoria: "restaurantes", imagem: "BOTECO DONA MARIA.png" },
-  { nome: "COMPLEXO CROCOBEACH", categoria: "restaurantes", imagem: "CROCOBEACH.png" },
-  { nome: "GUARDERIA BRASIL", categoria: "restaurantes", imagem: "GUARDERIA BRASIL.jpeg" },
-  { nome: "CHICO DO CARANGUEJO PRAIA DO FUTURO", categoria: "restaurantes", imagem: "chico.png" },
-
-  // Organizadora de Eventos
-  { nome: "ARX EVENTOS", categoria: "organizadora-de-eventos", imagem: "Arx.png" },
-  { nome: "E + EVENTOS", categoria: "organizadora-de-eventos", imagem: "E.png" },
-  { nome: "ALAS EVENTOS", categoria: "organizadora-de-eventos", imagem: "ALAS.png" },
-  { nome: "KANGURU PROMOÇÕES", categoria: "organizadora-de-eventos", imagem: "KANGURU PRODUÇÕES.png" },
-  { nome: "KAKTUS EVENTOS", categoria: "organizadora-de-eventos", imagem: "KAKTUS.png" },
-  { nome: "MAESTRIA COMUNICAÇÃO E EVENTOS", categoria: "organizadora-de-eventos", imagem: "MAESTRIA.png" },
-  { nome: "PRÁTICA EVENTOS", categoria: "organizadora-de-eventos", imagem: "PRATICA.png" },
-  { nome: "THAIS SOMBRA EVENTOS CORPORATIVOS", categoria: "organizadora-de-eventos", imagem: "THAIS SOMBRA.png" },
-
-  // Receptivo e Transporte
-  { nome: "VM TURISMO", categoria: "receptivo-e-transporte", imagem: "VM TURISMO.png" },
-  { nome: "VITORINO TURISMO", categoria: "receptivo-e-transporte", imagem: "VITORINO TURISMO.png" },
-
-  // Limpeza Geral
-  { nome: "GRUPO INOVAR", categoria: "limpeza-geral", imagem: "INOVAR.jpg" },
-];
+import axios from "axios";
 
 const categoriasTraduzidas = {
   "agencia-de-viagem": "Agência de Viagem",
@@ -79,9 +18,18 @@ const categoriasTraduzidas = {
 };
 
 const ListaAssociados = () => {
+  const [associados, setAssociados] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("todos");
   const [termoBusca, setTermoBusca] = useState("");
 
+  // Buscar dados da API
+  useEffect(() => {
+    axios.get("/api/associados")
+      .then((response) => setAssociados(response.data))
+      .catch((error) => console.error("Erro ao buscar associados:", error));
+  }, []);
+
+  // Filtragem dos associados
   const associadosFiltrados = associados.filter((associado) => {
     const correspondeCategoria = categoriaSelecionada === "todos" || associado.categoria === categoriaSelecionada;
     const correspondeNome = associado.nome.toLowerCase().includes(termoBusca.toLowerCase());
@@ -128,14 +76,14 @@ const ListaAssociados = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }} // Prioriza os primeiros
+              transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }}
             >
               <img
-                src={`./images/associados/${associado.imagem}`}
+                src={`./uploads/${associado.imagem}`} // Agora pegando do backend
                 alt={associado.nome}
                 className="w-full rounded-t-lg object-cover min-h-[200px]"
-                loading={index < 6 ? "eager" : "lazy"} // Prioriza carregamento das primeiras imagens
-                fetchpriority={index < 6 ? "high" : "low"} // Força prioridade no carregamento inicial
+                loading={index < 6 ? "eager" : "lazy"}
+                fetchpriority={index < 6 ? "high" : "low"}
               />
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventSpaceController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -52,25 +53,30 @@ Route::get('/resultado-buscar-evento/search', [EventSpaceController::class, 'sea
 Route::get('/espaco-para-seu-evento/{slug}', [EventSpaceController::class, 'eventSpace']);
 
 Route::get('/espaco-para-seu-evento', function () {
-   return Inertia::render('Space/index');
+    return Inertia::render('Space/index');
 });
 
 Route::get('/calendario-eventos', function () {
-     return Inertia::render('CalendarEvents/index');
+    return Inertia::render('CalendarEvents/index');
 });
 
 Route::get('/inspecao', function () {
-     return Inertia::render('inspecao');
- });
+    return Inertia::render('inspecao');
+});
 
 Route::get('/porque-fortaleza', function () {
-     return Inertia::render('About/Index');
- });
+    return Inertia::render('About/Index');
+});
 
 Route::get('/associados', function () {
     return Inertia::render('Associates');
 });
 
+Route::get('/blog', function () {
+    return Inertia::render('Post/Index');
+});
+
+Route::get('/post/{slug}', [PostController::class, 'showPost']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {

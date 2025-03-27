@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AssociadoController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\EventSpaceController;
 use App\Http\Controllers\RDStationController;
 use Illuminate\Http\Request;
@@ -52,3 +54,9 @@ Route::get('/leads', [ContactController::class, 'index']);
 Route::get('/spaces', [EventSpaceController::class, 'list']);
 
 Route::get('/event-types', [EventTypeController::class, 'index']);
+
+Route::get('/associados', [AssociadoController::class, 'index']);
+
+Route::get('/posts', [PostController::class, 'index']); // Listar posts
+
+Route::get('/posts/{slug}', [PostController::class, 'show']); // Ver um post pelo slug

@@ -46,7 +46,6 @@ class PostController extends AdminController
         $show->field('content', 'Conteúdo')->unescape();
         $show->field('author', 'Autor');
         $show->field('image', 'Imagem')->image();
-        $show->field('slug', 'Slug');
         $show->field('published', 'Publicado')->as(function ($value) {
             return $value ? 'Sim' : 'Não';
         });
@@ -75,7 +74,6 @@ class PostController extends AdminController
         $form->textarea('content', 'Conteúdo')->rules('required');
         $form->text('author', 'Autor')->rules('nullable|max:100');
         $form->image('image', 'Imagem')->uniqueName()->removable();
-        $form->text('slug', 'Slug')->rules('required|unique:posts,slug,{{id}}');
         $form->switch('published', 'Publicado')->default(false);
         $form->datetime('published_at', 'Publicado em')->rules('nullable|date');
 
