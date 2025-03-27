@@ -24,7 +24,7 @@ export default function Show() {
                 Publicado em {new Date(post.published_at).toLocaleDateString("pt-BR")}
             </p>
             <img
-                src={`./uploads/${post.image}`}
+                src={`/uploads/${post.image}`}
                 alt={post.title}
                 className="w-full mt-4 rounded-lg"
             />
