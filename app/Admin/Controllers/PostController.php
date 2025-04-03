@@ -71,7 +71,7 @@ class PostController extends AdminController
 
         $form->display('id', __('ID'));
         $form->text('title', 'Título')->rules('required|min:3|max:255');
-        $form->textarea('content', 'Conteúdo')->rules('required');
+        $form->ckeditor('content', 'Conteúdo');
         $form->text('author', 'Autor')->rules('nullable|max:100');
         $form->image('image', 'Imagem')->uniqueName()->removable();
         $form->switch('published', 'Publicado')->default(false);

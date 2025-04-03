@@ -21,4 +21,6 @@ Route::group([
     $router->resource('leads', 'ContactController');
     $router->resource('blog', 'PostController');
     $router->resource('associados', 'AssociadoController');
+    $router->resource('sessao', 'SessaoController');
+    $router->resource('sessaoitem', 'SessaoItemController');
 });

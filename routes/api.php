@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Services\RDStationService;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventTypeController;
+use App\Http\Controllers\SessaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,5 @@ Route::get('/associados', [AssociadoController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']); // Listar posts
 
 Route::get('/posts/{slug}', [PostController::class, 'show']); // Ver um post pelo slug
+
+Route::get('/sessoes', [SessaoController::class, 'listarPorPagina']);
