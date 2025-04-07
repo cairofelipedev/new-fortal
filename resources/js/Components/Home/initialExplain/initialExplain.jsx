@@ -52,6 +52,8 @@ export default function InitialExplain() {
         });
     }, [loadedVideos]);
 
+    const isGrid = itens.length > 1;
+
     return (
         <section className={style.container}>
             <div className={`${style.infoArea} lg:grid lg:grid-cols-3 gap-10 space-y-5`}>
@@ -79,11 +81,10 @@ export default function InitialExplain() {
                     </div>
                 )}
 
-                {/* Grid de itens dinâmicos */}
                 <div className="col-span-2">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className={`${itens.length > 1 ? 'grid grid-cols-1 sm:grid-cols-2 gap-5' : ''}`}>
                         {itens.map((item, index) => (
-                            <div key={index} className="relative rounded-lg overflow-hidden shadow-lg">
+                            <div key={index} className="relative rounded-lg h-[250px] overflow-hidden shadow-lg">
                                 {item.tipo === 'video' && item.arquivo_video ? (
                                     <video
                                         ref={el => videoRefs.current[index] = el}
@@ -97,13 +98,13 @@ export default function InitialExplain() {
                                     />
                                 ) : item.tipo === 'imagem' && item.arquivo_imagem ? (
                                     <img
-                                        className="rounded-lg w-full h-full object-cover"
+                                        className="rounded-lg w-full object-cover"
                                         src={`./uploads/${item.arquivo_imagem}`}
                                         alt={item.titulo}
                                     />
                                 ) : null}
                                 <div className="absolute bottom-2 left-2 right-2 text-white bg-gray-500 bg-opacity-50 backdrop-blur-md p-2 rounded-lg">
-                                    <p className="text-white">{item.titulo}</p>
+                                    <p className="text-white text-center">{item.titulo}</p>
                                 </div>
                             </div>
                         ))}

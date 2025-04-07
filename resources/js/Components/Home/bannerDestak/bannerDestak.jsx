@@ -1,64 +1,106 @@
 import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import style from './bannerDestak.module.scss';
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function BannerDestak() {
-    const videoSrc = "https://acainograu.blob.core.windows.net/posts/PRONTO.mp4";
-    const videoRef = useRef(null);
-    const [videoLoaded, setVideoLoaded] = useState(false);
+    const [sessao, setSessao] = useState(null);
+    const [itens, setItens] = useState([]);
+    const videoRefs = useRef([]);
+    const [loadedVideos, setLoadedVideos] = useState({});
+
+    useEffect(() => {
+        axios.get('/api/sessoes?pagina=home&secao=banner-destaque')
+            .then(response => {
+                if (response.data.length > 0) {
+                    setSessao(response.data[0]);
+                    setItens(response.data[0].itens || []);
+                }
+            })
+            .catch(error => console.error("Erro ao buscar sessão do banner destaque:", error));
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setVideoLoaded(true);
+                    setLoadedVideos(prev => ({
+                        ...prev,
+                        [entry.target.dataset.index]: true
+                    }));
                 }
             });
         }, { threshold: 0.3 });
 
-        if (videoRef.current) {
-            observer.observe(videoRef.current);
-        }
+        videoRefs.current.forEach(video => {
+            if (video) observer.observe(video);
+        });
 
         return () => {
-            if (videoRef.current) {
-                observer.unobserve(videoRef.current);
-            }
+            videoRefs.current.forEach(video => {
+                if (video) observer.unobserve(video);
+            });
         };
-    }, []);
+    }, [itens]);
+
+    useEffect(() => {
+        videoRefs.current.forEach(video => {
+            if (video) {
+                video.playbackRate = 0.7;
+            }
+        });
+    }, [loadedVideos]);
+
+    if (!sessao || itens.length === 0) return null;
 
     return (
         <div className={`${style.container} lg:grid lg:grid-cols-2 gap-10 space-y-5 items-center pt-20`}>
-            {/* Vídeo com Lazy Loading */}
-            <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <video
-                    ref={videoRef}
-                    className="rounded-lg w-full h-full object-cover"
-                    src={videoLoaded ? videoSrc : ""}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                />
+            {/* Mídia (imagem ou vídeo) com lazy load */}
+            <div className="relative rounded-lg overflow-hidden shadow-lg h-[400px]">
+                {itens.map((item, index) => (
+                    <div key={index} className="w-full h-full">
+                        {item.tipo === 'video' && item.arquivo_video ? (
+                            <video
+                                ref={el => videoRefs.current[index] = el}
+                                data-index={index}
+                                className="rounded-lg w-full h-full object-cover"
+                                src={loadedVideos[index] ? item.arquivo_video : ""}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
+                        ) : item.tipo === 'imagem' && item.arquivo_imagem ? (
+                            <img
+                                className="rounded-lg w-full h-full object-cover"
+                                src={`./uploads/${item.arquivo_imagem}`}
+                                alt={item.titulo}
+                            />
+                        ) : null}
+                    </div>
+                ))}
             </div>
-
-            {/* Texto e botão */}
             <div>
-                <h1 className="font-neulis py-3 lg:text-6xl text-4xl">
-                    Planeje seu <b>evento</b> <br /> em Fortaleza
-                </h1>
-                <p className='text-justify lg:text-3xl text-2xl pb-5'>
-                    Os melhores eventos, festivais e atividades estão aqui
-                </p>
-                <a href="/planejador-de-eventos" className="mt-10">
-                    <button className="border text-xl font-semibold text-white bg-[#0C9C95] px-5 rounded-lg flex gap-3 items-center">
-                        Planeje seu evento
-                        <a href=""
-                            className="hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
-                            <FaArrowRightLong className="text-2xl" />
-                        </a>
-                    </button>
-                </a>
+                {sessao.titulo && (
+                    <h1 className="font-neulis py-3 lg:text-6xl text-4xl">
+                        {sessao.titulo}
+                    </h1>
+                )}
+                {sessao.subtitulo && (
+                    <p className="text-justify lg:text-3xl text-2xl pb-5">
+                        {sessao.subtitulo}
+                    </p>
+                )}
+                {sessao.botao_texto && sessao.botao_url && (
+                    <a href={sessao.botao_url} className="mt-10 inline-block">
+                        <button className="border text-xl font-semibold text-white bg-[#0C9C95] px-5 rounded-lg flex gap-3 items-center">
+                            {sessao.botao_texto}
+                            <span className="hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
+                                <FaArrowRightLong className="text-2xl" />
+                            </span>
+                        </button>
+                    </a>
+                )}
             </div>
         </div>
     );
