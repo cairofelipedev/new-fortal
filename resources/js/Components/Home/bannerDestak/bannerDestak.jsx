@@ -10,7 +10,7 @@ export default function BannerDestak() {
     const [loadedVideos, setLoadedVideos] = useState({});
 
     useEffect(() => {
-        axios.get('/api/sessoes?pagina=home&secao=banner-destaque')
+        axios.get('/api/sessoes?pagina=HOME&posicao=1')
             .then(response => {
                 if (response.data.length > 0) {
                     setSessao(response.data[0]);

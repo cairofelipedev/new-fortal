@@ -10,7 +10,7 @@ export default function InitialExplain() {
     const [loadedVideos, setLoadedVideos] = useState({});
 
     useEffect(() => {
-        axios.get('/api/sessoes?pagina=home')
+        axios.get('/api/sessoes?pagina=HOME&posicao=1')
             .then(response => {
                 if (response.data.length > 0) {
                     setSessao(response.data[0]); // Pegamos apenas a primeira sessão
@@ -62,7 +62,7 @@ export default function InitialExplain() {
                     <div className="col-span-1 lg:sticky top-5 lg:self-start lg:pt-20">
                         {sessao.titulo && (
                             <h1 className="font-neulis text-7xl font-regular">
-                                Conheça <b className="font-black text-[#0C9C95]">{sessao.titulo}</b>
+                                <b className="font-black text-[#0C9C95]">{sessao.titulo}</b>
                             </h1>
                         )}
                         {sessao.subtitulo && (

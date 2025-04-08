@@ -10,6 +10,7 @@ use App\Services\RDStationService;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventTypeController;
 use App\Http\Controllers\SessaoController;
+use App\Models\Testimonial;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,7 @@ Route::get('/posts', [PostController::class, 'index']); // Listar posts
 Route::get('/posts/{slug}', [PostController::class, 'show']); // Ver um post pelo slug
 
 Route::get('/sessoes', [SessaoController::class, 'listarPorPagina']);
+
+Route::get('/depoimentos', function () {
+    return Testimonial::all();
+});

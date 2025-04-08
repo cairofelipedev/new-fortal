@@ -17,6 +17,7 @@ class Sessao extends Model
         'botao_texto',
         'botao_url',
         'pagina',
+        'posicao'
     ];
 
     public function itens()

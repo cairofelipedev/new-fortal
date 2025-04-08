@@ -9,9 +9,14 @@ class SessaoController extends Controller
 {
     public function listarPorPagina(Request $request)
     {
-        $pagina = $request->query('pagina', 'HOME'); // Padrão: HOME
-        $sessoes = Sessao::where('pagina', $pagina)
-            ->with('itens') // Relacionamento com os itens da Sessão
+        $request->validate([
+            'pagina' => 'required|string',
+            'posicao' => 'required|integer|between:1,5',
+        ]);
+
+        $sessoes = Sessao::where('pagina', $request->pagina)
+            ->where('posicao', $request->posicao)
+            ->with('itens')
             ->get();
 
         return response()->json($sessoes);

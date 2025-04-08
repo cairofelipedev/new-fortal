@@ -23,4 +23,5 @@ Route::group([
     $router->resource('associados', 'AssociadoController');
     $router->resource('sessao', 'SessaoController');
     $router->resource('sessaoitem', 'SessaoItemController');
+    $router->resource('depoimentos', 'TestimonialController');
 });
