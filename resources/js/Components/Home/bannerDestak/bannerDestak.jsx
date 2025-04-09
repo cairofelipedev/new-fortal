@@ -10,7 +10,7 @@ export default function BannerDestak() {
     const [loadedVideos, setLoadedVideos] = useState({});
 
     useEffect(() => {
-        axios.get('/api/sessoes?pagina=HOME&posicao=1')
+        axios.get('/api/sessoes?pagina=HOME&posicao=2')
             .then(response => {
                 if (response.data.length > 0) {
                     setSessao(response.data[0]);
