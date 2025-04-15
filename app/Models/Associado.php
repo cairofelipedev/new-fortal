@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Associado extends Model
 {
@@ -24,4 +25,15 @@ class Associado extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($associado) {
+            if (empty($associado->slug)) {
+                $associado->slug = Str::slug($associado->nome);
+            }
+        });
+    }
 }

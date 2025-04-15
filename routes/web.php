@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssociadoController;
 use App\Http\Controllers\EventSpaceController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -77,6 +78,9 @@ Route::get('/blog', function () {
 });
 
 Route::get('/post/{slug}', [PostController::class, 'showPost']);
+
+Route::get('/associados/{slug}', [AssociadoController::class, 'showAssociate']);
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
