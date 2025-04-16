@@ -85,7 +85,7 @@ const ListaAssociados = () => {
                 <img
                   src={`./uploads/${associado.imagem}`} // Agora pegando do backend
                   alt={associado.nome}
-                  className="w-full rounded-t-lg object-cover min-h-[200px]"
+                  className="w-full rounded-t-lg object-cover h-[300px]"
                   loading={index < 6 ? "eager" : "lazy"}
                   fetchpriority={index < 6 ? "high" : "low"}
                 />

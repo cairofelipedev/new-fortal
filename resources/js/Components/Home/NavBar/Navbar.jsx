@@ -44,8 +44,8 @@ export default function NavBar({ scrollEffect = false }) {
 
                     {/* Desktop Menu */}
                     <div className={`${style.listLink}`}>
-                        <Link href="/">Home</Link>
-                        <Link href="/planejador-de-eventos">Planeje seu evento</Link>
+                        <Link href="/" className={style.linkHoverUnderline}>Home</Link>
+                        <Link href="/planejador-de-eventos" className={style.linkHoverUnderline}>Planeje seu evento</Link>
                         {/* <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                             <p className={style.link}>Planeje seu evento</p>
                             <div className={`${style.capulseDrop}`}>
@@ -72,7 +72,7 @@ export default function NavBar({ scrollEffect = false }) {
                                 </div>
                             </div>
                         </div> */}
-                        <Link href="/associados">Associados</Link>
+                        <Link href="/associados" className={style.linkHoverUnderline}>Associados</Link>
                     </div>
 
                     {/* Call To Action */}
