@@ -41,6 +41,11 @@ class AssociadoController extends AdminController
         $show->field('nome', 'Nome');
         $show->field('categoria', 'Categoria');
         $show->field('imagem', 'Imagem')->image();
+
+        $show->field('content', 'Conteúdo')->unescape()->as(function ($content) {
+            return $content;
+        });
+
         $show->field('created_at', 'Criado em')->as(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
@@ -76,7 +81,8 @@ class AssociadoController extends AdminController
         ])->rules('required');
 
         $form->image('imagem', 'Imagem')->uniqueName()->removable();
-
+        // 👇 Campo novo com CKEditor
+        $form->ckeditor('content', 'Conteúdo')->rules('nullable');
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
         $form->datetime('updated_at', 'Atualizado em')->default(now())->readonly();
 

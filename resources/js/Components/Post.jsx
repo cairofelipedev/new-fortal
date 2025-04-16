@@ -18,7 +18,7 @@ export default function Show() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg my-10">
+        <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mb-10 pt-40">
             <h1 className="text-3xl font-bold">{post.title}</h1>
             <p className="text-gray-500 text-sm">
                 Publicado em {new Date(post.published_at).toLocaleDateString("pt-BR")}
@@ -28,7 +28,7 @@ export default function Show() {
                 alt={post.title}
                 className="w-full mt-4 rounded-lg"
             />
-            <div className="mt-6 text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div className="mt-6 text-gray-700 leading-relaxed prose prose-img:rounded-lg prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4" dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
     );
 }

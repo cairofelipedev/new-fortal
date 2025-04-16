@@ -12,7 +12,7 @@ export default function PostsList() {
     }, []);
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-10 px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-20 px-10">
             {posts.map(post => (
                 <div key={post.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
                     <img

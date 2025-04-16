@@ -18,17 +18,14 @@ export default function Show() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg my-10">
-            <h1 className="text-3xl font-bold">{associete.title}</h1>
-            <p className="text-gray-500 text-sm">
-                Publicado em {new Date(associete.created_at).toLocaleDateString("pt-BR")}
-            </p>
+        <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg pt-20">
+            {/* <h1 className="text-3xl font-bold">{associete.title}</h1> */}
             <img
                 src={`/uploads/${associete.imagem}`}
                 alt={associete.title}
                 className="w-full mt-4 rounded-lg"
             />
-            <div className="mt-6 text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: associete.content }} />
+            <div className="mt-6 text-gray-700 leading-relaxed prose prose-img:rounded-lg prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4" dangerouslySetInnerHTML={{ __html: associete.content }} />
         </div>
     );
 }

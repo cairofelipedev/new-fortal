@@ -16,6 +16,7 @@ class Associado extends Model
         'nome',
         'categoria',
         'imagem',
+        'content'
     ];
 
     /**

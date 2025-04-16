@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { Link } from "@inertiajs/react";
 
 const categoriasTraduzidas = {
   "agencia-de-viagem": "Agência de Viagem",
@@ -78,19 +79,23 @@ const ListaAssociados = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }}
             >
-              <img
-                src={`./uploads/${associado.imagem}`} // Agora pegando do backend
-                alt={associado.nome}
-                className="w-full rounded-t-lg object-cover min-h-[200px]"
-                loading={index < 6 ? "eager" : "lazy"}
-                fetchpriority={index < 6 ? "high" : "low"}
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
-                <p className="text-gray-600 text-sm">
-                  {categoriasTraduzidas[associado.categoria] || associado.categoria}
-                </p>
-              </div>
+              <Link
+                href={`/associados/${associado.slug}`}
+              >
+                <img
+                  src={`./uploads/${associado.imagem}`} // Agora pegando do backend
+                  alt={associado.nome}
+                  className="w-full rounded-t-lg object-cover min-h-[200px]"
+                  loading={index < 6 ? "eager" : "lazy"}
+                  fetchpriority={index < 6 ? "high" : "low"}
+                />
+                <div className="p-4 text-center">
+                  <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
+                  <p className="text-gray-600 text-sm">
+                    {categoriasTraduzidas[associado.categoria] || associado.categoria}
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           ))
         ) : (
