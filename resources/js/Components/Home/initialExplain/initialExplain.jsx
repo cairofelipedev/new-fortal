@@ -61,16 +61,16 @@ export default function InitialExplain() {
                 {sessao && (
                     <div className="col-span-1 lg:sticky top-5 lg:self-start lg:pt-20">
                         {sessao.titulo && (
-                            <h1 className="font-neulis text-7xl font-regular">
+                            <h1 className="text-6xl font-regular uppercase tracking-widest">
                                 <b className="font-black text-[#0C9C95]">{sessao.titulo}</b>
                             </h1>
                         )}
                         {sessao.subtitulo && (
-                            <p className="text-3xl pb-5">{sessao.subtitulo}</p>
+                            <p className="text-3xl pb-5 text-gray-600">{sessao.subtitulo}</p>
                         )}
                         {sessao.botao_texto && sessao.botao_url && (
                             <a href={sessao.botao_url} className="mt-10">
-                                <button className="border text-xl font-semibold text-gray-700 bg-white px-5 rounded-lg flex gap-3 items-center">
+                                <button className="border text-xl bg-fortalorange font-semibold text-white px-5 rounded-lg flex gap-3 items-center">
                                     {sessao.botao_texto}
                                     <span className="hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
                                         <FaArrowRightLong className="text-2xl" />

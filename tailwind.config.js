@@ -13,7 +13,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                fortalorange: '#FF5607',
+                fortalorange: '#F57C29',
             },
             fontFamily: {
                 'neulis': ['Neulis', 'sans-serif'],
