@@ -24,7 +24,7 @@ export default function BannerHero() {
         <p className="lg:text-6xl text-5xl text-white font-black uppercase">Um evento pra se viver</p>
         {/* <p className="lg:text-7xl text-5xl text-white font-bold">e o bem estar se encontram!</p> */}
         <a href="/planejador-de-eventos" className="lg:mt-10 mt-5">
-          <button className="lg:text-3xl text-2xl font-bold text-gray-700 bg-white px-10 py-4 rounded-full flex gap-3 items-center">
+          <button className="lg:text-3xl text-2xl font-bold text-white bg-fortalorange px-10 py-4 rounded-full flex gap-3 items-center">
             Planeje seu evento
             <a href="/planejador-de-eventos" target="_blank" rel="noopener noreferrer"
               className="text-white bg-orange-500 hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-full">

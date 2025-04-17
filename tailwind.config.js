@@ -18,6 +18,7 @@ export default {
             fontFamily: {
                 'neulis': ['Neulis', 'sans-serif'],
                 'urbanist': ['Urbanist', 'sans-serif'],
+                'raleway': ['Raleway', 'sans-serif'],
             },
         },
     },
