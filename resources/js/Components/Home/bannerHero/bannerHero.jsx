@@ -2,7 +2,7 @@ import { IoMdSend } from "react-icons/io";
 
 export default function BannerHero() {
   return (
-    <section className="relative lg:h-[600px] pt-16">
+    <section className="relative lg:h-[600px] pt-16 lg:pt-0">
       <video
         className="absolute object-cover w-full h-full"
         src="https://acainograu.blob.core.windows.net/posts/PRONTO.mp4"
@@ -24,7 +24,7 @@ export default function BannerHero() {
         <p className="lg:text-6xl text-5xl text-white font-black uppercase">Um evento pra se viver</p>
         {/* <p className="lg:text-7xl text-5xl text-white font-bold">e o bem estar se encontram!</p> */}
         <a href="/planejador-de-eventos" className="lg:mt-10 mt-5">
-          <button className="lg:text-3xl text-2xl font-bold text-white bg-fortalorange px-10 py-4 rounded-full flex gap-3 items-center">
+          <button className="lg:text-3xl text-2xl font-bold text-white bg-fortalorange px-10 py-4 rounded-full flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300">
             Planeje seu evento
             <a href="/planejador-de-eventos" target="_blank" rel="noopener noreferrer"
               className="text-white bg-orange-500 hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-full">

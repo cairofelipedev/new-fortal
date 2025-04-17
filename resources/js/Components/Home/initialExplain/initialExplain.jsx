@@ -70,7 +70,7 @@ export default function InitialExplain() {
                         )}
                         {sessao.botao_texto && sessao.botao_url && (
                             <a href={sessao.botao_url} className="mt-10">
-                                <button className="border text-xl bg-fortalorange font-semibold text-white px-5 rounded-lg flex gap-3 items-center">
+                                <button className="border text-xl bg-fortalorange font-semibold text-white px-5 rounded-lg flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300">
                                     {sessao.botao_texto}
                                     <span className="hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
                                         <FaArrowRightLong className="text-2xl" />
