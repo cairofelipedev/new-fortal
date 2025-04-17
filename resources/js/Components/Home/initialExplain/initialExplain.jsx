@@ -61,7 +61,7 @@ export default function InitialExplain() {
                 {sessao && (
                     <div className="col-span-1 lg:sticky top-5 lg:self-start lg:pt-20">
                         {sessao.titulo && (
-                            <h1 className="text-6xl font-regular uppercase tracking-widest">
+                            <h1 className="lg:text-6xl text-4xl uppercase tracking-widest">
                                 <b className="font-raleway font-black text-[#0C9C95]">{sessao.titulo}</b>
                             </h1>
                         )}

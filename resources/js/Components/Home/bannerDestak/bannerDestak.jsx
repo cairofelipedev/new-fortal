@@ -83,7 +83,7 @@ export default function BannerDestak() {
                 </div>
                 <div>
                     {sessao.titulo && (
-                        <h1 className="font-raleway font-black text-[#0C9C95] py-3 lg:text-6xl text-4xl">
+                        <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-6xl text-4xl">
                             {sessao.titulo}
                         </h1>
                     )}

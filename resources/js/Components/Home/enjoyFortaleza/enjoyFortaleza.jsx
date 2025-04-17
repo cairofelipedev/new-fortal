@@ -21,7 +21,7 @@ export default function EnjoyFortaleza() {
                         </div>
                         <div className={style.text} id="aproveite-fortaleza">
                             <span className="text-2xl text-gray-700">Lazer e Cultura</span>
-                            <h2 className="font-raleway uppercase text-4xl font-black text-[#0C9C95]">Aproveite Fortaleza</h2>
+                            <h2 className="font-raleway uppercase lg:text-6xl text-4xl font-black text-[#0C9C95]">Aproveite Fortaleza</h2>
                         </div>
                     </div>
 

@@ -2,7 +2,7 @@ import { IoMdSend } from "react-icons/io";
 
 export default function BannerHero() {
   return (
-    <section className="relative lg:h-[600px]">
+    <section className="relative lg:h-[600px] pt-16">
       <video
         className="absolute object-cover w-full h-full"
         src="https://acainograu.blob.core.windows.net/posts/PRONTO.mp4"
