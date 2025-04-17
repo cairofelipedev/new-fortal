@@ -2,7 +2,7 @@ import style from './enjoyFortaleza.module.scss'
 
 export default function EnjoyFortaleza() {
     return (
-        <div className="bg-gray-100 pt-5">
+        <div className="bg-white pt-5">
             <section className={`${style.container} z-10`}>
                 {/* Title Area */}
                 <div className={style.titleArea}>
