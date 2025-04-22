@@ -46,34 +46,77 @@ export default function NavBar({ scrollEffect = false }) {
                     <div className="flex gap-10 uppercase text-gray-500">
                         <div className={`${style.listLink}`}>
                             <Link href="/" className={`tracking-widest ${style.linkHoverUnderline}`}>Home</Link>
-                            <Link href="/planejador-de-eventos" className={`tracking-widest ${style.linkHoverUnderline}`}>Planeje seu evento</Link>
-                            {/* <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
-                            <p className={style.link}>Planeje seu evento</p>
-                            <div className={`${style.capulseDrop}`}>
-                                <div className={style.dropDown}>
-                                    <a href='/porque-fortaleza' className={style.columnDrop}>
-                                        <div className={style.iconArea}>
-                                            <FaRegSun className="text-xl" />
-                                        </div>
-                                        <div className={style.textArea}>
-                                            <h2>Porque Fortaleza</h2>
-                                            <p>Entenda nosso diferencial</p>
-                                        </div>
-                                    </a>
-
-                                    <a href={`/planejador-de-eventos`} className={style.columnDrop}>
-                                        <div className={style.iconArea}>
-                                            <FaBuilding className="text-xl" />
-                                        </div>
-                                        <div className={style.textArea}>
-                                            <h2>Espaços para eventos</h2>
-                                            <p>O ideal pro seu evento</p>
-                                        </div>
-                                    </a>
+                            <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
+                                <p className={style.link}>Planeje seu evento</p>
+                                <div className={`${style.capulseDrop}`}>
+                                    <div className={style.dropDown}>
+                                        <a href='/planejador-de-eventos' className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaRegSun className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Planejador de Eventos</h2>
+                                                <p>Entenda nosso diferencial</p>
+                                            </div>
+                                        </a>
+                                        <a href={`/planejador-de-eventos`} className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaBuilding className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Espaços para eventos</h2>
+                                                <p>O ideal pro seu evento</p>
+                                            </div>
+                                        </a>
+                                        <a href='/porque-fortaleza' className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaRegSun className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Serviços</h2>
+                                                {/* <p>Entenda nosso diferencial</p> */}
+                                            </div>
+                                        </a>
+                                        <a href='/porque-fortaleza' className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaRegSun className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Organizadoras</h2>
+                                                {/* <p>Entenda nosso diferencial</p> */}
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div> */}
-                            <Link href="/associados" className={`tracking-widest ${style.linkHoverUnderline}`}>Associados</Link>
+                            <Link href="/associados" className={`tracking-widest ${style.linkHoverUnderline}`}>Imprensa</Link>
+                            <Link href="/associados" className={`tracking-widest ${style.linkHoverUnderline}`}>Contato</Link>
+                            <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
+                                <p className={style.link}>Sobre Fortaleza</p>
+                                <div className={`${style.capulseDrop}`}>
+                                    <div className={style.dropDown}>
+                                        <a href='/planejador-de-eventos' className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaRegSun className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Quem Somos</h2>
+                                                <p>Entenda nosso diferencial</p>
+                                            </div>
+                                        </a>
+                                        <a href={`/planejador-de-eventos`} className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaBuilding className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Fale Conosco</h2>
+                                                <p>O ideal pro seu evento</p>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Call To Action */}
