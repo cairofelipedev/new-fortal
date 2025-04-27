@@ -32,11 +32,15 @@
 
         .textArea {
             span {
-                color: #373737;
+                color:#807f7f
             }
             h2 {
                 font-weight: 500;
                 line-height: 100%;
+            }
+            b {
+                font-weight: 600;
+                color: #0C9C95;
             }
         }
     }
@@ -85,8 +89,8 @@
             gap: 20px;
             width: fit-content;
             font-weight: 600;
-            padding: 10px 10px 10px 38px;   
-            border-radius: 80px;         
+            padding: 10px 10px 10px 38px;
+            border-radius: 80px;
 
             .areaIcon {
                 display: flex;
@@ -107,7 +111,7 @@
 }
 
 
-// Right 
+// Right
 .rightArea {
     width: 50%;
 
@@ -154,7 +158,7 @@
                         font-size: 18px;
                         font-weight: 600;
                     }
-                    
+
                 }
             }
         }

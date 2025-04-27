@@ -55,7 +55,7 @@ export default function Testemonial() {
                     </div>
                     <div className={style.text}>
                         <span>Encontre o local ideal em hotéis, centros de</span>
-                        <h2>Nossos Associados</h2>
+                        <h2><b>Nossos Associados</b></h2>
                     </div>
                 </div>
             </div>
