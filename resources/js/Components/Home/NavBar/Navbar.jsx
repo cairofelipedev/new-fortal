@@ -92,7 +92,7 @@ export default function NavBar({ scrollEffect = false }) {
                             <Link href="/associados" className={`tracking-widest ${style.linkHoverUnderline}`}>Imprensa</Link>
                             <Link href="/associados" className={`tracking-widest ${style.linkHoverUnderline}`}>Contato</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
-                                <p className={style.link}>Sobre Fortaleza</p>
+                                <a  href='/sobre-fortaleza' className={style.link}>Sobre Fortaleza</a>
                                 <div className={`${style.capulseDrop}`}>
                                     <div className={style.dropDown}>
                                         <a href='/planejador-de-eventos' className={style.columnDrop}>
