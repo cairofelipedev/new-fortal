@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssociadoController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\EventSpaceController;
 use App\Http\Controllers\RDStationController;
@@ -70,3 +71,5 @@ Route::get('/sessoes', [SessaoController::class, 'listarPorPagina']);
 Route::get('/depoimentos', function () {
     return Testimonial::all();
 });
+
+Route::get('/banners', [BannerController::class, 'index']);

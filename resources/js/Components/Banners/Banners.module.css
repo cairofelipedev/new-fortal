@@ -1,0 +1,64 @@
+.container {
+    position: relative;
+}
+
+
+
+
+/* banner */
+.bannersConteainer .active-slide {
+    background-color: #B6D048;
+    cursor: pointer;
+}
+
+.bannersConteainer .active-slide h3 {
+    color: #ffffff;
+}
+
+.bannersConteainer .slick-next {
+    display: none !important;
+}
+
+.bannersConteainer {
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.gradientBottomBar {
+    height: 10px;
+    width: 100%;
+    background: rgb(182, 208, 72);
+    background: linear-gradient(73deg, rgba(182, 208, 72, 1) 0%, rgba(1, 203, 209, 1) 25%, rgba(183, 143, 204, 1) 50%, rgba(254, 82, 105, 1) 75%, rgba(96, 35, 128, 1) 100%);
+}
+
+/* Slider Buttons */
+.sliderButtonsList {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    z-index: 99;
+}
+
+.sliderButton {
+    position: relative;
+    background-color: #ffffff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.sliderButton:not(:last-child) {
+    margin-right: 10px;
+}
+
+.sliderButton.active::after {
+    content: '';
+    top: 7px;
+    left: 7px;
+    position: absolute;
+    background-color: #7F5CE6;
+    border-radius: 10px;
+    height: 10px;
+    width: 10px;
+}

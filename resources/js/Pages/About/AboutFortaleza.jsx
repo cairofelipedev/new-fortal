@@ -11,6 +11,7 @@ import { Head } from '@inertiajs/react';
 import InitialAboutFortaleza from '@/Components/About/initialAbout/InitialAboutFortaleza';
 import Differencials from '@/Components/About/differencials/differencials';
 import HowToGet from '@/Components/About/howToGet/howToGet';
+import SimpleSlider from '@/Components/Banners/BannersHome';
 
 export default function Welcome() {
     return (
@@ -18,7 +19,7 @@ export default function Welcome() {
             <Head title="Porquê Fortaleza?" />
 
             <NavBar />
-
+            <SimpleSlider />
             <InitialAboutFortaleza />
 
             <Differencials />
