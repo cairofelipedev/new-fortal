@@ -90,6 +90,7 @@ class SessaoController extends AdminController
             ->options([
                 'HOME' => 'HOME',
                 'PORQUEFORTALEZA' => 'PORQUEFORTALEZA',
+                'SOBREFORTALEZA' => 'SOBREFORTALEZA',
             ])
             ->rules('required');
         $form->select('posicao', 'Posição')

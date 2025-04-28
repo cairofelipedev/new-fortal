@@ -31,10 +31,15 @@
             font-weight: 500;
             span {
                 font-size: 14px;
+                color:#807f7f
             }
             h2 {
                 font-size: 24px;
                 line-height: 100%;
+            }
+            b {
+                font-weight: 600;
+                color: #0C9C95;
             }
         }
     }
@@ -62,7 +67,7 @@
     align-items: center;
     max-width: 1200px;
     margin:  0 auto;
-    
+
     .testemonialArea {
         display: flex;
         flex-direction: column;
@@ -91,7 +96,7 @@
             font-weight: 600;
             color: #2D2D2D;
         }
-        
+
         span {
             font-size: 14px;
             color: #777777;

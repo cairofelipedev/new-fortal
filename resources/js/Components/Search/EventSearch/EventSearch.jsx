@@ -33,8 +33,8 @@ const EventSearch = () => {
                 <div className={style.leftArea}>
                     <div className={style.titleArea}>
                         <div className={style.textArea}>
-                            <span className="text-2xl"><b>Encontre</b> o local ideal em hotéis, centros de convenções e espaços</span>
-                            <h2 className="text-4xl">Organize seu evento no Ceará</h2>
+                            <span className="text-lg font-raleway pb-4"><b className="text-[#0C9C95]">Encontre</b> o local ideal em hotéis, centros de convenções e espaços</span>
+                            <h2 className="text-4xl"><b>Organize seu evento no Ceará</b></h2>
                         </div>
                     </div>
 

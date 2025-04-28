@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import style from './bannerDestak.module.scss';
+import style from './initialAboutFortaleza.module.scss';
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function BannerDestak() {
@@ -10,7 +10,7 @@ export default function BannerDestak() {
     const [loadedVideos, setLoadedVideos] = useState({});
 
     useEffect(() => {
-        axios.get('/api/sessoes?pagina=HOME&posicao=2')
+        axios.get('/api/sessoes?pagina=SOBREFORTALEZA&posicao=1')
             .then(response => {
                 if (response.data.length > 0) {
                     setSessao(response.data[0]);

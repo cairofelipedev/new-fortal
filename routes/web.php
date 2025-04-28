@@ -82,6 +82,11 @@ Route::get('/post/{slug}', [PostController::class, 'showPost']);
 Route::get('/associados/{slug}', [AssociadoController::class, 'showAssociate']);
 
 
+Route::get('/sobre-fortaleza', function () {
+    return Inertia::render('About/AboutFortaleza');
+});
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get(

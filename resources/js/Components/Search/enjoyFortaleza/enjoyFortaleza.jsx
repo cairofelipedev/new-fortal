@@ -20,40 +20,40 @@ export default function EnjoyFortaleza(){
                     </div>
                     <div className={style.text}>
                         <span>O melhor de Fortaleza!</span>
-                        <h2>Serviços parceiros</h2>
+                        <h2><b>Serviços parceiros</b></h2>
                     </div>
                 </div>
 
-   
+
             </div>
 
             {/* Area Cards */}
             <div className={style.areaCards}>
-                <Card 
+                <Card
                     img={'./images/differencials/4.jpg'}
                     alt={'Diversão'}
                     name={'Espaços para eventos'}
                     description={'Escolha entre centro de convenções, salões em hotéis ou lugares singulares incríveis como cenários!'}
                 />
-                <Card 
+                <Card
                     img={'./images/differencials/1.jpg'}
                     alt={'Acomodaçoes'}
                     name={'Acomodaçoes'}
                     description={'De pousadas a hotéis temáticos ou luxuosos temos as melhores opções para seu evento.'}
                 />
-                <Card 
+                <Card
                     img={'./images/differencials/2.jpg'}
                     alt={'Organizadores locais'}
                     name={'Organizadores locais'}
                     description={'encontre parceiros  com grande experiência na gestão e realização de eventos para auxiliar o seu planejamento ou  execução e criar experiências memoráveis.'}
                 />
-                <Card 
+                <Card
                     img={'./images/enjoy/4.png'}
                     alt={'Operadores de turismo receptivo'}
                     name={'Operadores de turismo receptivo'}
                     description={'Para transporte e passeios complementares, temos especialistas de destinos para tornar a  logística perfeita!'}
                 />
-                <Card 
+                <Card
                     img={'./images/enjoy/4.png'}
                     alt={'Serviços de apoio a eventos'}
                     name={'Serviços de apoio a eventos'}
