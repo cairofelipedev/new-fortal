@@ -86,6 +86,13 @@ Route::get('/sobre-fortaleza', function () {
     return Inertia::render('About/AboutFortaleza');
 });
 
+Route::get('/imprensa', function () {
+    return Inertia::render('Imprensa/Imprensa');
+});
+
+Route::get('/associa-se', function () {
+    return Inertia::render('Associa-se/Associa-se');
+});
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {

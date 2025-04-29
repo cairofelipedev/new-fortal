@@ -56,7 +56,6 @@ export default function NavBar({ scrollEffect = false }) {
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Planejador de Eventos</h2>
-                                                <p>Entenda nosso diferencial</p>
                                             </div>
                                         </a>
                                         <a href={`/planejador-de-eventos`} className={style.columnDrop}>
@@ -65,7 +64,6 @@ export default function NavBar({ scrollEffect = false }) {
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Espaços para eventos</h2>
-                                                <p>O ideal pro seu evento</p>
                                             </div>
                                         </a>
                                         <a href='/porque-fortaleza' className={style.columnDrop}>
@@ -89,31 +87,36 @@ export default function NavBar({ scrollEffect = false }) {
                                     </div>
                                 </div>
                             </div>
-                            <Link href="/associados" className={`tracking-widest ${style.linkHoverUnderline}`}>Imprensa</Link>
+                            <Link href="/imprensa" className={`tracking-widest ${style.linkHoverUnderline}`}>Imprensa</Link>
                             <Link href="/associados" className={`tracking-widest ${style.linkHoverUnderline}`}>Contato</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                                 <a  href='/sobre-fortaleza' className={style.link}>Sobre Fortaleza</a>
                                 <div className={`${style.capulseDrop}`}>
                                     <div className={style.dropDown}>
-                                        <a href='/planejador-de-eventos' className={style.columnDrop}>
+                                        <a href='/quem-somos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
                                                 <FaRegSun className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Quem Somos</h2>
-                                                <p>Entenda nosso diferencial</p>
                                             </div>
                                         </a>
-                                        <a href={`/planejador-de-eventos`} className={style.columnDrop}>
+                                        <a href={`/associa-se`} className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaBuilding className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Associa-se</h2>
+                                            </div>
+                                        </a>
+                                        <a href={`/fale-conosco`} className={style.columnDrop}>
                                             <div className={style.iconArea}>
                                                 <FaBuilding className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Fale Conosco</h2>
-                                                <p>O ideal pro seu evento</p>
                                             </div>
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
