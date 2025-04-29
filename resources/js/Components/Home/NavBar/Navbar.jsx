@@ -47,7 +47,7 @@ export default function NavBar({ scrollEffect = false }) {
                         <div className={`${style.listLink}`}>
                             <Link href="/" className={`tracking-widest ${style.linkHoverUnderline}`}>Home</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
-                                <p className={style.link}>Planeje seu evento</p>
+                                <p className={style.link}>Eventos</p>
                                 <div className={`${style.capulseDrop}`}>
                                     <div className={style.dropDown}>
                                         <a href='/planejador-de-eventos' className={style.columnDrop}>

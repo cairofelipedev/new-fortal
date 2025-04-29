@@ -19,14 +19,16 @@ export default function Welcome() {
             <Head title="Porquê Fortaleza?" />
 
             <NavBar />
-            <SimpleSlider />
             <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-6xl text-4xl">
-                Organizadoras
+                Quem Somos
             </h1>
 
 
             <p className="text-gray-600 text-justify lg:text-3xl text-2xl pb-5">
-                Organizar eventos em Fortaleza é mais do que realizar negócios, é oferecer experiências. Nossa equipe está pronta para ajudar com:
+                O Fortaleza Convention & Visitors Bureau / Visite Ceará foi fundado em 1996 e é uma entidade privada sem fins lucrativos, congregando diversos associados, que representam todos os segmentos ligados à atividade turística. Manter relacionamento com todos os segmentos econômicos que, direta ou indiretamente, se beneficiam do turismo.
+
+                A Instituição tem como objetivo ampliar o número de visitantes no destino e, consequentemente, aumentar o volume de negócios e o mercado de consumo, por meio da cadeia produtiva do turismo. As atividades são realizadas por meio de ações de promoção, capacitação profissional, captação, geração e incremento de eventos e negócios.
+
             </p>
 
             <Footer />

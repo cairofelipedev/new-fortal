@@ -129,7 +129,7 @@ Route::get('/organizadoras', function () {
 });
 
 Route::get('/quem-somos', function () {
-    return Inertia::render('AboutUs');
+    return Inertia::render('About/AboutUs');
 });
 
 Route::get('/associe-se', function () {

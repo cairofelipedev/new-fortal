@@ -64,8 +64,14 @@ class BannerController extends AdminController
         $form->text('name', 'Nome')->rules('required|min:3|max:255');
         $form->image('image_desktop', 'Imagem Desktop')->uniqueName()->removable();
         $form->image('image_mobile', 'Imagem Mobile')->uniqueName()->removable();
-        $form->text('page', 'Página')->rules('nullable|max:255');
-
+        $form->select('page', 'Página')
+            ->options([
+                'HOME' => 'HOME',
+                'PORQUEFORTALEZA' => 'PORQUEFORTALEZA',
+                'SOBREFORTALEZA' => 'SOBREFORTALEZA',
+                'ORGANIZADORAS' => 'ORGANIZADORAS',
+            ])
+            ->rules('required');
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
         $form->datetime('updated_at', 'Atualizado em')->default(now())->readonly();
 
