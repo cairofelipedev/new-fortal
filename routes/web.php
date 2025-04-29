@@ -69,9 +69,9 @@ Route::get('/porque-fortaleza', function () {
     return Inertia::render('About/Index');
 });
 
-Route::get('/associados', function () {
-    return Inertia::render('Associates');
-});
+// Route::get('/associados', function () {
+//     return Inertia::render('Associates');
+// });
 
 Route::get('/blog', function () {
     return Inertia::render('Post/Index');
@@ -113,3 +113,30 @@ Route::middleware(['auth', 'verified'])->group(function () {
         )->name('dashboard/leads');
     });
 });
+
+Route::get('/espaco-para-eventos', [EventSpaceController::class, 'searchSpaceEvent']);
+
+// Route::get('/espaco-para-eventos', function () {
+//     return Inertia::render('SpaceForEvents');
+// });
+
+Route::get('/servicos', function () {
+    return Inertia::render('Associates');
+});
+
+Route::get('/organizadoras', function () {
+    return Inertia::render('Organizations');
+});
+
+Route::get('/quem-somos', function () {
+    return Inertia::render('AboutUs');
+});
+
+Route::get('/associe-se', function () {
+    return Inertia::render('IndexAssociete');
+});
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+});
+

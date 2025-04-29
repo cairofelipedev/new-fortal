@@ -278,4 +278,74 @@ class EventSpaceController extends Controller
             'space' => $space
         ]);
     }
+
+    public function searchSpaceEvent(Request $request)
+    {
+        $query = EventSpace::query();
+
+        // Adicione os filtros dinâmicos
+        if ($request->filled('name')) {
+            $query->where('name', 'like', "%{$request->name}%");
+        }
+
+        if ($request->filled('city')) {
+            $query->where('city', 'like', "%{$request->city}%");
+        }
+
+        if ($request->filled('state')) {
+            $query->where('state', 'like', "%{$request->state}%");
+        }
+
+        if ($request->filled('zip_codes')) {
+            $query->where('zip_codes', 'like', "%{$request->zip_codes}%");
+        }
+
+        if ($request->filled('address')) {
+            $query->where('address', 'like', "%{$request->address}%");
+        }
+
+        // Filtro para capacidade
+        if ($request->filled('capacity')) {
+            $query->where('capacity', '>=', $request->capacity);
+        }
+
+        // Filtro para total_rentable_event_rooms
+        if ($request->filled('total_rentable_event_rooms')) {
+            $query->where('total_rentable_event_rooms', '>=', $request->total_rentable_event_rooms);
+        }
+
+        // Filtro para total_event_area
+        if ($request->filled('total_event_area')) {
+            $query->where('total_event_area', '>=', $request->total_event_area);
+        }
+
+        if ($request->filled('phone')) {
+            $query->where('phone', 'like', "%{$request->phone}%");
+        }
+
+        // Ajuste do filtro para 'type' com base no nome
+        if ($request->filled('type')) {
+            $typeName = $request->type;
+
+            // Subconsulta para buscar o ID do tipo
+            $typeId = DB::table('event_types')
+                ->where('name', $typeName)
+                ->value('id');
+
+            if ($typeId) {
+                $query->where('type', $typeId);
+            } else {
+                // Se o tipo não for encontrado, retorna um resultado vazio
+                return Inertia::render('Search/SearchResults', [
+                    'results' => [],
+                ]);
+            }
+        }
+
+        $results = $query->get();
+
+        return Inertia::render('SpaceForEvents', [
+            'results' => $results,
+        ]);
+    }
 }
