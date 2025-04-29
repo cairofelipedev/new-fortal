@@ -2,8 +2,8 @@ import { Head, usePage } from "@inertiajs/react";
 import style from '@/Components/SearchResults/ResultSpaceForEvent.module.scss';
 import NavBar from "@/Components/Home/NavBar/Navbar";
 import Footer from "@/Components/Footer";
-import SearchSpace from "@/Components/Space/searchSpace/searchSpace";
-import EventSearch from "@/Components/Search/EventSearch/EventSearch";
+import EventSearchForSpace from "@/Components/Search/EventSearch/EventSearchForSpace";
+import SimpleSlider from "@/Components/Banners/BannersHome";
 
 export default function ResultSearch() {
     const { props } = usePage();
@@ -13,7 +13,8 @@ export default function ResultSearch() {
         <>
             <Head title="Resultado da Busca" />
             <NavBar />
-            <EventSearch />
+            <SimpleSlider page="EVENTOS" />
+            <EventSearchForSpace />
             <section className={style.container}>
                 {/* Título e resumo */}
                 <div className={style.titleArea}>

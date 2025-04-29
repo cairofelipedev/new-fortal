@@ -90,10 +90,6 @@ Route::get('/imprensa', function () {
     return Inertia::render('Imprensa/Imprensa');
 });
 
-Route::get('/associa-se', function () {
-    return Inertia::render('Associa-se/Associa-se');
-});
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get(
@@ -140,10 +136,10 @@ Route::get('/quem-somos', function () {
 });
 
 Route::get('/associe-se', function () {
-    return Inertia::render('IndexAssociete');
+    return Inertia::render('Associase/IndexAssociete');
 });
 
-Route::get('/contact', function () {
+Route::get('/contato', function () {
     return Inertia::render('Contact');
 });
 

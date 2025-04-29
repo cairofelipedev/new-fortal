@@ -6,7 +6,7 @@ import style from './Banners.module.css';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-export default function SimpleSlider() {
+export default function SimpleSlider({ page = 'sobrefortaleza' }) {
     const [isMobile, setIsMobile] = useState(false);
     const [banners, setBanners] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ export default function SimpleSlider() {
     useEffect(() => {
         const fetchBanners = async () => {
             try {
-                const response = await axios.get('/api/banners?page=sobrefortaleza');
+                const response = await axios.get(`/api/banners?page=${page}`);
                 setBanners(response.data);
                 setLoading(false);
             } catch (error) {
@@ -37,7 +37,7 @@ export default function SimpleSlider() {
         };
 
         fetchBanners();
-    }, []);
+    }, [page]);
 
     const CustomPrevArrow = ({ onClick }) => (
         <div
@@ -81,15 +81,14 @@ export default function SimpleSlider() {
         zIndex: "1"
     };
 
-    // Configuração do slider com ajuste para quando houver apenas um banner
     const settings = {
         dots: false,
-        infinite: banners.length > 1,  // Ajuste para infinito apenas se houver mais de um banner
+        infinite: banners.length > 1,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        prevArrow: banners.length > 1 ? <CustomPrevArrow /> : null,  // Exibe seta esquerda somente se houver mais de um banner
-        nextArrow: banners.length > 1 ? <CustomNextArrow /> : null   // Exibe seta direita somente se houver mais de um banner
+        prevArrow: banners.length > 1 ? <CustomPrevArrow /> : null,
+        nextArrow: banners.length > 1 ? <CustomNextArrow /> : null
     };
 
     return (
@@ -97,11 +96,7 @@ export default function SimpleSlider() {
             {loading ? (
                 <div>
                     <article>
-                        <Skeleton
-                            height={isMobile ? 350 : 400}
-                        // baseColor="#7F5CE6"
-                        // highlightColor="#9b79ec"
-                        />
+                        <Skeleton height={isMobile ? 350 : 400} />
                     </article>
                 </div>
             ) : (

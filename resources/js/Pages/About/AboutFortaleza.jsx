@@ -21,18 +21,6 @@ export default function Welcome() {
             <NavBar />
             <SimpleSlider />
             <InitialAboutFortaleza />
-
-            <Differencials />
-
-            {/* <HowToGet /> */}
-
-            <Highlights />
-
-            {/* <EnjoyFortaleza /> */}
-            {/* 
-            <VideoArea /> */}
-
-            {/* <OtherFortal /> */}
             <Footer />
         </>
     );

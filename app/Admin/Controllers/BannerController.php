@@ -67,9 +67,10 @@ class BannerController extends AdminController
         $form->select('page', 'Página')
             ->options([
                 'HOME' => 'HOME',
-                'PORQUEFORTALEZA' => 'PORQUEFORTALEZA',
-                'SOBREFORTALEZA' => 'SOBREFORTALEZA',
+                'PORQUEFORTALEZA' => 'PORQUE FORTALEZA',
+                'SOBREFORTALEZA' => 'SOBRE FORTALEZA',
                 'ORGANIZADORAS' => 'ORGANIZADORAS',
+                'EVENTOS' => 'ESPAÇOS PARA EVENTOS',
             ])
             ->rules('required');
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
