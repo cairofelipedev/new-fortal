@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import style from "@/Components/Search/videoArea/videoArea.module.scss";
 
 const ContactFields = ({ optionalFields = [], companyId }) => {
     const [formData, setFormData] = useState({
@@ -39,7 +40,10 @@ const ContactFields = ({ optionalFields = [], companyId }) => {
                 name: "",
                 email: "",
                 company_id: companyId || "",
-                ...optionalFields.reduce((acc, field) => ({ ...acc, [field]: "" }), {}),
+                ...optionalFields.reduce(
+                    (acc, field) => ({ ...acc, [field]: "" }),
+                    {}
+                ),
             });
         } catch (error) {
             if (error.response?.status === 422) {
@@ -62,16 +66,24 @@ const ContactFields = ({ optionalFields = [], companyId }) => {
     return (
         <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 pt-28">
             <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-xl p-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
-                    Quero <span className="text-blue-600">Reservar!</span>
-                </h1>
-                <p className="text-gray-600 mb-8 text-center">
-                    Preencha o formulário abaixo e a equipe responsável pelo local entrará em contato com você.
-                </p>
+                <h2 className="uppercase tracking-widest font-raleway font-black text-[#0c9c95] py-5 lg:text-3xl text-xl text-center">
+                    Quero Reservar!
+                </h2>
+                <div className={style.infoArea3}>
+                    <p className={`${style.description} text-md`}>
+                        Preencha o formulário abaixo e a equipe responsável pelo
+                        local entrará em contato com você.
+                    </p>
+                </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Seu Nome</label>
+                        <label
+                            htmlFor="name"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            Seu Nome
+                        </label>
                         <input
                             type="text"
                             id="name"
@@ -81,11 +93,20 @@ const ContactFields = ({ optionalFields = [], companyId }) => {
                             required
                             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         />
-                        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                        {errors.name && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.name}
+                            </p>
+                        )}
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">E-mail</label>
+                        <label
+                            htmlFor="email"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            E-mail
+                        </label>
                         <input
                             type="email"
                             id="email"
@@ -95,15 +116,31 @@ const ContactFields = ({ optionalFields = [], companyId }) => {
                             required
                             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         />
-                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                        {errors.email && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.email}
+                            </p>
+                        )}
                     </div>
 
-                    <input type="hidden" name="company_id" value={formData.company_id} />
+                    <input
+                        type="hidden"
+                        name="company_id"
+                        value={formData.company_id}
+                    />
 
                     {optionalFields.map((field) => (
                         <div key={field}>
-                            <label htmlFor={field} className="block text-sm font-medium text-gray-700">
-                                {fieldLabels[field] || field.replace(/_/g, " ").replace(/^./, str => str.toUpperCase())}
+                            <label
+                                htmlFor={field}
+                                className="block text-sm font-medium text-gray-700"
+                            >
+                                {fieldLabels[field] ||
+                                    field
+                                        .replace(/_/g, " ")
+                                        .replace(/^./, (str) =>
+                                            str.toUpperCase()
+                                        )}
                             </label>
                             <input
                                 type={field === "birthdate" ? "date" : "text"}
@@ -113,14 +150,18 @@ const ContactFields = ({ optionalFields = [], companyId }) => {
                                 onChange={handleChange}
                                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                             />
-                            {errors[field] && <p className="text-red-500 text-sm mt-1">{errors[field]}</p>}
+                            {errors[field] && (
+                                <p className="text-red-500 text-sm mt-1">
+                                    {errors[field]}
+                                </p>
+                            )}
                         </div>
                     ))}
 
-                    <div>
+                    <div className="flex justify-center">
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-200"
+                            className="lg:text-2xl text-lg font-bold text-white bg-fortalorange px-10 py-4 rounded-full flex items-center justify-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300"
                         >
                             Enviar
                         </button>
