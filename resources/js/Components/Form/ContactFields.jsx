@@ -60,7 +60,7 @@ const ContactFields = ({ optionalFields = [], companyId }) => {
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 pt-40">
+        <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 pt-28">
             <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-xl p-8">
                 <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
                     Quero <span className="text-blue-600">Reservar!</span>

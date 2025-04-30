@@ -76,7 +76,7 @@
             width: 50%;
             height: 100%;
             // max-width: 400px;
-            
+
             video {
                 height: 100%;
                 object-fit: cover;
@@ -137,7 +137,7 @@
                     height: 24px;
                     border: 1px solid #fff;
                     border-radius: 50%;
-                    
+
                     svg {
                         height: 8px;
                         path {
@@ -199,10 +199,10 @@
 
         .internalArea {
             flex-direction: column;
-    
+
             .videoArea {
                 width: 100%;
-    
+
                 video {
                     width: 100%;
                 }
