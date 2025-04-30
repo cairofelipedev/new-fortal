@@ -18,7 +18,7 @@ export default function Welcome() {
             <Head title="Porquê Fortaleza?" />
 
             <NavBar />
-
+            <SimpleSlider page="PORQUEFORTALEZA"/>
             <BannerDestak pagina="PORQUEFORTALEZA" posicao={1} />
             <Footer />
         </>
