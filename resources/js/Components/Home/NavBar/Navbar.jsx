@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from '@inertiajs/react';
 import { FiMenu, FiHome } from 'react-icons/fi';
 import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaUser } from "react-icons/fa";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRightLong, FaDiceD20 } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiHome2Fill } from "react-icons/ri";
 import { FaHandsHelping } from "react-icons/fa";
@@ -52,7 +52,7 @@ export default function NavBar({ scrollEffect = false }) {
                                     <div className={style.dropDown}>
                                         <a href='/planejador-de-eventos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaRegSun className="text-xl" />
+                                                <FaDiceD20Z className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Planejador de Eventos</h2>
@@ -100,7 +100,7 @@ export default function NavBar({ scrollEffect = false }) {
                                                 <h2>Quem Somos</h2>
                                             </div>
                                         </a>
-                                        <a href={`/associa-se`} className={style.columnDrop}>
+                                        <a href={`/associe-se`} className={style.columnDrop}>
                                             <div className={style.iconArea}>
                                                 <FaBuilding className="text-xl" />
                                             </div>

@@ -10,7 +10,7 @@ export default function Welcome() {
             <NavBar />
 
             <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-4xl text-4xl pt-32 px-10">
-                Quem Somos
+                Associe-se
             </h1>
 
             <p className="text-gray-600 text-justify lg:text-lg text-lg pb-5 px-12">
@@ -29,6 +29,8 @@ export default function Welcome() {
                 região. Preencha o formulário e identifique o plano de anuidade
                 que corresponde ao seu tipo de estabelecimento, envie para que
                 nossa equipe entre em contato.
+                <br />
+                <br />
                 <span className="text-md text-red-600">
                     Precisa de ajuda ou quer mais informações? Chame no
                     XXXXXXXXX

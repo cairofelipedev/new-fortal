@@ -29,7 +29,7 @@ const EventSearchForSpace = () => {
                 <div className={style.leftArea}>
                     <div className={style.titleArea}>
                         <div className={style.textArea}>
-                            <span className="text-lg font-raleway pb-4"><b className="">Encontre</b> o local ideal em hotéis, centros de convenções e espaços</span>
+                            <span className="text-lg font-raleway pb-4">Encontre o local ideal em hotéis, centros de convenções e espaços</span>
                             <h2 className="text-4xl"><b>Organize seu evento no Ceará</b></h2>
                         </div>
                     </div>

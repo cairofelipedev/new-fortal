@@ -19,7 +19,7 @@ export default function ResultSearch() {
             {/* Area Results */}
             <div className={style.AreaResults}>
 
-                <CardResult 
+                <CardResult
                     img={'./images/hotel.png'}
                     name={'Adagio SP Barra Funda'}
                     region={'Destino Centro & Zona Norte'}
@@ -29,7 +29,7 @@ export default function ResultSearch() {
                     furthestAirport={'Aeroporto de Guarulhos - 29 km'}
                     tel={'(85) 9 9400-0000'}
                 />
-                <CardResult 
+                <CardResult
                     img={'./images/hotel.png'}
                     name={'Adagio SP Barra Funda'}
                     region={'Destino Centro & Zona Norte'}
@@ -39,7 +39,7 @@ export default function ResultSearch() {
                     furthestAirport={'Aeroporto de Guarulhos - 29 km'}
                     tel={'(85) 9 9400-0000'}
                 />
-                <CardResult 
+                <CardResult
                     img={'./images/hotel.png'}
                     name={'Adagio SP Barra Funda'}
                     region={'Destino Centro & Zona Norte'}
