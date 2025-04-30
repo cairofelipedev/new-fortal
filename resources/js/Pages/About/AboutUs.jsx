@@ -9,9 +9,9 @@ export default function Welcome() {
             <Head title="Quem Somos" />
 
             <NavBar />
-
-            <BannerDestak pagina="QUEMSOMOS" posicao={1} />
-
+            <div className="pt-20">
+                <BannerDestak pagina="QUEMSOMOS" posicao={1} />
+            </div>
             <Footer />
         </>
     );

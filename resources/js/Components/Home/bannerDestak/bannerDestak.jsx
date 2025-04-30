@@ -90,7 +90,7 @@ export default function BannerDestak({ pagina, posicao }) {
                         {/* Conteúdo textual */}
                         <div className={hasItens ? '' : 'w-full'}>
                             {sessao.titulo && (
-                                <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-2xl text-xl">
+                                <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-3xl text-xl">
                                     {sessao.titulo}
                                 </h1>
                             )}
