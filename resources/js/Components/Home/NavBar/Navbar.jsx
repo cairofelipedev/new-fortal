@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from '@inertiajs/react';
 import { FiMenu } from 'react-icons/fi';
-import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaUser } from "react-icons/fa";
+import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaSearchLocation, FaToolbox, FaRegHandshake  } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiHome2Fill } from "react-icons/ri";
@@ -52,7 +52,7 @@ export default function NavBar({ scrollEffect = false }) {
                                     <div className={style.dropDown}>
                                         <a href='/planejador-de-eventos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaBuilding className="text-xl" />
+                                                <FaSearchLocation  className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Planejador de Eventos</h2>
@@ -68,7 +68,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href='/servicos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaRegSun className="text-xl" />
+                                                <FaToolbox  className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Serviços</h2>
@@ -77,7 +77,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href='/organizadoras' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaRegSun className="text-xl" />
+                                                <FaRegHandshake className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Organizadoras</h2>
