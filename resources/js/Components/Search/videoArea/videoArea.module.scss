@@ -12,6 +12,27 @@
     left: 0px;
 }
 
+.infoArea2 {
+    font-weight: 500;
+    span {
+        // font-size: 14px;
+        color: #646464;
+    }
+    .title {
+        // font-size: 36px;
+
+        b {
+            font-weight: 600;
+            color: #0C9C95;
+        }
+    }
+    .description {
+        margin-top: 20px;
+        color: #555555;
+        margin-bottom: 30px;
+        text-align: justify;
+    }
+}
 // Info Area
 .infoArea {
     width: 45%;
