@@ -62,8 +62,8 @@ export function CardResult({ img, name, location, cep, capacity, services, tel, 
                     {/* Área da imagem */}
 
                     <div className={style.areaImage}>
-                        <div className={style.iconArea}>
-                            {/* <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* <div className={style.iconArea}>
+                            <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_207_607)">
                                     <path d="M0 1.5V15.2406C0 15.6594 0.340625 16 0.759375 16C0.915625 16 1.06875 15.9531 1.19687 15.8625L6 12.5L10.8031 15.8625C10.9313 15.9531 11.0844 16 11.2406 16C11.6594 16 12 15.6594 12 15.2406V1.5C12 0.671875 11.3281 0 10.5 0H1.5C0.671875 0 0 0.671875 0 1.5Z" fill="#0C9C95" />
                                 </g>
@@ -72,8 +72,8 @@ export function CardResult({ img, name, location, cep, capacity, services, tel, 
                                         <rect width="12" height="16" fill="white" />
                                     </clipPath>
                                 </defs>
-                            </svg> */}
-                        </div>
+                            </svg>
+                        </div> */}
                         <img src={img} alt={`Imagem de ${name}`} />
                     </div>
 

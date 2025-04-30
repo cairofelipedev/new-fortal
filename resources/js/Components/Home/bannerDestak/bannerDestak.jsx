@@ -55,7 +55,7 @@ export default function BannerDestak({ pagina, posicao }) {
                 const hasItens = sessao.itens && sessao.itens.length > 0;
 
                 return (
-                    <div key={sessao.id} className={`${style.container} ${hasItens ? 'lg:grid lg:grid-cols-2 gap-10' : ''} items-center pt-20`}>
+                    <div key={sessao.id} className={`${style.container} ${hasItens ? 'lg:grid lg:grid-cols-2 gap-10' : ''} items-center pt-5`}>
                         {/* Mídia (se existir) */}
                         {hasItens && (
                             <div className="relative rounded-lg overflow-hidden shadow-lg">
