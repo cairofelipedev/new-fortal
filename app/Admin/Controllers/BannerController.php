@@ -71,6 +71,8 @@ class BannerController extends AdminController
                 'SOBREFORTALEZA' => 'SOBRE FORTALEZA',
                 'ORGANIZADORAS' => 'ORGANIZADORAS',
                 'EVENTOS' => 'ESPAÇOS PARA EVENTOS',
+                'ASSOCIESE ' => 'ASSOCIE-SE',
+                'QUEMS0MOS ' => 'QUEM SOMOS',
             ])
             ->rules('required');
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();

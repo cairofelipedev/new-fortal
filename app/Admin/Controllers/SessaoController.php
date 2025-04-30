@@ -56,6 +56,7 @@ class SessaoController extends AdminController
         $show->field('id', 'ID');
         $show->field('titulo', 'Título');
         $show->field('subtitulo', 'Subtítulo');
+        $show->field('conteudo', 'Conteúdo');
         $show->field('botao_texto', 'Texto do botão');
         $show->field('botao_url', 'URL do botão');
         $show->field('pagina', 'Página');
@@ -84,13 +85,15 @@ class SessaoController extends AdminController
         $form->display('id', 'ID');
         $form->text('titulo', 'Título')->rules('required');
         $form->text('subtitulo', 'Subtítulo')->rules('nullable');
+        $form->ckeditor('conteudo', 'Conteúdo')->rules('nullable');
         $form->text('botao_texto', 'Texto do botão')->rules('nullable');
         $form->url('botao_url', 'URL do botão')->rules('nullable|url');
         $form->select('pagina', 'Página')
             ->options([
                 'HOME' => 'HOME',
-                'PORQUEFORTALEZA' => 'PORQUEFORTALEZA',
-                'SOBREFORTALEZA' => 'SOBREFORTALEZA',
+                'PORQUEFORTALEZA' => 'PORQUE FORTALEZA',
+                'SOBREFORTALEZA' => 'SOBRE FORTALEZA',
+                'ORGANIZADORAS' => 'ORGANIZADORAS',
             ])
             ->rules('required');
         $form->select('posicao', 'Posição')

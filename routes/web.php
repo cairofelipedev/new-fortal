@@ -73,9 +73,9 @@ Route::get('/porque-fortaleza', function () {
 //     return Inertia::render('Associates');
 // });
 
-Route::get('/blog', function () {
-    return Inertia::render('Post/Index');
-});
+// Route::get('/blog', function () {
+//     return Inertia::render('Post/Index');
+// });
 
 Route::get('/post/{slug}', [PostController::class, 'showPost']);
 
@@ -87,7 +87,7 @@ Route::get('/sobre-fortaleza', function () {
 });
 
 Route::get('/imprensa', function () {
-    return Inertia::render('Imprensa/Imprensa');
+    return Inertia::render('Post/Index');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

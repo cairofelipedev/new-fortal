@@ -19,15 +19,8 @@ export default function Welcome() {
             <Head title="Porquê Fortaleza?" />
 
             <NavBar />
-            <SimpleSlider />
-            <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-6xl text-4xl">
-                Organizadoras
-            </h1>
-
-
-            <p className="text-gray-600 text-justify lg:text-3xl text-2xl pb-5">
-                Organizar eventos em Fortaleza é mais do que realizar negócios, é oferecer experiências. Nossa equipe está pronta para ajudar com:
-            </p>
+            <SimpleSlider page="ORGANIZADORAS"/>
+            <BannerDestak pagina="ORGANIZADORAS" posicao={1} />
 
             <Footer />
         </>
