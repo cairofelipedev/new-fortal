@@ -34,7 +34,7 @@ export default function NavBar({ scrollEffect = false }) {
 
     return (
         <>
-            <nav className={`fixed w-full transition-colors duration-300 ${isMenuOpen ? 'bg-white' : scrollEffect ? (isScrolled ? 'bg-white' : 'bg-transparent') : 'bg-white'} z-20`}>
+            <nav className={`shadow fixed w-full transition-colors duration-300 ${isMenuOpen ? 'bg-white' : scrollEffect ? (isScrolled ? 'bg-white' : 'bg-transparent') : 'bg-white'} z-20`}>
                 {/* <div className="h-4 bg-gradient-to-r from-[#F57C29] to-[#FFCC00]"></div> */}
 
                 <div className={`${style.internalNav} max-w-7xl`}>

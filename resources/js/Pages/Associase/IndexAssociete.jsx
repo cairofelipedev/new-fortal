@@ -2,13 +2,17 @@ import Footer from "@/Components/Footer";
 import NavBar from "@/Components/Home/NavBar/Navbar";
 import { Head } from "@inertiajs/react";
 import BannerDestak from '@/Components/Home/bannerDestak/bannerDestak';
+import ContactFields from "@/Components/Form/ContactFields";
 
 export default function Welcome() {
     return (
         <>
             <Head title="Associe-se" />
             <NavBar />
-            <BannerDestak pagina="ASSOCIESE" posicao={1} />
+            <div className="pt-20">
+                <BannerDestak pagina="ASSOCIESE" posicao={1} />
+            </div>
+            <ContactFields optionalFields={optionalFields} companyId={companyId} />
             <Footer />
         </>
     );
