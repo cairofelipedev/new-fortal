@@ -2,9 +2,9 @@
     display: flex;
     gap: 80px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding-top: 40px;
+    padding-top: 100px;
 }
 
 .lineDeco {
@@ -19,7 +19,7 @@
     padding: 10px;
     span {
         // font-size: 14px;
-        color: #373737;
+        color: #646464;
     }
     .title {
         // font-size: 36px;
@@ -33,7 +33,7 @@
     .description {
         margin-top: 20px;
         max-width: 450px;
-        color: #948A77;
+        color: #555555;
         margin-bottom: 30px;
         text-align: justify;
     }

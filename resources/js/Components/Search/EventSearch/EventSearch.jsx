@@ -33,7 +33,7 @@ const EventSearch = () => {
                 <div className={style.leftArea}>
                     <div className={style.titleArea}>
                         <div className={style.textArea}>
-                            <span className="text-lg font-raleway pb-4"><b className="text-[#0C9C95]">Encontre</b> o local ideal em hotéis, centros de convenções e espaços</span>
+                            <span className="lg:text-lg font-raleway pb-4">Encontre o local ideal em hotéis, centros de convenções e espaços</span>
                             <h2 className="text-4xl"><b>Organize seu evento no Ceará</b></h2>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ const EventSearch = () => {
                             placeholder="Número de Salas"
                         />
 
-                        <button type="submit">
+                        <button className="lg:text-3xl text-2xl font-bold text-white bg-fortalorange px-10 py-4 rounded-full flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300" type="submit">
                             Buscar
                             <div className={style.areaIcon}>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

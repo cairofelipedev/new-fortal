@@ -6,7 +6,7 @@ export default function VideoArea() {
             {/* Info Area */}
             <div className={style.infoArea}>
                 <span className="text-3xl lg:text-4xl">O melhor de Fortaleza</span>
-                <h2 className={`text-4xl text-[#807f7f] ${style.title}`}>Planeje seu <b>evento</b></h2>
+                <h2 className={`uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-6xl text-4xl ${style.title}`}>Planeje seu evento</h2>
                 <p className={`${style.description}  text-lg`}>
                     Organizar eventos em Fortaleza é mais do que realizar negócios, é oferecer experiências. Aqui você encontrar recursos para ajudar você a navegar facilmente pelas opções de espaços de eventos e toda a logística para realizar um evento em nossa cidade.
                     <br />
