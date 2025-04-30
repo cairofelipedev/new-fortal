@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link } from '@inertiajs/react';
 import { FiMenu, FiHome } from 'react-icons/fi';
 import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaUser } from "react-icons/fa";
-import { FaArrowRightLong, FaDiceD20 } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { LuTextSearch } from "react-icons/lu";
+import { LiaHandshakeSolid } from "react-icons/lia";
+import { TbExclamationMark } from "react-icons/tb";
+import { MdWork, MdQuestionMark  } from "react-icons/md";
+import { RiPhoneFill } from "react-icons/ri";
+
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiHome2Fill } from "react-icons/ri";
 import { FaHandsHelping } from "react-icons/fa";
@@ -52,7 +58,7 @@ export default function NavBar({ scrollEffect = false }) {
                                     <div className={style.dropDown}>
                                         <a href='/planejador-de-eventos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaDiceD20Z className="text-xl" />
+                                                <LuTextSearch className="text-white text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Planejador de Eventos</h2>
@@ -77,7 +83,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href='/organizadoras' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaRegSun className="text-xl" />
+                                                <LiaHandshakeSolid className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Organizadoras</h2>
@@ -94,7 +100,7 @@ export default function NavBar({ scrollEffect = false }) {
                                     <div className={style.dropDown}>
                                         <a href='/quem-somos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaRegSun className="text-xl" />
+                                                <TbExclamationMark className="text-white text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Quem Somos</h2>
@@ -102,15 +108,15 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href={`/associe-se`} className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaBuilding className="text-xl" />
+                                                <MdWork className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
-                                                <h2>Associa-se</h2>
+                                                <h2>Associe-se</h2>
                                             </div>
                                         </a>
                                         <a href={`/porque-fortaleza`} className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaBuilding className="text-xl" />
+                                                <MdQuestionMark className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Porque Fortaleza</h2>
@@ -118,7 +124,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href={`/contato`} className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaBuilding className="text-xl" />
+                                                <RiPhoneFill className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Fale Conosco</h2>
