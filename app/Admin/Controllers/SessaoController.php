@@ -94,6 +94,8 @@ class SessaoController extends AdminController
                 'PORQUEFORTALEZA' => 'PORQUE FORTALEZA',
                 'SOBREFORTALEZA' => 'SOBRE FORTALEZA',
                 'ORGANIZADORAS' => 'ORGANIZADORAS',
+                'QUEMSOMOS' => 'QUEM SOMOS',
+                'ASSOCIESE' => 'ASSOCIE-SE',
             ])
             ->rules('required');
         $form->select('posicao', 'Posição')
