@@ -108,6 +108,14 @@ export default function NavBar({ scrollEffect = false }) {
                                                 <h2>Associa-se</h2>
                                             </div>
                                         </a>
+                                        <a href={`/porque-fortaleza`} className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaBuilding className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Porque Fortaleza</h2>
+                                            </div>
+                                        </a>
                                         <a href={`/contato`} className={style.columnDrop}>
                                             <div className={style.iconArea}>
                                                 <FaBuilding className="text-xl" />

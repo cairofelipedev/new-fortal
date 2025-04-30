@@ -19,19 +19,7 @@ export default function Welcome() {
 
             <NavBar />
 
-            <InitialExplain />
-
-            <Differencials />
-
-            {/* <HowToGet /> */}
-
-            <Highlights />
-
-            {/* <EnjoyFortaleza /> */}
-{/* 
-            <VideoArea /> */}
-
-            {/* <OtherFortal /> */}
+            <BannerDestak pagina="PORQUEFORTALEZA" posicao={1} />
             <Footer />
         </>
     );
