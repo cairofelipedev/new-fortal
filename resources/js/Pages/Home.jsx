@@ -22,7 +22,7 @@ export default function Welcome() {
 
             {/* <Highlights /> */}
 
-            <BannerDestak />
+            <BannerDestak pagina="HOME" posicao={2} />
 
             <EnjoyFortaleza />
 

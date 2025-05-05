@@ -56,12 +56,12 @@ export default function InitialExplain() {
 
     return (
         <section className={style.container}>
-            <div className={`${style.infoArea} lg:grid lg:grid-cols-3 gap-10 space-y-5`}>
+            <div className={`${style.infoArea} lg:grid lg:grid-cols-3 gap-5 space-y-5`}>
                 {/* Texto fixo dinâmico */}
                 {sessao && (
                     <div className="col-span-1 lg:sticky top-5 lg:self-start lg:pt-20">
                         {sessao.titulo && (
-                            <h1 className="lg:text-6xl text-4xl uppercase tracking-widest">
+                            <h1 className="lg:text-5xl text-4xl uppercase tracking-widest">
                                 <b className="font-raleway font-black text-[#0C9C95]">{sessao.titulo}</b>
                             </h1>
                         )}
