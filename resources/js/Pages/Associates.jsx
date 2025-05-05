@@ -10,8 +10,8 @@ export default function Welcome() {
         <>
             <Head title="Associados" />
             <NavBar />
-            <BannerHero />
-            <SimpleSlider page="ORGANIZADORAS" />
+            {/* <BannerHero /> */}
+            <SimpleSlider page="SERVICOS" />
             <ListaAssociados />
             <Footer />
         </>

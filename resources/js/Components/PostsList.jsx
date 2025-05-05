@@ -15,9 +15,9 @@ export default function PostsList() {
 
     return (
         <div>
-            <div className={style.infoArea2}>
-                <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-6xl text-4xl pt-28 px-10">
-                    Impressa
+            <div className={`${style.infoArea2} max-w-7xl mx-auto`}>
+                <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-3 lg:text-5xl text-4xl pt-28 px-10 text-center">
+                    Imprensa
                 </h1>
                 <p className={`${style.description} px-12 text-lg`}>
                     Espaço para artigos exclusivos escritos pela Assessoria e
@@ -33,7 +33,7 @@ export default function PostsList() {
                      Aqui você pode encontrar informações sobre  eventos que foram Cases de sucesso em nosso destino.
                 </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-5 px-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 pt-5  max-w-7xl mx-auto">
                 {posts.map((post) => (
                     <div
                         key={post.id}

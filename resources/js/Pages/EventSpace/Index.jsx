@@ -12,7 +12,7 @@ export default function Product() {
             {/* <Head title={productName ? productName : 'Produtos'} /> */}
             <NavBar />
 
-            <SearchSpace />
+            {/* <SearchSpace /> */}
 
             <EventSpace />
             

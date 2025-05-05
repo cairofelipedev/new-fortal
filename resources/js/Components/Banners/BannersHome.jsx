@@ -100,13 +100,47 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                     </article>
                 </div>
             ) : (
-                <Slider {...settings} className="lg:mb-20 mb-5">
+                <Slider {...settings}>
                     {banners.map((banner) => (
                         <div key={banner.id}>
                             {isMobile ? (
-                                <img src={`/uploads/${banner.image_mobile}`} className="w-full" alt={banner.name} />
+                                <section className="relative lg:h-[600px] overflow-hidden">
+                                    <img
+                                        className="absolute object-cover w-full h-full"
+                                        src={`/uploads/${banner.image_mobile}`}
+                                    />
+
+                                    {/* Overlay escuro */}
+                                    <div className="absolute inset-0 bg-black opacity-10"></div>
+
+                                    {/* Conteúdo */}
+                                    <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
+                                        <div className="lg:px-20 px-5">
+                                            <p className="lg:text-9xl text-6xl text-white font-bold">{banner.name}</p>
+                                            {/* <p className="lg:text-7xl text-5xl text-white font-bold">Os principais segmentos estão aqui</p> */}
+                                        </div>
+                                    </div>
+                                </section>
+
                             ) : (
-                                <img src={`/uploads/${banner.image_desktop}`} className="w-full" alt={banner.name} />
+                                <section className="relative lg:h-[600px] overflow-hidden">
+                                    <img
+                                        className="absolute object-cover w-full h-full"
+                                        src={`/uploads/${banner.image_desktop}`}
+                                    />
+
+                                    {/* Overlay escuro */}
+                                    <div className="absolute inset-0 bg-black opacity-10"></div>
+
+                                    {/* Conteúdo */}
+                                    <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
+                                        <div className="lg:px-20 px-5">
+                                            <p className="lg:text-9xl text-6xl text-white font-bold">{banner.name}</p>
+                                            {/* <p className="lg:text-7xl text-5xl text-white font-bold">Os principais segmentos estão aqui</p> */}
+                                        </div>
+                                    </div>
+                                </section>
+
                             )}
                         </div>
                     ))}

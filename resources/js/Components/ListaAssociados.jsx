@@ -38,71 +38,73 @@ const ListaAssociados = () => {
   });
 
   return (
-    <div className="p-5 bg-gray-50 min-h-screen lg:px-20">
-      <p className="lg:text-4xl text-4xl text-center mb-6">
-        Conheça nossas empresas <b>associadas</b>
-      </p>
+    <div className="bg-gray-50">
+      <div className="p-5 min-h-screen lg:px-20  max-w-7xl mx-auto">
+        <p className="lg:text-4xl text-4xl text-center mb-6">
+          Conheça nossas empresas <b>associadas</b>
+        </p>
 
-      {/* Filtros */}
-      <div className="grid grid-cols-2 justify-center items-center gap-4 mb-8 p-4 bg-[#0C9C95] lg:rounded-full shadow-lg rounded-lg">
-        <select
-          value={categoriaSelecionada}
-          onChange={(e) => setCategoriaSelecionada(e.target.value)}
-          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
-        >
-          <option value="todos">Todos</option>
-          {Array.from(new Set(associados.map((a) => a.categoria))).map((categoria) => (
-            <option key={categoria} value={categoria}>
-              {categoriasTraduzidas[categoria] || categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-            </option>
-          ))}
-        </select>
+        {/* Filtros */}
+        <div className="grid grid-cols-2 justify-center items-center gap-4 mb-8 p-4 bg-[#0C9C95] lg:rounded-full shadow-lg rounded-lg">
+          <select
+            value={categoriaSelecionada}
+            onChange={(e) => setCategoriaSelecionada(e.target.value)}
+            className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+          >
+            <option value="todos">Todos</option>
+            {Array.from(new Set(associados.map((a) => a.categoria))).map((categoria) => (
+              <option key={categoria} value={categoria}>
+                {categoriasTraduzidas[categoria] || categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+              </option>
+            ))}
+          </select>
 
-        <input
-          type="text"
-          placeholder="Buscar por nome..."
-          value={termoBusca}
-          onChange={(e) => setTermoBusca(e.target.value)}
-          className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
-        />
-      </div>
+          <input
+            type="text"
+            placeholder="Buscar por nome..."
+            value={termoBusca}
+            onChange={(e) => setTermoBusca(e.target.value)}
+            className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+          />
+        </div>
 
-      {/* Grid Masonry */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-        {associadosFiltrados.length > 0 ? (
-          associadosFiltrados.map((associado, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow break-inside-avoid"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }}
-            >
-              <Link
-                href={`/associados/${associado.slug}`}
+        {/* Grid Masonry */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          {associadosFiltrados.length > 0 ? (
+            associadosFiltrados.map((associado, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow break-inside-avoid"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }}
               >
-                <img
-                  src={`./uploads/${associado.imagem}`} // Agora pegando do backend
-                  alt={associado.nome}
-                  className="w-full rounded-t-lg object-cover h-[300px]"
-                  loading={index < 6 ? "eager" : "lazy"}
-                  fetchpriority={index < 6 ? "high" : "low"}
-                />
-                <div className="p-4 text-center">
-                  <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
-                  <p className="text-gray-600 text-sm">
-                    {categoriasTraduzidas[associado.categoria] || associado.categoria}
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
-          ))
-        ) : (
-          <p className="text-gray-600 col-span-3 text-center">
-            Nenhum associado encontrado.
-          </p>
-        )}
+                <Link
+                  href={`/associados/${associado.slug}`}
+                >
+                  <img
+                    src={`./uploads/${associado.imagem}`} // Agora pegando do backend
+                    alt={associado.nome}
+                    className="w-full rounded-t-lg object-cover h-[300px]"
+                    loading={index < 6 ? "eager" : "lazy"}
+                    fetchpriority={index < 6 ? "high" : "low"}
+                  />
+                  <div className="p-4 text-center">
+                    <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
+                    <p className="text-gray-600 text-sm">
+                      {categoriasTraduzidas[associado.categoria] || associado.categoria}
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))
+          ) : (
+            <p className="text-gray-600 col-span-3 text-center">
+              Nenhum associado encontrado.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
