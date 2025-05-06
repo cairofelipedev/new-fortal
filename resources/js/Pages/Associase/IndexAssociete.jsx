@@ -4,7 +4,7 @@ import { Head } from "@inertiajs/react";
 import BannerDestak from '@/Components/Home/bannerDestak/bannerDestak';
 import ContactFields from "@/Components/Form/ContactFields";
 
-export default function Welcome() {
+export default function IndexAssociete({ optionalFields = [], companyId }) {
     return (
         <>
             <Head title="Associe-se" />

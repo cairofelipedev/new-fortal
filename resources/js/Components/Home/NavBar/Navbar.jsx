@@ -52,7 +52,7 @@ export default function NavBar({ scrollEffect = false }) {
                                     <div className={style.dropDown}>
                                         <a href='/planejador-de-eventos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaSearchLocation  className="text-xl" />
+                                                <FaSearchLocation className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Planejador de Eventos</h2>
@@ -68,7 +68,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href='/servicos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaBuilding  className="text-xl" />
+                                                <FaBuilding className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Serviços</h2>
@@ -162,6 +162,7 @@ export default function NavBar({ scrollEffect = false }) {
                     </div>
                 </div>
                 {/* Mobile Menu */}
+                {/* Mobile Menu */}
                 <div className={`font-versus-medium ${isMenuOpen ? 'block' : 'hidden'} bg-white`}>
                     <div className={style.areaLinksMobile}>
                         <Link className={style.linkMobile} href="/">
@@ -172,18 +173,61 @@ export default function NavBar({ scrollEffect = false }) {
                         </Link>
                         <Link className={style.linkMobile} href="/planejador-de-eventos">
                             <div className={style.areaIcon}>
-                                <FaCalendarAlt className="text-xl" />
+                                <FaSearchLocation className="text-xl" />
                             </div>
-                            <h1>Planeje seu Evento</h1>
+                            <h1>Planejador de Eventos</h1>
                         </Link>
-                        <Link className={style.linkMobile} href="/associados">
+                        <Link className={style.linkMobile} href="/espaco-para-eventos">
                             <div className={style.areaIcon}>
-                                <FaHandsHelping className="text-xl" />
+                                <FaBuilding className="text-xl" />
                             </div>
-                            <h1>Associados</h1>
+                            <h1>Espaços para eventos</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/servicos">
+                            <div className={style.areaIcon}>
+                                <FaBuilding className="text-xl" />
+                            </div>
+                            <h1>Serviços</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/organizadoras">
+                            <div className={style.areaIcon}>
+                                <FaRegHandshake className="text-xl" />
+                            </div>
+                            <h1>Organizadoras</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/imprensa">
+                            <div className={style.areaIcon}>
+                                <FaRegSun className="text-xl" />
+                            </div>
+                            <h1>Imprensa</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/quem-somos">
+                            <div className={style.areaIcon}>
+                                <FaExclamation className="text-xl" />
+                            </div>
+                            <h1>Quem Somos</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/associe-se">
+                            <div className={style.areaIcon}>
+                                <FaToolbox className="text-xl" />
+                            </div>
+                            <h1>Associe-se</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/porque-fortaleza">
+                            <div className={style.areaIcon}>
+                                <FaQuestion className="text-xl" />
+                            </div>
+                            <h1>Porque Fortaleza</h1>
+                        </Link>
+                        <Link className={style.linkMobile} href="/contato">
+                            <div className={style.areaIcon}>
+                                <FaPhoneAlt className="text-xl" />
+                            </div>
+                            <h1>Fale Conosco</h1>
                         </Link>
                     </div>
                 </div>
+
             </nav>
         </>
     );
