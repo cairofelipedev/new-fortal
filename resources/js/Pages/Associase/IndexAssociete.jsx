@@ -4,7 +4,8 @@ import { Head } from "@inertiajs/react";
 import BannerDestak from '@/Components/Home/bannerDestak/bannerDestak';
 import ContactFields from "@/Components/Form/ContactFields";
 
-export default function IndexAssociete({ optionalFields = [], companyId }) {
+export default function IndexAssociete() {
+    const optionalFields = ["mobile_phone", "bio"];
     return (
         <>
             <Head title="Associe-se" />
@@ -12,7 +13,7 @@ export default function IndexAssociete({ optionalFields = [], companyId }) {
             <div className="pt-20">
                 <BannerDestak pagina="ASSOCIESE" posicao={1} />
             </div>
-            <ContactFields optionalFields={optionalFields} companyId={companyId} />
+            <ContactFields optionalFields={optionalFields} />
             <Footer />
         </>
     );

@@ -141,6 +141,15 @@
                     color: #7d7d7d;
                 }
             }
+
+            // Hover para dar aquele efeito clicável
+            &:hover {
+                background-color: #f0f0f0; // cinza sutil no fundo
+
+                .textArea h2 {
+                    color: #0c9c95; // muda o texto no hover
+                }
+            }
         }
     }
 }
@@ -219,6 +228,7 @@
     position: relative;
     display: inline-block;
     padding-bottom: 2px;
+
     &::after {
         content: '';
         position: absolute;

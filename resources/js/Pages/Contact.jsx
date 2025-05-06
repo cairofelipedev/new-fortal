@@ -4,12 +4,16 @@ import Footer from "@/Components/Footer";
 import { Head } from "@inertiajs/react";
 import ContactFields from "@/Components/Form/ContactFields";
 
-const Contact = ({ optionalFields = [], companyId }) => {
+
+const Contact = () => {
+   
+    const optionalFields = ["mobile_phone", "bio"]; 
+
     return (
         <>
             <Head title="Contato" />
             <NavBar />
-            <ContactFields optionalFields={optionalFields} companyId={companyId} />
+            <ContactFields optionalFields={optionalFields} />
             <Footer />
         </>
     );

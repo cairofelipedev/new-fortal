@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import style from "./EventSearchForSpace.module.scss";
+import { FaSearch } from "react-icons/fa";
 
 const EventSearchForSpace = () => {
     const [type, setType] = useState("");
@@ -21,16 +22,14 @@ const EventSearchForSpace = () => {
         e.preventDefault();
 
         // Monta a URL com todos os parâmetros, mesmo que estejam vazios
-        const url = `/espaco-para-eventos?type=${type || ""}&capacity=${
-            capacity || ""
-        }&total_event_area=${
-            total_event_area || ""
-        }&total_rentable_event_rooms=${total_rentable_event_rooms || ""}`;
+        const url = `/espaco-para-eventos?type=${type || ""}&capacity=${capacity || ""
+            }&total_event_area=${total_event_area || ""
+            }&total_rentable_event_rooms=${total_rentable_event_rooms || ""}`;
         window.location.href = url;
     };
 
     return (
-        <section className={style.container}>
+        <section className={` ${style.container} lg:pt-10`}>
             <div className={style.interContainer}>
                 <div className={style.leftArea}>
                     <div className={style.titleArea}>
@@ -88,45 +87,13 @@ const EventSearchForSpace = () => {
                         />
 
                         <button
-                            className="lg:text-3xl text-2xl font-bold text-white bg-fortalorange px-10 py-4 rounded-full flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300"
                             type="submit"
+                            className="border text-xl bg-fortalorange font-semibold text-white px-5 py-2 rounded-full flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300"
                         >
                             Buscar
-                            <div className={style.areaIcon}>
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 20 20"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <g clipPath="url(#clip0_185_4047)">
-                                        <path
-                                            d="M8.33333 14.1667C11.555 14.1667 14.1667 11.555 14.1667 8.33333C14.1667 5.11167 11.555 2.5 8.33333 2.5C5.11167 2.5 2.5 5.11167 2.5 8.33333C2.5 11.555 5.11167 14.1667 8.33333 14.1667Z"
-                                            stroke="#21272A"
-                                            strokeWidth="1.66667"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                        <path
-                                            d="M17.5 17.5L12.5 12.5"
-                                            stroke="#21272A"
-                                            strokeWidth="1.66667"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_185_4047">
-                                            <rect
-                                                width="20"
-                                                height="20"
-                                                fill="white"
-                                            />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
+                            <span className="duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
+                                <FaSearch className="text-2xl" />
+                            </span>
                         </button>
                     </form>
                 </div>

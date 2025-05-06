@@ -32,6 +32,10 @@ export default function NavBar({ scrollEffect = false }) {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    function irParaSobreFortaleza() {
+        window.location.href = '/sobre-fortaleza'; // substitua pela sua rota desejada
+    }
+
     return (
         <>
             <nav className={`shadow fixed w-full transition-colors duration-300 ${isMenuOpen ? 'bg-white' : scrollEffect ? (isScrolled ? 'bg-white' : 'bg-transparent') : 'bg-white'} z-20`}>
@@ -89,7 +93,9 @@ export default function NavBar({ scrollEffect = false }) {
                             </div>
                             <Link href="/imprensa" className={`tracking-widest ${style.linkHoverUnderline}`}>Imprensa</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
-                                <p className={style.link}>Sobre Fortaleza</p>
+                                <p className={`${style.link} ${style.linkHoverUnderline}`} onClick={irParaSobreFortaleza}>
+                                    Sobre Fortaleza
+                                </p>
                                 <div className={`${style.capulseDrop}`}>
                                     <div className={style.dropDown}>
                                         <a href='/quem-somos' className={style.columnDrop}>
