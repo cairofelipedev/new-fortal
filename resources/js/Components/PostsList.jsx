@@ -33,7 +33,7 @@ export default function PostsList() {
                      Aqui você pode encontrar informações sobre  eventos que foram Cases de sucesso em nosso destino.
                 </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 pt-5  max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 pt-5  max-w-7xl mx-auto px-5">
                 {posts.map((post) => (
                     <div
                         key={post.id}
@@ -44,7 +44,7 @@ export default function PostsList() {
                             alt={post.title}
                             className="w-full h-48 object-cover"
                         />
-                        <div className="p-4 flex justify-between">
+                        <div className="p-4 flex  flex-col justify-between">
                             <div>
                                 <h2 className="text-lg font-semibold">
                                     {post.title}
@@ -57,7 +57,7 @@ export default function PostsList() {
                             </div>
                             <Link
                                 href={`/post/${post.slug}`}
-                                className="mt-3 inline-block px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-blue-700"
+                                className="text-center mt-3 inline-block px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-blue-700"
                             >
                                 Ver mais
                             </Link>
