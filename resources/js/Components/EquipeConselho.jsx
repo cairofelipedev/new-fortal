@@ -15,7 +15,7 @@ const EquipeConselho = () => {
     const conselho = dados.filter((item) => item.tipo === "conselho");
 
     return (
-        <div className="space-y-16">
+        <div className="py-10">
             {/* Seção da Equipe */}
             <section className="max-w-7xl mx-auto">
                 <h2 className="text-4xl font-black mb-5 text-center text-[#0C9C95]">CONHEÇA NOSSA EQUIPE</h2>
@@ -29,10 +29,10 @@ const EquipeConselho = () => {
                                 <img
                                     src={`/uploads/${pessoa.imagem}`}
                                     alt={pessoa.nome}
-                                    className="object-cover rounded-lg w-full h-72 mb-2"
+                                    className="object-cover rounded-lg w-full h-96 mb-2"
                                 />
                             )}
-                            <h3 className="text-lg font-semibold">{pessoa.nome}</h3>
+                            <h3 className="text-lg font-semibold text-[#0C9C95]">{pessoa.nome}</h3>
                             <p className="text-gray-600 text-sm">{pessoa.cargo}</p>
                         </div>
                     ))}

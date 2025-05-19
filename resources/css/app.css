@@ -6,7 +6,7 @@
 body {
     /* background-color: #FFF9ED; */
     overflow-x: hidden;
-    font-family: 'Urbanist'!important;
+    font-family: 'Urbanist' !important;
 }
 
 main.white {
@@ -25,5 +25,10 @@ main.white {
     src: url('/fonts/Urbanist.ttf') format('opentype');
     /* font-weight: 900; */
     font-style: normal;
-  }
+}
 
+
+h3 {
+    color: #4b5563!important;
+    font-weight: 400!important;
+}
