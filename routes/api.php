@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Services\RDStationService;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EquipeConselhoController;
 use App\Http\Controllers\EventTypeController;
 use App\Http\Controllers\SessaoController;
 use App\Models\Testimonial;
@@ -73,3 +74,5 @@ Route::get('/depoimentos', function () {
 });
 
 Route::get('/banners', [BannerController::class, 'index']);
+
+Route::get('/equipe-conselho', [EquipeConselhoController::class, 'index']);

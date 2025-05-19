@@ -25,4 +25,5 @@ Route::group([
     $router->resource('sessaoitem', 'SessaoItemController');
     $router->resource('depoimentos', 'TestimonialController');
     $router->resource('banners', 'BannerController');
+    $router->resource('time', 'EquipeConselhoController');
 });

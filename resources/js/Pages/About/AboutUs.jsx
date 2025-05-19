@@ -2,6 +2,7 @@ import Footer from "@/Components/Footer";
 import NavBar from "@/Components/Home/NavBar/Navbar";
 import { Head } from "@inertiajs/react";
 import BannerDestak from '@/Components/Home/bannerDestak/bannerDestak';
+import EquipeConselho from "@/Components/EquipeConselho";
 
 export default function Welcome() {
     return (
@@ -12,6 +13,7 @@ export default function Welcome() {
             <div className="pt-20">
                 <BannerDestak pagina="QUEMSOMOS" posicao={1} />
             </div>
+            <EquipeConselho />
             <Footer />
         </>
     );
