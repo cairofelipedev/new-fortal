@@ -32,7 +32,7 @@ const EquipeConselho = () => {
                                     className="object-cover rounded-lg w-full h-96 mb-2"
                                 />
                             )}
-                            <h3 className="text-lg font-semibold text-[#0C9C95]">{pessoa.nome}</h3>
+                            <h4 className="text-xl font-semibold text-[#0C9C95]">{pessoa.nome}</h4>
                             <p className="text-gray-600 text-sm">{pessoa.cargo}</p>
                         </div>
                     ))}
