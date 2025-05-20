@@ -29,7 +29,7 @@ const EquipeConselho = () => {
                                 <img
                                     src={`/uploads/${pessoa.imagem}`}
                                     alt={pessoa.nome}
-                                    className="object-cover rounded-lg w-full h-96 mb-2"
+                                    className="object-cover rounded-lg w-full lg:h-96 mb-2"
                                 />
                             )}
                             <h4 className="text-xl font-semibold text-[#0C9C95]">{pessoa.nome}</h4>
