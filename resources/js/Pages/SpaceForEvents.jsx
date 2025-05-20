@@ -67,7 +67,7 @@ export function CardResult({ img, name, location, cep, capacity, services, tel, 
 
                     {/* Área de informações */}
 
-                    <div className={style.infoArea}>
+                    <div className={`${style.infoArea} lg:h-[200px]`}>
                         {/* Nome e link */}
                         <div className={style.nameArea}>
                             <h1>{name}</h1>
@@ -75,23 +75,21 @@ export function CardResult({ img, name, location, cep, capacity, services, tel, 
                         </div>
 
                         {/* Informações gerais */}
-                        <ul className={style.generalInfoArea}>
+                        <ul className={`${style.generalInfoArea} grid grid-cols-2 gap-10`}>
                             <li className={style.listItem}>
                                 <h2>Localização</h2>
                                 <p>{location}</p>
                             </li>
-                            {/* <li className={style.listItem}>
-                        <h2>CEP</h2>
-                        <p>{cep}</p>
-                    </li> */}
-                            <li className={style.listItem}>
-                                <h2>Serviços</h2>
-                                <p>{services}</p>
-                            </li>
-                            <li className={style.listItem}>
-                                <h2>Capacidade</h2>
-                                <p>{capacity}</p>
-                            </li>
+                            <div>
+                                <li className={style.listItem}>
+                                    <h2>Serviços</h2>
+                                    <p>{services}</p>
+                                </li>
+                                <li className={style.listItem}>
+                                    <h2>Capacidade</h2>
+                                    <p>{capacity}</p>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>

@@ -12,13 +12,13 @@ export default function ResultSearch() {
         <>
             <Head title="Resultado da Busca" />
             <NavBar />
-            <SearchSpace
+            {/* <SearchSpace
                 searchPage={true}
-            />
+            /> */}
             <section className={style.container}>
                 {/* Título e resumo */}
                 <div className={style.titleArea}>
-                    <div className={style.textArea}>
+                    <div className={`${style.textArea} pt-20`}>
                         <h2>Resultados da sua <b>busca.</b></h2>
                         <p>{`Espaços encontrados: ${results.length}`}</p>
                     </div>

@@ -49,13 +49,13 @@ class CompanyController extends AdminController
 
         $form->display('id', __('ID'));
         $form->text('name', 'Name')->rules('required|min:3|max:100');
-        $form->email('email', 'Email')->rules('required|email|unique:companies,email');
+        $form->email('email', 'Email');
         $form->text('phone', 'Phone')->rules('required');
         $form->text('address', 'Address')->rules('required');
         $form->text('city', 'City')->rules('required');
         $form->text('state', 'State')->rules('required');
-        $form->text('zip_code', 'ZIP Code')->rules('required');
-        $form->text('website', 'Website')->rules('nullable|url');
+        $form->text('zip_code', 'ZIP Code');
+        $form->text('website', 'Website');
         $form->switch('publish', 'Publish')->default(false);
 
         return $form;
