@@ -9,7 +9,9 @@ class AssociadoController extends Controller
 {
     public function index()
     {
-        return response()->json(Associado::all());
+        return response()->json(
+            Associado::orderBy('nome', 'asc')->get()
+        );
     }
 
     public function show($slug)

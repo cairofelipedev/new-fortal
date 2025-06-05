@@ -67,7 +67,7 @@ const ContactFields = ({ optionalFields = [], companyId }) => {
         <div className="bg-gray-100 px-4 sm:px-6 lg:px-8 pt-28 pb-20">
             <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-xl py-4 px-8">
                 <h2 className="uppercase tracking-widest font-raleway font-black text-[#0c9c95] py-5 lg:text-3xl text-xl text-center">
-                    Quero Reservar!
+                   Quero me associar!
                 </h2>
                 <div className={style.infoArea3}>
                     <p className={`${style.description} text-md`}>

@@ -68,23 +68,20 @@ const ListaAssociados = () => {
           />
         </div>
 
-        {/* Grid Masonry */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {associadosFiltrados.length > 0 ? (
             associadosFiltrados.map((associado, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow break-inside-avoid"
+                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }}
               >
-                <Link
-                  href={`/associados/${associado.slug}`}
-                >
+                <Link href={`/associados/${associado.slug}`}>
                   <img
-                    src={`./uploads/${associado.imagem}`} // Agora pegando do backend
+                    src={`./uploads/${associado.imagem}`}
                     alt={associado.nome}
                     className="w-full rounded-t-lg object-cover h-[300px]"
                     loading={index < 6 ? "eager" : "lazy"}

@@ -9,6 +9,7 @@ import { FaHandsHelping } from "react-icons/fa";
 
 
 import style from './Navbar.module.scss'
+import WhatsAppButton from '@/Components/WhatsAppButton';
 
 export default function NavBar({ scrollEffect = false }) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -233,8 +234,8 @@ export default function NavBar({ scrollEffect = false }) {
                         </Link>
                     </div>
                 </div>
-
             </nav>
+            <WhatsAppButton />
         </>
     );
 }
