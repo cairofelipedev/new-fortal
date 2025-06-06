@@ -35,6 +35,14 @@ export default function Welcome() {
             {/* <OtherFortal /> */}
 
             <BannerDestak pagina="HOME" posicao={3} centerText={true} />
+            <div className="max-w-7xl mx-auto py-10">
+                <h1 className="text-center uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-5 lg:text-4xl text-xl">
+                    Nossos Apoiadores
+                </h1>
+                <div className="flex justify-center">
+                    <img src="/images/logobrasil-removebg-preview.png" className="w-60" />
+                </div>
+            </div>
             <Footer />
         </>
     );
