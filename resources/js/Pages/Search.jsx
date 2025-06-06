@@ -19,7 +19,7 @@ export default function Welcome() {
 
             <VideoArea />
 
-            <EventSearch />
+            {/* <EventSearch /> */}
 
             {/* <EnjoyFortaleza /> */}
 

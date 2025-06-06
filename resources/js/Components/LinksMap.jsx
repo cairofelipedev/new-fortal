@@ -8,7 +8,7 @@ export const LinkMap = () => {
     return (
         <div className="flex gap-12">
             <div className="">
-                <TitleItem title="Serviços" icon={<MdWork className="text-xl" />} />
+                <TitleItem href="https://fortalezameetings.com.br/servicos" title="Serviços" icon={<MdWork className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
                         <a href="/planejador-de-eventos" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Planeje seu evento</a>
@@ -22,7 +22,7 @@ export const LinkMap = () => {
                 </ul>
             </div>
             <div className="">
-                <TitleItem title="Contato" icon={<MdPhone className="text-xl" />} />
+                <TitleItem href="https://fortalezameetings.com.br/contato" title="Contato" icon={<MdPhone className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
                         <a href="https://www.instagram.com/conventionfortaleza/" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Instagram</a>
@@ -36,7 +36,7 @@ export const LinkMap = () => {
                 </ul>
             </div>
             <div className="">
-                <TitleItem title="Visite Ceará" icon={<FaRegSun className="text-xl" />} />
+                <TitleItem href="https://visiteceara.com" title="Visite Ceará" icon={<FaRegSun className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
                         <a href="www.visiteceara.com" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Site</a>

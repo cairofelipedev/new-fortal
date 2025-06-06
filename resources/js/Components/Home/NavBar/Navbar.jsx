@@ -51,6 +51,7 @@ export default function NavBar({ scrollEffect = false }) {
                     <div className="flex gap-10 uppercase text-gray-500">
                         <div className={`${style.listLink}`}>
                             <Link href="/" className={`tracking-widest ${style.linkHoverUnderline}`}>Home</Link>
+                            <Link href="/sobre-fortaleza" className={`tracking-widest ${style.linkHoverUnderline}`}>Conheça Fortaleza</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                                 <p className={style.link}>Eventos</p>
                                 <div className={`${style.capulseDrop}`}>
@@ -94,8 +95,8 @@ export default function NavBar({ scrollEffect = false }) {
                             </div>
                             <Link href="/imprensa" className={`tracking-widest ${style.linkHoverUnderline}`}>Imprensa</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
-                                <p className={`${style.link} ${style.linkHoverUnderline}`} onClick={irParaSobreFortaleza}>
-                                    Sobre Fortaleza
+                                <p className={`${style.link} ${style.linkHoverUnderline}`}>
+                                    Contato e Suporte
                                 </p>
                                 <div className={`${style.capulseDrop}`}>
                                     <div className={style.dropDown}>
@@ -128,7 +129,7 @@ export default function NavBar({ scrollEffect = false }) {
                                                 <FaPhoneAlt className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
-                                                <h2>Fale Conosco</h2>
+                                                <h2>Reserve</h2>
                                             </div>
                                         </a>
                                     </div>

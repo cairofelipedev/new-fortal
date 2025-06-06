@@ -244,3 +244,21 @@
         width: 100%;
     }
 }
+
+@media (max-width: 1300px) {
+    .internalNav {
+        .listLink {
+
+            a,
+            .linkNav {
+                font-size: 10px;
+                // padding: 6px 12px;
+                // gap: 4px;
+
+                svg {
+                    height: 12px;
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ import axios from 'axios';
 import style from './bannerDestak.module.scss';
 import { FaArrowRightLong } from "react-icons/fa6";
 
-export default function BannerDestak({ pagina, posicao }) {
+export default function BannerDestak({ pagina, posicao, grid = false, centerText = false }) {
     const [sessoes, setSessoes] = useState([]);
     const [loadedVideos, setLoadedVideos] = useState({});
     const videoRefs = useRef({});
@@ -53,10 +53,21 @@ export default function BannerDestak({ pagina, posicao }) {
         <div className="bg-gray-100 pt-5 pb-20 space-y-20">
             {sessoes.map((sessao, sessaoIndex) => {
                 const hasItens = sessao.itens && sessao.itens.length > 0;
+                const isSingleItem = hasItens && sessao.itens.length === 1;
+                const forceGridLayout = isSingleItem && grid;
+
+                const gridClasses = (hasItens && (sessao.itens.length > 1 || forceGridLayout)) 
+                    ? 'lg:grid lg:grid-cols-2 gap-10' 
+                    : '';
+
+                const textAlign = centerText ? 'text-center items-center' : 'text-left';
 
                 return (
-                    <div key={sessao.id} className={`${style.container} ${hasItens ? 'lg:grid lg:grid-cols-2 gap-10' : ''} items-center pt-5`}>
-                        {/* Mídia (se existir) */}
+                    <div
+                        key={sessao.id}
+                        className={`${style.container} ${gridClasses} items-center pt-5`}
+                    >
+                        {/* Mídia */}
                         {hasItens && (
                             <div className="relative rounded-lg overflow-hidden shadow-lg">
                                 {sessao.itens.map((item, itemIndex) => {
@@ -87,8 +98,8 @@ export default function BannerDestak({ pagina, posicao }) {
                             </div>
                         )}
 
-                        {/* Conteúdo textual */}
-                        <div className={hasItens ? '' : 'w-full'}>
+                        {/* Texto */}
+                        <div className={`${hasItens ? '' : 'w-full'} ${textAlign} flex flex-col`}>
                             {sessao.titulo && (
                                 <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-5 lg:text-3xl text-xl">
                                     {sessao.titulo}
@@ -101,19 +112,21 @@ export default function BannerDestak({ pagina, posicao }) {
                             )}
                             {sessao.conteudo && (
                                 <div
-                                    className="mt-6 text-gray-700 leading-relaxed prosebanner prose max-w-none prose-img:rounded-lg prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4"
+                                    className={`mt-6 text-gray-700 leading-relaxed prosebanner prose max-w-none prose-img:rounded-lg prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 ${centerText ? 'mx-auto text-center' : ''}`}
                                     dangerouslySetInnerHTML={{ __html: sessao.conteudo }}
                                 />
                             )}
                             {sessao.botao_texto && sessao.botao_url && (
-                                <a href={sessao.botao_url} className="mt-10 inline-block">
-                                    <button className="border text-xl bg-fortalorange font-semibold text-white px-5 rounded-lg flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300">
-                                        {sessao.botao_texto}
-                                        <span className="hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
-                                            <FaArrowRightLong className="text-2xl" />
-                                        </span>
-                                    </button>
-                                </a>
+                                <div className={centerText ? "mt-10 flex justify-center" : "mt-10"}>
+                                    <a href={sessao.botao_url} className="inline-block">
+                                        <button className="border text-xl bg-fortalorange font-semibold text-white px-5 rounded-lg flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300">
+                                            {sessao.botao_texto}
+                                            <span className="hover:bg-gray-300 duration-300 w-12 h-12 flex items-center justify-center rounded-lg">
+                                                <FaArrowRightLong className="text-2xl" />
+                                            </span>
+                                        </button>
+                                    </a>
+                                </div>
                             )}
                         </div>
                     </div>

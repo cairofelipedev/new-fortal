@@ -22,17 +22,19 @@ export default function Welcome() {
 
             {/* <Highlights /> */}
 
-            <BannerDestak pagina="HOME" posicao={2} />
+            <BannerDestak pagina="HOME" posicao={2} grid={true} />
 
             <EnjoyFortaleza />
 
             {/* <HowToGet /> */}
-{/* 
+            {/* 
             <NextEvents 
                 month={'Eventos em fortaleza'}
             /> */}
 
             {/* <OtherFortal /> */}
+
+            <BannerDestak pagina="HOME" posicao={3} centerText={true} />
             <Footer />
         </>
     );
