@@ -18,8 +18,16 @@ class SessaoItemController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new SessaoItem);
 
+        $grid = new Grid(new SessaoItem());
+
+        $sessaoId = request('sessao_id');
+
+        // Aplica o filtro diretamente na query do grid
+        $grid->model()->when($sessaoId, function ($query) use ($sessaoId) {
+            $query->where('sessao_id', $sessaoId);
+        });
+        
         $grid->column('id', __('ID'))->sortable();
         $grid->column('sessao.titulo', 'Sessão')->sortable();
         $grid->column('titulo', 'Título')->sortable();

@@ -55,7 +55,7 @@ export default function Welcome() {
       <NavBar />
 
       {/* Google Translate Widget */}
-      <div id="google_translate_element" className="my-4 ml-auto mr-4 max-w-xs" />
+      {/* <div id="google_translate_element" className="my-4 ml-auto mr-4 max-w-xs" /> */}
 
       <BannerHero />
 

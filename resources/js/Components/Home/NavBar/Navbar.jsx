@@ -34,7 +34,7 @@ export default function NavBar({ scrollEffect = false }) {
     };
 
     function irParaSobreFortaleza() {
-        window.location.href = '/sobre-fortaleza'; // substitua pela sua rota desejada
+        window.location.href = '/conheca-fortaleza'; // substitua pela sua rota desejada
     }
 
     return (
@@ -51,7 +51,7 @@ export default function NavBar({ scrollEffect = false }) {
                     <div className="flex gap-10 uppercase text-gray-500">
                         <div className={`${style.listLink}`}>
                             <Link href="/" className={`tracking-widest ${style.linkHoverUnderline}`}>Home</Link>
-                            <Link href="/sobre-fortaleza" className={`tracking-widest ${style.linkHoverUnderline}`}>Conheça Fortaleza</Link>
+                            <Link href="/conheca-fortaleza" className={`tracking-widest ${style.linkHoverUnderline}`}>Conheça Fortaleza</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                                 <p className={style.link}>Eventos</p>
                                 <div className={`${style.capulseDrop}`}>

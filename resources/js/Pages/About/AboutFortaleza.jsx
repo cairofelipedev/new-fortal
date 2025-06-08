@@ -10,7 +10,8 @@ export default function AboutFortal() {
             <Head title="Sobre Fortaleza" />
             <NavBar />
             <SimpleSlider page="SOBREFORTALEZA" />
-            <BannerDestak pagina="SOBREFORTALEZA" posicao={1} />
+            <BannerDestak pagina="SOBREFORTALEZA" posicao={1} grid="true" />
+            <BannerDestak pagina="SOBREFORTALEZA" posicao={2} />
             <Footer />
         </>
     );

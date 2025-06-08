@@ -82,7 +82,7 @@ Route::get('/post/{slug}', [PostController::class, 'showPost']);
 Route::get('/associados/{slug}', [AssociadoController::class, 'showAssociate']);
 
 
-Route::get('/sobre-fortaleza', function () {
+Route::get('/conheca-fortaleza', function () {
     return Inertia::render('About/AboutFortaleza');
 });
 
