@@ -43,6 +43,7 @@ Route::get('/planejador-de-eventos', function () {
 Route::get('/resultado-busca', function () {
     return Inertia::render('SearchResults/Index');
 });
+
 Route::get('/imprensa', function () {
     return Inertia::render('Imprensa');
 });
@@ -141,5 +142,9 @@ Route::get('/associe-se', function () {
 
 Route::get('/contato', function () {
     return Inertia::render('Contact');
+});
+
+Route::get('/proximos-eventos', function () {
+    return Inertia::render('NextEvents');
 });
 

@@ -101,7 +101,7 @@ class EventSpaceController extends AdminController
             ->options(\App\Models\Company::pluck('name', 'id'))
             ->rules('required');
         $form->text('name', 'Nome')->rules('required|min:3|max:255');
-        $form->text('slug', 'Slug')->rules('required|min:3|max:255');
+        // $form->text('slug', 'Slug')->rules('required|min:3|max:255');
         $form->text('city', 'Cidade')->rules('required');
         $form->text('state', 'Estado');
         $form->text('zip_code', 'CEP');
