@@ -18,30 +18,38 @@ const categoriasTraduzidas = {
   "limpeza-geral": "Limpeza Geral",
 };
 
-const ListaAssociados = () => {
+const ListaAssociados = ({ type = "associado" }) => {
   const [associados, setAssociados] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("todos");
   const [termoBusca, setTermoBusca] = useState("");
 
-  // Buscar dados da API
   useEffect(() => {
-    axios.get("/api/associados")
-      .then((response) => setAssociados(response.data))
-      .catch((error) => console.error("Erro ao buscar associados:", error));
-  }, []);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/associados", {
+          params: { type },
+        });
+        setAssociados(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar associados:", error);
+      }
+    };
 
-  // Filtragem dos associados
+    fetchData();
+  }, [type]);
+
   const associadosFiltrados = associados.filter((associado) => {
-    const correspondeCategoria = categoriaSelecionada === "todos" || associado.categoria === categoriaSelecionada;
+    const correspondeCategoria =
+      categoriaSelecionada === "todos" || associado.categoria === categoriaSelecionada;
     const correspondeNome = associado.nome.toLowerCase().includes(termoBusca.toLowerCase());
     return correspondeCategoria && correspondeNome;
   });
 
   return (
     <div className="bg-gray-50">
-      <div className="p-5 min-h-screen lg:px-20  max-w-7xl mx-auto">
+      <div className="p-5 min-h-screen lg:px-20 max-w-7xl mx-auto">
         <p className="lg:text-4xl text-4xl text-center mb-6">
-          Conheça nossas empresas <b>associadas</b>
+          Conheça nossas empresas <b>{type === "organizador" ? "organizadoras" : "associadas"}</b>
         </p>
 
         {/* Filtros */}
@@ -54,7 +62,8 @@ const ListaAssociados = () => {
             <option value="todos">Todos</option>
             {Array.from(new Set(associados.map((a) => a.categoria))).map((categoria) => (
               <option key={categoria} value={categoria}>
-                {categoriasTraduzidas[categoria] || categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                {categoriasTraduzidas[categoria] ||
+                  categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
               </option>
             ))}
           </select>
@@ -77,7 +86,10 @@ const ListaAssociados = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index < 6 ? 0 : index * 0.08 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index < 6 ? 0 : index * 0.08,
+                }}
               >
                 <Link href={`/associados/${associado.slug}`}>
                   <img
@@ -97,9 +109,7 @@ const ListaAssociados = () => {
               </motion.div>
             ))
           ) : (
-            <p className="text-gray-600 col-span-3 text-center">
-              Nenhum associado encontrado.
-            </p>
+            <p className="text-gray-600 col-span-3 text-center">Nenhum associado encontrado.</p>
           )}
         </div>
       </div>

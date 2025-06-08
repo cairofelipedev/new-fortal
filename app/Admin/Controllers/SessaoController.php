@@ -18,13 +18,17 @@ class SessaoController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Sessao);
-
-        $grid->column('id', 'ID')->sortable();
-        $grid->column('titulo', 'Título')->sortable();
-        $grid->column('subtitulo', 'Subtítulo');
-        $grid->column('botao_texto', 'Texto do Botão');
-        $grid->column('botao_url', 'URL do Botão');
-        $grid->column('pagina', 'Página');
+        $grid->column('pagina', 'Página')->display(function ($pagina) {
+            return match ($pagina) {
+                'HOME' => 'Página Principal',
+                'SOBREFORTALEZA' => 'Conheça Fortaleza',
+                'PORQUEFORTALEZA' => 'Por que Fortaleza',
+                'ASSOCIESE' => 'Associe-se',
+                'ORGANIZADORAS' => 'Organizadoras',
+                'QUEMSOMOS' => 'Quem Somos',
+                default => ucfirst(strtolower($pagina)),
+            };
+        });
         $grid->column('posicao', 'Posição')->display(function ($value) {
             return match ($value) {
                 1 => 'Primeira',
@@ -35,14 +39,19 @@ class SessaoController extends AdminController
                 default => '-',
             };
         });
-        $grid->column('created_at', 'Criado em')->display(fn($value) => $value ? \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s') : '-');
-
-        // Adiciona o botão "Itens" na coluna de ações
-        $grid->column('acoes', 'Ações')->display(function () {
+        $grid->column('titulo', 'Título')->sortable();
+        $grid->column('ações', 'Ações')->display(function () {
             $url = admin_url("sessaoitem?sessao_id={$this->id}");
-            return "<a href='{$url}' class='btn btn-sm btn-primary'>Itens</a>";
-        });
+            return "<a href='{$url}' class='btn btn-sm btn-success'>Ver Itens</a>";
+        })->style('min-width: 120px; text-align: center;');
+        // $grid->column('botao_texto', 'Texto do Botão');
+        // $grid->column('botao_url', 'URL do Botão');
 
+
+        $grid->column('created_at', 'Criado em')->display(
+            fn($value) =>
+            $value ? \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s') : '-'
+        );
         return $grid;
     }
 
@@ -91,10 +100,10 @@ class SessaoController extends AdminController
         $form->select('pagina', 'Página')
             ->options([
                 'HOME' => 'HOME',
-                'PORQUEFORTALEZA' => 'PORQUE FORTALEZA',
-                'SOBREFORTALEZA' => 'SOBRE FORTALEZA',
+                'SOBREFORTALEZA' => 'CONHEÇA FORTALEZA',
                 'ORGANIZADORAS' => 'ORGANIZADORAS',
                 'QUEMSOMOS' => 'QUEM SOMOS',
+                'PORQUEFORTALEZA' => 'PORQUE FORTALEZA',
                 'ASSOCIESE' => 'ASSOCIE-SE',
             ])
             ->rules('required');
