@@ -18,6 +18,7 @@ class Post extends Model
         'author',
         'image',
         'slug',
+        'link',
         'published',
         'published_at',
     ];

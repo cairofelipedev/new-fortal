@@ -22,6 +22,8 @@ class EventCalendar extends Model
         'organization',
         'location',
         'website',
+        'link',
+        'content',
         'image',
         'publish',
     ];

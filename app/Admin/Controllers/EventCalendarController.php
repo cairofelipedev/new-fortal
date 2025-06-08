@@ -27,6 +27,7 @@ class EventCalendarController extends AdminController
         $grid->column('organization', 'Organização');
         $grid->column('location', 'Local');
         $grid->column('website', 'Site')->link();
+        $grid->column('link', 'Link')->link(); // Adicionado
         $grid->column('image', 'Imagem')->image();
         $grid->column('created_at', __('Criado em'))->display(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
@@ -50,6 +51,8 @@ class EventCalendarController extends AdminController
         $show->field('organization', 'Organização');
         $show->field('location', 'Local');
         $show->field('website', 'Site')->link();
+        $show->field('link', 'Link')->link(); // Adicionado
+        $show->field('content', 'Conteúdo')->unescape(); // Adicionado
         $show->field('image', 'Imagem')->image();
         $show->field('created_at', __('Criado em'))->as(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
@@ -71,7 +74,9 @@ class EventCalendarController extends AdminController
         $form->text('organization', 'Organização')->rules('required');
         $form->text('location', 'Local')->rules('required');
         $form->url('website', 'Site')->rules('required');
-        $form->image('image', 'Imagem')->uniqueName()->removable(); // Opcional
+        $form->url('link', 'Link')->rules('nullable|url'); // Adicionado
+        $form->textarea('content', 'Conteúdo')->rules('nullable'); // Adicionado
+        $form->image('image', 'Imagem')->uniqueName()->removable();
         $form->switch('publish', 'Publicado')->default(false);
 
         return $form;

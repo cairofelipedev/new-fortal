@@ -23,7 +23,8 @@ class PostController extends AdminController
         $grid->column('title', 'Título');
         $grid->column('author', 'Autor');
         $grid->column('slug', 'Slug');
-        $grid->column('published', 'Publicado')->bool(); // Exibição como booleano
+        $grid->column('link', 'Link')->link(); // Adicionado
+        $grid->column('published', 'Publicado')->bool();
         $grid->column('published_at', 'Publicado em')->display(function ($value) {
             return $value ? \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s') : '-';
         });
@@ -46,6 +47,8 @@ class PostController extends AdminController
         $show->field('content', 'Conteúdo')->unescape();
         $show->field('author', 'Autor');
         $show->field('image', 'Imagem')->image();
+        $show->field('slug', 'Slug');
+        $show->field('link', 'Link')->link(); // Adicionado
         $show->field('published', 'Publicado')->as(function ($value) {
             return $value ? 'Sim' : 'Não';
         });
@@ -73,10 +76,11 @@ class PostController extends AdminController
         $form->text('title', 'Título')->rules('required|min:3|max:255');
         $form->ckeditor('content', 'Conteúdo');
         $form->text('author', 'Autor')->rules('nullable|max:100');
+        $form->text('slug', 'Slug')->rules('required|max:255');
+        $form->text('link', 'Link')->rules('nullable|url|max:255'); // Adicionado
         $form->image('image', 'Imagem')->uniqueName()->removable();
         $form->switch('published', 'Publicado')->default(false);
         $form->datetime('published_at', 'Publicado em')->rules('nullable|date');
-
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
         $form->datetime('updated_at', 'Atualizado em')->default(now())->readonly();
 

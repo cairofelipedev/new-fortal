@@ -26,4 +26,5 @@ Route::group([
     $router->resource('depoimentos', 'TestimonialController');
     $router->resource('banners', 'BannerController');
     $router->resource('time', 'EquipeConselhoController');
+    $router->resource('apoiadores', 'ApoiadoresController');
 });
