@@ -22,7 +22,7 @@ class EventCalendarController extends AdminController
             return \Carbon\Carbon::parse($value)->format('d/m/Y');
         });
         $grid->column('month', 'Mês');
-        $grid->column('pax', 'PAX');
+        // $grid->column('pax', 'PAX');
         $grid->column('contact', 'Contato');
         $grid->column('organization', 'Organização');
         $grid->column('location', 'Local');
@@ -69,15 +69,15 @@ class EventCalendarController extends AdminController
         $form->text('name', 'Nome')->rules('required');
         $form->date('date', 'Data')->rules('required');
         $form->text('month', 'Mês')->rules('required');
-        $form->number('pax', 'PAX')->rules('required');
-        $form->text('contact', 'Contato')->rules('required');
-        $form->text('organization', 'Organização')->rules('required');
+        $form->number('pax', 'Participantes')->rules('required');
+        $form->text('contact', 'Contato');
+        $form->text('organization', 'Organização');
         $form->text('location', 'Local')->rules('required');
-        $form->url('website', 'Site')->rules('required');
+        $form->url('website', 'Site');
         $form->url('link', 'Link')->rules('nullable|url'); // Adicionado
         $form->textarea('content', 'Conteúdo')->rules('nullable'); // Adicionado
         $form->image('image', 'Imagem')->uniqueName()->removable();
-        $form->switch('publish', 'Publicado')->default(false);
+
 
         return $form;
     }
