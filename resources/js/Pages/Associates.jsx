@@ -12,7 +12,7 @@ export default function Welcome() {
             <NavBar />
             {/* <BannerHero /> */}
             <SimpleSlider page="SERVICOS" />
-            <ListaAssociados />
+            <ListaAssociados type="associado" />
             <Footer />
         </>
     );

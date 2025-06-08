@@ -36,6 +36,16 @@ class SessaoItemController extends AdminController
             return '-';
         });
 
+        $grid->column('link', 'Link')->display(function ($link) {
+            return $link ? "<a href='{$link}' target='_blank'>Acessar</a>" : '-';
+        });
+
+        // Adição: Link para o show (detalhes)
+        // $grid->column('Ações')->display(function () {
+        //     $url = admin_url("sessao-items/{$this->id}");
+        //     return "<a href='{$url}' class='btn btn-sm btn-outline-primary'>Ver Detalhes</a>";
+        // })->style('min-width:120px');
+
         return $grid;
     }
 
@@ -62,9 +72,16 @@ class SessaoItemController extends AdminController
             return '-';
         });
 
+        $show->field('link', 'Link')->as(function ($link) {
+            return $link ? "<a href='{$link}' target='_blank'>{$link}</a>" : '-';
+        });
+
         return $show;
     }
 
+    /**
+     * Formulário de criação/edição do item da sessão.
+     */
     /**
      * Formulário de criação/edição do item da sessão.
      */
@@ -81,6 +98,9 @@ class SessaoItemController extends AdminController
         $form->radio('tipo', 'Tipo')
             ->options(['imagem' => 'Imagem', 'video' => 'Vídeo'])
             ->default('imagem');
+
+        // 👉 Campo link adicionado aqui
+        $form->url('link', 'Link')->rules('nullable|url')->help('Informe um link externo se desejar.');
 
         // Campo para vídeos (não obrigatório)
         $form->text('arquivo_video', 'URL do Vídeo')

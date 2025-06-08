@@ -72,26 +72,33 @@ export default function BannerDestak({ pagina, posicao, grid = false, centerText
                             <div className="relative rounded-lg overflow-hidden shadow-lg">
                                 {sessao.itens.map((item, itemIndex) => {
                                     const refKey = `${sessaoIndex}-${itemIndex}`;
+                                    const Wrapper = item.link ? 'a' : 'div';
+                                    const wrapperProps = item.link
+                                        ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' }
+                                        : {};
+
                                     return (
                                         <div key={itemIndex} className="w-full">
-                                            {item.tipo === 'video' && item.arquivo_video ? (
-                                                <video
-                                                    ref={el => videoRefs.current[refKey] = el}
-                                                    data-index={refKey}
-                                                    className="rounded-lg w-full object-cover"
-                                                    src={loadedVideos[refKey] ? item.arquivo_video : ""}
-                                                    autoPlay
-                                                    loop
-                                                    muted
-                                                    playsInline
-                                                />
-                                            ) : item.tipo === 'imagem' && item.arquivo_imagem ? (
-                                                <img
-                                                    className="rounded-lg w-full object-cover"
-                                                    src={`./uploads/${item.arquivo_imagem}`}
-                                                    alt={item.titulo}
-                                                />
-                                            ) : null}
+                                            <Wrapper {...wrapperProps}>
+                                                {item.tipo === 'video' && item.arquivo_video ? (
+                                                    <video
+                                                        ref={el => videoRefs.current[refKey] = el}
+                                                        data-index={refKey}
+                                                        className="rounded-lg w-full object-cover"
+                                                        src={loadedVideos[refKey] ? item.arquivo_video : ""}
+                                                        autoPlay
+                                                        loop
+                                                        muted
+                                                        playsInline
+                                                    />
+                                                ) : item.tipo === 'imagem' && item.arquivo_imagem ? (
+                                                    <img
+                                                        className="rounded-lg w-full object-cover"
+                                                        src={`./uploads/${item.arquivo_imagem}`}
+                                                        alt={item.titulo}
+                                                    />
+                                                ) : null}
+                                            </Wrapper>
                                         </div>
                                     );
                                 })}

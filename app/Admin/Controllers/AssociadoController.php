@@ -12,9 +12,6 @@ class AssociadoController extends AdminController
 {
     protected $title = 'Associados';
 
-    /**
-     * Grid de exibição dos associados.
-     */
     protected function grid()
     {
         $grid = new Grid(new Associado);
@@ -22,6 +19,7 @@ class AssociadoController extends AdminController
         $grid->column('id', __('ID'))->sortable();
         $grid->column('nome', 'Nome')->sortable();
         $grid->column('categoria', 'Categoria')->sortable();
+        $grid->column('type', 'Tipo')->sortable(); // Novo campo
         $grid->column('imagem', 'Imagem')->image('', 100, 100);
         $grid->column('created_at', 'Criado em')->display(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
@@ -30,9 +28,6 @@ class AssociadoController extends AdminController
         return $grid;
     }
 
-    /**
-     * Detalhes do associado.
-     */
     protected function detail($id)
     {
         $show = new Show(Associado::findOrFail($id));
@@ -40,12 +35,11 @@ class AssociadoController extends AdminController
         $show->field('id', __('ID'));
         $show->field('nome', 'Nome');
         $show->field('categoria', 'Categoria');
+        $show->field('type', 'Tipo'); // Novo campo
         $show->field('imagem', 'Imagem')->image();
-
         $show->field('content', 'Conteúdo')->unescape()->as(function ($content) {
             return $content;
         });
-
         $show->field('created_at', 'Criado em')->as(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
@@ -56,15 +50,13 @@ class AssociadoController extends AdminController
         return $show;
     }
 
-    /**
-     * Formulário de criação/edição do associado.
-     */
     protected function form()
     {
         $form = new Form(new Associado);
 
         $form->display('id', __('ID'));
         $form->text('nome', 'Nome')->rules('required|min:3|max:255');
+
         $form->select('categoria', 'Categoria')->options([
             'agencia-de-viagem' => 'Agência de Viagem',
             'assessoria-de-imprensa' => 'Assessoria de Imprensa',
@@ -80,8 +72,12 @@ class AssociadoController extends AdminController
             'limpeza-geral' => 'Limpeza Geral',
         ])->rules('required');
 
+        $form->select('type', 'Tipo')->options([
+            'associado' => 'Associado',
+            'organizador' => 'Organizador',
+        ])->default('associado')->rules('required');
+
         $form->image('imagem', 'Imagem')->uniqueName()->removable();
-        // 👇 Campo novo com CKEditor
         $form->ckeditor('content', 'Conteúdo')->rules('nullable');
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
         $form->datetime('updated_at', 'Atualizado em')->default(now())->readonly();

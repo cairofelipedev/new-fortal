@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Associado;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class AssociadoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(
-            Associado::orderBy('nome', 'asc')->get()
-        );
+        $query = Associado::query()->orderBy('nome', 'asc');
+
+        if ($request->has('type')) {
+            $query->where('type', $request->input('type'));
+        }
+
+        return response()->json($query->get());
     }
 
     public function show($slug)

@@ -16,6 +16,7 @@ class SessaoItem extends Model
         'titulo',
         'tipo',
         'arquivo',
+        'link'
     ];
 
     public function sessao()
