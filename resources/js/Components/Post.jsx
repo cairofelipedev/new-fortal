@@ -32,6 +32,11 @@ export default function Show() {
                 className="mt-6 text-gray-700 leading-relaxed prose max-w-none prose-img:rounded-lg prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4"
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
+            {post.link && (
+                <div className="pt-10"
+                    dangerouslySetInnerHTML={{ __html: post.link }}
+                />
+            )}
         </div>
     );
 }

@@ -23,7 +23,6 @@ class PostController extends AdminController
         $grid->column('title', 'Título');
         $grid->column('author', 'Autor');
         $grid->column('slug', 'Slug');
-        $grid->column('link', 'Link')->link(); // Adicionado
         $grid->column('published', 'Publicado')->bool();
         $grid->column('published_at', 'Publicado em')->display(function ($value) {
             return $value ? \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s') : '-';
@@ -76,7 +75,7 @@ class PostController extends AdminController
         $form->text('title', 'Título')->rules('required|min:3|max:255');
         $form->ckeditor('content', 'Conteúdo');
         $form->text('author', 'Autor')->rules('nullable|max:100');
-        $form->text('link', 'Link')->rules('nullable|url|max:255'); // Adicionado
+        $form->textarea('link', 'Iframe')->help('Ao adicionar um iframe, mantenha o width com valor <code>100%</code>. Exemplo: <code>&lt;iframe width="100%" ... &gt;&lt;/iframe&gt;</code>');;
         $form->image('image', 'Imagem')->uniqueName()->removable();
         $form->switch('published', 'Publicado')->default(false);
         $form->datetime('published_at', 'Publicado em')->rules('nullable|date');
