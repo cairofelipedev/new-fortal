@@ -27,7 +27,7 @@ class EventCalendar extends Model
         'content',
         'image',
         'publish',
-        'slug',
+        'slug'
     ];
 
     // Casts para tipos específicos

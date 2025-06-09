@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\EventCalendar;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class EventCalendarController extends Controller
 {
@@ -24,7 +25,8 @@ class EventCalendarController extends Controller
             'date',
             'location',
             'link',
-            'image'
+            'image',
+            'slug'
         ]);
     }
 
@@ -34,5 +36,12 @@ class EventCalendarController extends Controller
             ->firstOrFail();
 
         return response()->json($calendarios);
+    }
+
+    public function showNextEvent($slug)
+    {
+        return Inertia::render('NextEvents/Show', [
+            'slug' => $slug,
+        ]);
     }
 }

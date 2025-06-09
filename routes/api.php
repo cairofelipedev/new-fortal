@@ -64,10 +64,9 @@ Route::get('/associados', [AssociadoController::class, 'index']);
 
 Route::get('/associados/{slug}', [AssociadoController::class, 'show']);
 
-Route::get('/posts', [PostController::class, 'index']); // Listar posts
+Route::get('/posts', [PostController::class, 'index']);
 
-Route::get('/posts/{slug}', [PostController::class, 'show']); // Ver um post pelo slug
-
+Route::get('/posts/{slug}', [PostController::class, 'show']);
 Route::get('/sessoes', [SessaoController::class, 'listarPorPagina']);
 
 Route::get('/depoimentos', function () {
@@ -80,4 +79,4 @@ Route::get('/equipe-conselho', [EquipeConselhoController::class, 'index']);
 
 Route::get('/events-calendar', [EventCalendarController::class, 'index']);
 
-Route::get('/events-calendar/{slug}', [EventCalendarController::class, 'show']); // Ver um post pelo slug
+Route::get('/events-calendar/{slug}', [EventCalendarController::class, 'show']);

@@ -74,8 +74,8 @@ class EventCalendarController extends AdminController
         $form->text('organization', 'Organização');
         $form->text('location', 'Local')->rules('required');
         $form->url('website', 'Site');
-        $form->url('link', 'Link')->rules('nullable|url'); // Adicionado
-        $form->textarea('content', 'Conteúdo')->rules('nullable'); // Adicionado
+        $form->url('link', 'Link')->rules('nullable|url');
+        $form->ckeditor('content', 'Conteúdo');
         $form->image('image', 'Imagem')->uniqueName()->removable();
 
 

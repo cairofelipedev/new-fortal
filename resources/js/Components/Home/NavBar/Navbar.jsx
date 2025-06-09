@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from '@inertiajs/react';
 import { FiMenu } from 'react-icons/fi';
-import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaSearchLocation, FaToolbox, FaRegHandshake, FaExclamation, FaQuestion, FaPhoneAlt } from "react-icons/fa";
+import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaSearchLocation, FaToolbox, FaRegHandshake, FaExclamation, FaQuestion, FaPhoneAlt, FaCalendar } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiHome2Fill } from "react-icons/ri";
@@ -87,6 +87,15 @@ export default function NavBar({ scrollEffect = false }) {
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Organizadoras</h2>
+                                                {/* <p>Entenda nosso diferencial</p> */}
+                                            </div>
+                                        </a>
+                                        <a href='/proximos-eventos' className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaCalendar  className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Próximos Eventos</h2>
                                                 {/* <p>Entenda nosso diferencial</p> */}
                                             </div>
                                         </a>

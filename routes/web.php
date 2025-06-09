@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssociadoController;
+use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\EventSpaceController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -147,4 +148,6 @@ Route::get('/contato', function () {
 Route::get('/proximos-eventos', function () {
     return Inertia::render('NextEvents');
 });
+
+Route::get('/proximos-eventos/{slug}', [EventCalendarController::class, 'showNextEvent']);
 

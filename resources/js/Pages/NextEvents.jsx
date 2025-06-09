@@ -8,13 +8,8 @@ export default function Welcome() {
   return (
     <>
       <Head title="Página Inicial" />
-
       <NavBar />
-
-
       <NextEvents />
-
-
       <Footer />
     </>
   );

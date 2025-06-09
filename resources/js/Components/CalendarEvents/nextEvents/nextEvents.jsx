@@ -6,7 +6,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { Link } from '@inertiajs/react';
 export default function NextEvents({ month }) {
     const prevRef = useRef(null)
     const nextRef = useRef(null)
@@ -43,11 +44,11 @@ export default function NextEvents({ month }) {
         <section className={style.container}>
             <div className={style.titleArea}>
                 <div className={style.textArea}>
-                    <div className={style.areaIcon}>
-                        {/* Ícone omitido por brevidade */}
-                    </div>
                     <div className={style.text}>
-                        <span className="text-2xl">Aqui você encontra o espaço ideal para seu evento</span>
+                        <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] py-5 lg:text-4xl text-xl pt-20">
+                            Próximos Eventos
+                        </h1>
+                        <span className="text-2xl">Os melhores eventos, acontecem aqui:</span>
                         <h2 className="font-neulis text-4xl">{month}</h2>
                     </div>
                 </div>
@@ -76,23 +77,24 @@ export default function NextEvents({ month }) {
                             alt={event.name}
                             name={event.name}
                             description={event.date}
+                            slug={event.slug}
                         />
                     </SwiperSlide>
                 ))}
             </Swiper>
 
             <button ref={prevRef} className={style.prevtButton}>
-                {/* SVG omitido por brevidade */}
+                <FiChevronLeft size={20} color="white" />
             </button>
 
             <button ref={nextRef} className={style.nextButton}>
-                {/* SVG omitido por brevidade */}
+                <FiChevronRight size={20} color="white" />
             </button>
         </section>
     );
 }
 
-export function Card({ image, alt, name, description }) {
+export function Card({ image, alt, name, description, slug }) {
     return (
         <article className={style.card}>
             <div className={style.topDecoration}></div>
@@ -105,6 +107,12 @@ export function Card({ image, alt, name, description }) {
             <p>
                 {description}
             </p>
+            <Link
+                href={`/proximos-eventos/${slug}`}
+                className="text-center mt-3 inline-block px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-blue-700"
+            >
+                Ver mais
+            </Link>
         </article>
     );
 }
