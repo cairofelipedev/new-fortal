@@ -10,7 +10,7 @@ use App\Models\Associado;
 
 class AssociadoController extends AdminController
 {
-    protected $title = 'Associados';
+    protected $title = 'Associados e Organizadoras';
 
     protected function grid()
     {
@@ -23,6 +23,21 @@ class AssociadoController extends AdminController
         $grid->column('imagem', 'Imagem')->image('', 100, 100);
         $grid->column('created_at', 'Criado em')->display(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
+        });
+
+        // Filtros personalizados
+        $grid->filter(function ($filter) {
+            // Remove o filtro por ID se quiser
+            $filter->disableIdFilter();
+
+            // Filtro por nome
+            $filter->like('nome', 'Nome');
+
+            // Filtro por tipo (associado ou organizador)
+            $filter->equal('type', 'Tipo')->select([
+                'associado' => 'Associado',
+                'organizador' => 'Organizador',
+            ]);
         });
 
         return $grid;
