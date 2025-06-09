@@ -20,7 +20,7 @@ Route::group([
     $router->resource('tipo-eventos', 'EventTypeController');
     $router->resource('leads', 'ContactController');
     $router->resource('blog', 'PostController');
-    $router->resource('associados', 'AssociadoController');
+    $router->resource('associados-e-organizadoras', 'AssociadoController');
     $router->resource('sessao', 'SessaoController');
     $router->resource('sessaoitem', 'SessaoItemController');
     $router->resource('depoimentos', 'TestimonialController');
