@@ -81,7 +81,7 @@ Route::get('/porque-fortaleza', function () {
 Route::get('/post/{slug}', [PostController::class, 'showPost']);
 
 Route::get('/associados/{slug}', [AssociadoController::class, 'showAssociate']);
-Route::get('/organizadores/{slug}', [AssociadoController::class, 'showAssociate']);
+Route::get('/organizadoras/{slug}', [AssociadoController::class, 'showAssociate']);
 
 Route::get('/conheca-fortaleza', function () {
     return Inertia::render('About/AboutFortaleza');

@@ -70,6 +70,7 @@ class AssociadoController extends AdminController
             'organizadora-de-eventos' => 'Organizadora de Eventos',
             'receptivo-e-transporte' => 'Receptivo e Transporte',
             'limpeza-geral' => 'Limpeza Geral',
+            'equipamentos-para-eventos' => 'Equipamentos para Eventos',
         ])->rules('required');
 
         $form->select('type', 'Tipo')->options([

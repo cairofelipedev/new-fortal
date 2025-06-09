@@ -16,6 +16,7 @@ const categoriasTraduzidas = {
   "organizadora-de-eventos": "Organizadora de Eventos",
   "receptivo-e-transporte": "Receptivo e Transporte",
   "limpeza-geral": "Limpeza Geral",
+  "equipamentos-para-eventos": "Equipamentos para Eventos",
 };
 
 const ListaAssociados = ({ type = "associado" }) => {
@@ -91,7 +92,7 @@ const ListaAssociados = ({ type = "associado" }) => {
                   delay: index < 6 ? 0 : index * 0.08,
                 }}
               >
-                <Link href={`/associados/${associado.slug}`}>
+                <Link href={`/${type === "organizador" ? "organizadoras" : "associados"}/${associado.slug}`}>
                   <img
                     src={`./uploads/${associado.imagem}`}
                     alt={associado.nome}
