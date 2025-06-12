@@ -6,6 +6,7 @@ import ContactFields from "@/Components/Form/ContactFields";
 
 export default function IndexAssociete() {
     const optionalFields = ["mobile_phone", "bio"];
+    const company_id = ""
     return (
         <>
             <Head title="Associe-se" />
@@ -13,7 +14,9 @@ export default function IndexAssociete() {
             <div className="pt-20">
                 <BannerDestak pagina="ASSOCIESE" posicao={1} />
             </div>
-            <ContactFields optionalFields={optionalFields} />
+            <ContactFields
+                optionalFields={optionalFields}
+                companyId={company_id} />
             <Footer />
         </>
     );

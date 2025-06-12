@@ -116,7 +116,7 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                                     {/* Conteúdo */}
                                     <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
                                         <div className="lg:px-20 px-5">
-                                            <p className="lg:text-9xl text-6xl text-white font-bold lg:pt-2 pt-16">{banner.name}</p>
+                                            <p className="lg:text-7xl text-5xl text-white font-bold lg:pt-2 pt-16">{banner.name}</p>
                                             {/* <p className="lg:text-7xl text-5xl text-white font-bold">Os principais segmentos estão aqui</p> */}
                                         </div>
                                     </div>
@@ -135,7 +135,7 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                                     {/* Conteúdo */}
                                     <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
                                         <div className="lg:px-20 px-5">
-                                            <p className="lg:text-9xl text-6xl text-white font-bold">{banner.name}</p>
+                                            <p className="lg:text-7xl text-5xl text-white font-bold">{banner.name}</p>
                                             {/* <p className="lg:text-7xl text-5xl text-white font-bold">Os principais segmentos estão aqui</p> */}
                                         </div>
                                     </div>

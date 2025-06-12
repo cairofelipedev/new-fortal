@@ -6,14 +6,16 @@ import ContactFields from "@/Components/Form/ContactFields";
 
 
 const Contact = () => {
-   
-    const optionalFields = ["mobile_phone", "bio"]; 
 
+    const optionalFields = ["mobile_phone", "bio"];
+    const company_id = ""
     return (
         <>
             <Head title="Contato" />
             <NavBar />
-            <ContactFields optionalFields={optionalFields} />
+            <ContactFields
+                optionalFields={optionalFields}
+                companyId={company_id} />
             <Footer />
         </>
     );
