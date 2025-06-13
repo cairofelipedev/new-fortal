@@ -19,21 +19,15 @@ class AssociadoController extends AdminController
         $grid->column('id', __('ID'))->sortable();
         $grid->column('nome', 'Nome')->sortable();
         $grid->column('categoria', 'Categoria')->sortable();
-        $grid->column('type', 'Tipo')->sortable(); // Novo campo
+        $grid->column('type', 'Tipo')->sortable();
         $grid->column('imagem', 'Imagem')->image('', 100, 100);
         $grid->column('created_at', 'Criado em')->display(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
 
-        // Filtros personalizados
         $grid->filter(function ($filter) {
-            // Remove o filtro por ID se quiser
             $filter->disableIdFilter();
-
-            // Filtro por nome
             $filter->like('nome', 'Nome');
-
-            // Filtro por tipo (associado ou organizador)
             $filter->equal('type', 'Tipo')->select([
                 'associado' => 'Associado',
                 'organizador' => 'Organizador',
@@ -50,7 +44,7 @@ class AssociadoController extends AdminController
         $show->field('id', __('ID'));
         $show->field('nome', 'Nome');
         $show->field('categoria', 'Categoria');
-        $show->field('type', 'Tipo'); // Novo campo
+        $show->field('type', 'Tipo');
         $show->field('imagem', 'Imagem')->image();
         $show->field('content', 'Conteúdo')->unescape()->as(function ($content) {
             return $content;
@@ -93,8 +87,18 @@ class AssociadoController extends AdminController
             'organizador' => 'Organizador',
         ])->default('associado')->rules('required');
 
-        $form->image('imagem', 'Imagem')->uniqueName()->removable();
+        $form->image('imagem', 'Imagem')
+            ->uniqueName()
+            ->rules(function ($form) {
+                return $form->isCreating() ? 'required|image' : 'nullable|image';
+            })
+            ->customFormat(function ($value) {
+                return $value; // mantém a imagem durante a edição
+            })
+            ->help('Selecione uma imagem válida. Este campo é obrigatório ao cadastrar.');
+
         $form->ckeditor('content', 'Conteúdo')->rules('nullable');
+
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
         $form->datetime('updated_at', 'Atualizado em')->default(now())->readonly();
 

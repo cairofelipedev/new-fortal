@@ -55,8 +55,8 @@ export default function Testemonial() {
                             </svg>
                         </div>
                         <div className={style.text}>
-                            <span>Encontre o local ideal em hotéis, centros de</span>
-                            <h2><b>Nossos Associados</b></h2>
+                            <span>Quem já realizou eventos em Fortaleza</span>
+                            <h2><b>Depoimentos</b></h2>
                         </div>
                     </div>
                 </div>

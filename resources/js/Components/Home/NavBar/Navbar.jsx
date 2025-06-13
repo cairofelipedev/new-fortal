@@ -162,7 +162,7 @@ export default function NavBar({ scrollEffect = false }) {
                                     <FaLinkedinIn className="text-lg" />
                                 </a>
                             </div>
-                            <Link href="https://visiteceara.com">
+                            <a href="https://visiteceara.com">
                                 <div className="flex space-x-2">
                                     <div className={`${style.buttonVisite} text-white items-center lg:flex flex font-criteria hidden lg:block text-[13px] h-max box-border bg-[#0C9C95] rounded-full border border-transparent hover:bg-orange-600 hover:border-orange-800 hover:text-white duration-[.3s]`}>
                                         Visite Ceará
@@ -174,7 +174,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         {isMenuOpen ? <FaTimesCircle className="text-2xl" /> : <FiMenu className="text-2xl" />}
                                     </button>
                                 </div>
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>

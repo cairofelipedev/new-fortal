@@ -16,7 +16,8 @@ export default function IndexAssociete() {
             </div>
             <ContactFields
                 optionalFields={optionalFields}
-                companyId={company_id} />
+                companyId={company_id}
+                   title="Quero me associar!"  />
             <Footer />
         </>
     );

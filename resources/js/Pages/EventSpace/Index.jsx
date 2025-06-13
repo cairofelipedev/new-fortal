@@ -6,15 +6,15 @@ import SearchSpace from '@/Components/Space/searchSpace/searchSpace';
 import Footer from '@/Components/Footer';
 
 export default function Product() {
-    const [productName, setProductName] = useState('');
+    const [eventName, setEventName] = useState('');
     return (
         <main className="white">
-            {/* <Head title={productName ? productName : 'Produtos'} /> */}
+            <Head title={eventName ? eventName : 'Espaço para evento'} />
             <NavBar />
 
             {/* <SearchSpace /> */}
 
-            <EventSpace />
+            <EventSpace  setEventName={setEventName}/>
             
             <Footer />
         </main>
