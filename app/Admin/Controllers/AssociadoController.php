@@ -10,7 +10,7 @@ use App\Models\Associado;
 
 class AssociadoController extends AdminController
 {
-    protected $title = 'Associados e Organizadoras';
+    protected $title = 'Associados, Organizadoras e Escolas Náuticas';
 
     protected function grid()
     {
@@ -31,6 +31,7 @@ class AssociadoController extends AdminController
             $filter->equal('type', 'Tipo')->select([
                 'associado' => 'Associado',
                 'organizador' => 'Organizador',
+                'escolas' => 'Escolas Náuticas',
             ]);
         });
 
@@ -85,6 +86,7 @@ class AssociadoController extends AdminController
         $form->select('type', 'Tipo')->options([
             'associado' => 'Associado',
             'organizador' => 'Organizador',
+            'escolas' => 'Escolas Náuticas',
         ])->default('associado')->rules('required');
 
         $form->image('imagem', 'Imagem')

@@ -13,6 +13,8 @@ export default function EventSpaceDetails({ setEventName }) {
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const optionalFields = ["mobile_phone", "bio"];
+    const [fullscreenImage, setFullscreenImage] = useState(null);
+    const [zoomLevel, setZoomLevel] = useState(1);
 
     const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -102,6 +104,17 @@ export default function EventSpaceDetails({ setEventName }) {
         ],
     };
 
+    const openImageModal = (image) => {
+        setFullscreenImage(image);
+        setZoomLevel(1);
+    };
+
+    const closeImageModal = () => {
+        setFullscreenImage(null);
+    };
+
+    const zoomInImage = () => setZoomLevel((prev) => Math.min(prev + 0.2, 3));
+    const zoomOutImage = () => setZoomLevel((prev) => Math.max(prev - 0.2, 0.5));
 
     return (
         <>
@@ -145,7 +158,8 @@ export default function EventSpaceDetails({ setEventName }) {
                                             key={index}
                                             src={`/uploads/${image}`}
                                             alt={`Imagem ${index + 1}`}
-                                            className="h-40 object-cover mx-1 rounded px-1 rounded-xl"
+                                            onClick={() => openImageModal(image)}
+                                            className="h-40 object-cover mx-1 rounded px-1 rounded-xl cursor-zoom-in"
                                         />
                                     ))}
                                 </Slider>
@@ -205,6 +219,42 @@ export default function EventSpaceDetails({ setEventName }) {
                 optionalFields={optionalFields}
                 companyId={eventSpace.company_id}
             />
+
+            {fullscreenImage && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+                    onClick={closeImageModal}
+                >
+                    <div className="relative max-w-full max-h-full" onClick={(e) => e.stopPropagation()}>
+                        <img
+                            src={`/uploads/${fullscreenImage}`}
+                            alt="Imagem ampliada"
+                            className="transition-transform duration-300"
+                            style={{
+                                transform: `scale(${zoomLevel})`,
+                                maxWidth: '90vw',
+                                maxHeight: '90vh',
+                                objectFit: 'contain',
+                            }}
+                        />
+
+                        {/* Botão fechar */}
+                        <button
+                            onClick={closeImageModal}
+                            className="absolute top-2 right-1 bg-white h-8 w-8 rounded-full"
+                        >
+                            ✕
+                        </button>
+
+                        {/* Controles de zoom */}
+                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex gap-2 bg-white rounded-full shadow px-4 py-2 items-center">
+                            <button onClick={zoomOutImage} className="text-xl font-bold px-2">−</button>
+                            <span className="text-sm text-gray-700">{Math.round(zoomLevel * 100)}%</span>
+                            <button onClick={zoomInImage} className="text-xl font-bold px-2">+</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

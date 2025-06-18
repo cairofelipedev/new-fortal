@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApoiadoresController;
 use App\Http\Controllers\AssociadoController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PostController;
@@ -80,3 +81,5 @@ Route::get('/equipe-conselho', [EquipeConselhoController::class, 'index']);
 Route::get('/events-calendar', [EventCalendarController::class, 'index']);
 
 Route::get('/events-calendar/{slug}', [EventCalendarController::class, 'show']);
+
+Route::get('/apoiadores', [ApoiadoresController::class, 'index']);

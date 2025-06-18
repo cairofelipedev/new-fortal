@@ -19,7 +19,7 @@ const categoriasTraduzidas = {
   "equipamentos-para-eventos": "Equipamentos para Eventos",
 };
 
-const ListaAssociados = ({ type = "associado" }) => {
+const ListaAssociados = ({ type }) => {
   const [associados, setAssociados] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("todos");
   const [termoBusca, setTermoBusca] = useState("");
@@ -50,9 +50,12 @@ const ListaAssociados = ({ type = "associado" }) => {
     <div className="bg-gray-50">
       <div className="p-5 min-h-screen lg:px-20 max-w-7xl mx-auto">
         <p className="lg:text-4xl text-4xl text-center mb-6">
-          Conheça nossas empresas <b>{type === "organizador" ? "organizadoras" : "associadas"}</b>
+          {type === "escola" ? (
+            <>Conheça nossas <b>Escolas Náuticas</b></>
+          ) : (
+            <>Conheça nossas empresas <b>{type === "organizador" ? "organizadoras" : "associadas"}</b></>
+          )}
         </p>
-
         {/* Filtros */}
         <div className="grid grid-cols-2 justify-center items-center gap-4 mb-8 p-4 bg-[#0C9C95] lg:rounded-full shadow-lg rounded-lg">
           <select
@@ -110,7 +113,13 @@ const ListaAssociados = ({ type = "associado" }) => {
               </motion.div>
             ))
           ) : (
-            <p className="text-gray-600 col-span-3 text-center">Nenhum associado encontrado.</p>
+            <p className="text-gray-600 col-span-3 text-center">
+              {type === "escola"
+                ? "Nenhuma escola encontrada."
+                : type === "organizador"
+                  ? "Nenhuma organizadora encontrada."
+                  : "Nenhum associado encontrado."}
+            </p>
           )}
         </div>
       </div>

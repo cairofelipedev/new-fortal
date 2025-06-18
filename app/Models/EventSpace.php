@@ -90,4 +90,8 @@ class EventSpace extends Model
             $eventSpace->slug = Str::slug($eventSpace->name, '-');
         });
     }
+
+    protected $casts = [
+        'space_structures' => 'array',
+    ];
 }

@@ -62,13 +62,13 @@ const EventSearchForSpace = () => {
                             ))}
                         </select>
 
-                        <input
+                        {/* <input
                             type="number"
                             id="total_event_area"
                             value={total_event_area}
                             onChange={(e) => setTotalArea(e.target.value)}
                             placeholder="Metragem Total"
-                        />
+                        /> */}
 
                         <input
                             type="number"

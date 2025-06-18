@@ -8,6 +8,7 @@ use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
 use App\Models\EventSpace;
 use App\Models\EventType;
+use App\Models\SpaceStructure;
 
 class EventSpaceController extends AdminController
 {
@@ -47,15 +48,23 @@ class EventSpaceController extends AdminController
         $show->field('address', 'Endereço');
         $show->field('capacity', 'Capacidade');
         $show->field('phone', 'Telefone');
-        $show->field('type', 'Tipo');
+        // Corrigido: mostra o nome do tipo
+        $show->field('type', 'Tipo')->as(function ($id) {
+            return EventType::find($id)?->name ?? 'Desconhecido';
+        });
+
+        // Novo campo: mostra os nomes das estruturas
+        $show->field('space_structures', 'Estruturas')->as(function ($ids) {
+            return SpaceStructure::whereIn('id', $ids ?? [])->pluck('name')->implode(', ');
+        });
         $show->field('description', 'Descrição');
         $show->field('image', 'Imagem Principal')->image();
         $show->field('images', 'Imagens')->json();
         $show->field('floor_plan', 'Planta Baixa')->image();
         $show->field('status', 'Status')->using(['active' => 'Ativo', 'inactive' => 'Inativo']);
-        $show->field('publish', 'Publicado')->as(function ($publish) {
-            return $publish ? 'Sim' : 'Não';
-        });
+        // $show->field('publish', 'Publicado')->as(function ($publish) {
+        //     return $publish ? 'Sim' : 'Não';
+        // });
         $show->field('linkedin', 'LinkedIn');
         $show->field('instagram', 'Instagram');
         $show->field('facebook', 'Facebook');
@@ -109,6 +118,9 @@ class EventSpaceController extends AdminController
         $form->number('capacity', 'Capacidade')->rules('integer|min:1');
         $form->text('phone', 'Telefone');
         $form->select('type', 'Tipo')->options(EventType::pluck('name', 'id'));
+        $form->multipleSelect('space_structures', 'Estruturas Disponíveis')
+            ->options(SpaceStructure::pluck('name', 'id'))
+            ->rules('nullable|array');
         $form->textarea('description', 'Descrição')->rows(10)->rules('nullable');
         $form->image('image', 'Imagem Principal')->uniqueName()->removable()->downloadable();
         $form->multipleImage('images', 'Imagens')->uniqueName()->removable()->downloadable();
@@ -117,7 +129,7 @@ class EventSpaceController extends AdminController
             ->options(['active' => 'Ativo', 'inactive' => 'Inativo'])
             ->default('active')
             ->rules('required');
-        $form->switch('publish', 'Publicado')->default(false);
+        // $form->switch('publish', 'Publicado')->default(false);
         $form->text('linkedin', 'LinkedIn');
         $form->text('instagram', 'Instagram');
         $form->text('facebook', 'Facebook');

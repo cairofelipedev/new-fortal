@@ -18,9 +18,10 @@ Route::group([
     $router->resource('eventos', 'EventSpaceController');
     $router->resource('calendario-eventos', 'EventCalendarController');
     $router->resource('tipo-eventos', 'EventTypeController');
+    $router->resource('formato-de-espacos', 'SpaceStructureController');
     $router->resource('leads', 'ContactController');
     $router->resource('blog', 'PostController');
-    $router->resource('associados-e-organizadoras', 'AssociadoController');
+    $router->resource('associados-organizadoras-escolas', 'AssociadoController');
     $router->resource('sessao', 'SessaoController');
     $router->resource('sessaoitem', 'SessaoItemController');
     $router->resource('depoimentos', 'TestimonialController');

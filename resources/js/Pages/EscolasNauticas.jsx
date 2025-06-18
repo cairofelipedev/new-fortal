@@ -8,12 +8,12 @@ import ListaAssociados from '@/Components/ListaAssociados';
 export default function Welcome() {
     return (
         <>
-            <Head title="Organizadoras" />
+            <Head title="Escolas Náuticas" />
 
             <NavBar />
-            <SimpleSlider page="ORGANIZADORAS" />
-            <BannerDestak pagina="ORGANIZADORAS" posicao={1} />
-            <ListaAssociados type="organizador" />
+            <SimpleSlider page="ESCOLAS" />
+            <BannerDestak pagina="ESCOLAS" posicao={1} />
+            <ListaAssociados type="escolas" />
             <Footer />
         </>
     );

@@ -83,6 +83,7 @@ Route::get('/post/{slug}', [PostController::class, 'showPost']);
 
 Route::get('/associados/{slug}', [AssociadoController::class, 'showAssociate']);
 Route::get('/organizadoras/{slug}', [AssociadoController::class, 'showAssociate']);
+Route::get('/escolas-nauticas/{slug}', [AssociadoController::class, 'showAssociate']);
 
 Route::get('/conheca-fortaleza', function () {
     return Inertia::render('About/AboutFortaleza');
@@ -131,6 +132,10 @@ Route::get('/servicos', function () {
 
 Route::get('/organizadoras', function () {
     return Inertia::render('Organizations');
+});
+
+Route::get('/escolas-nauticas', function () {
+    return Inertia::render('EscolasNauticas');
 });
 
 Route::get('/quem-somos', function () {
