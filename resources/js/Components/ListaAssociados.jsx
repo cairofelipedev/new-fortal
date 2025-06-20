@@ -17,6 +17,9 @@ const categoriasTraduzidas = {
   "receptivo-e-transporte": "Receptivo e Transporte",
   "limpeza-geral": "Limpeza Geral",
   "equipamentos-para-eventos": "Equipamentos para Eventos",
+  "praia-de-meireles": "Praia de Meireles",
+  "praia-do-mucuripe": "Praia do Mucuripe",
+  "praia-de-iracema": "Praia de Iracema",
 };
 
 const ListaAssociados = ({ type }) => {
@@ -95,7 +98,14 @@ const ListaAssociados = ({ type }) => {
                   delay: index < 6 ? 0 : index * 0.08,
                 }}
               >
-                <Link href={`/${type === "organizador" ? "organizadoras" : "associados"}/${associado.slug}`}>
+                <Link
+                  href={`/${type === "organizador"
+                      ? "organizadoras"
+                      : type === "escolas"
+                        ? "escolas-nauticas"
+                        : "associados"
+                    }/${associado.slug}`}
+                >
                   <img
                     src={`./uploads/${associado.imagem}`}
                     alt={associado.nome}

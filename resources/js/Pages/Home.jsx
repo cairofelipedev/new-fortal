@@ -11,6 +11,7 @@ import NextEvents from '@/Components/CalendarEvents/nextEvents/nextEvents';
 import { Head } from '@inertiajs/react';
 import HowToGet from '@/Components/About/howToGet/howToGet';
 import Apoiadores from "@/Components/Apoiadores";
+import SimpleSlider from "@/Components/Banners/BannersHome";
 
 export default function Welcome() {
 
@@ -77,6 +78,7 @@ export default function Welcome() {
       {/* <OtherFortal /> */}
 
       <BannerDestak pagina="HOME" posicao={3} centerText={true} />
+      <SimpleSlider page="HOME" />
       <Apoiadores />
       <Footer />
     </>

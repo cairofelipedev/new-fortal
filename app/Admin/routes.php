@@ -28,4 +28,5 @@ Route::group([
     $router->resource('banners', 'BannerController');
     $router->resource('time', 'EquipeConselhoController');
     $router->resource('apoiadores', 'ApoiadoresController');
+    $router->resource('estrutura-de-salas', 'SpaceStructureController');
 });

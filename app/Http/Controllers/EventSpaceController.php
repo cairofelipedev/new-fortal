@@ -304,30 +304,31 @@ class EventSpaceController extends Controller
             $query->where('address', 'like', "%{$request->address}%");
         }
 
-        // Filtro para capacidade
         if ($request->filled('capacity')) {
             $query->where('capacity', '>=', $request->capacity);
         }
 
-        // Filtro para total_rentable_event_rooms
         if ($request->filled('total_rentable_event_rooms')) {
             $query->where('total_rentable_event_rooms', '>=', $request->total_rentable_event_rooms);
         }
 
-        // Filtro para total_event_area
-        if ($request->filled('total_event_area')) {
-            $query->where('total_event_area', '>=', $request->total_event_area);
+        if ($request->filled('structures')) {
+            $structureIds = $request->input('structures');
+
+            $query->where(function ($q) use ($structureIds) {
+                foreach ($structureIds as $id) {
+                    $q->orWhereJsonContains('space_structures', (string)$id);
+                }
+            });
         }
 
         if ($request->filled('phone')) {
             $query->where('phone', 'like', "%{$request->phone}%");
         }
 
-        // Ajuste do filtro para 'type' com base no nome
         if ($request->filled('type')) {
             $typeName = $request->type;
 
-            // Subconsulta para buscar o ID do tipo
             $typeId = DB::table('event_types')
                 ->where('name', $typeName)
                 ->value('id');
@@ -335,7 +336,6 @@ class EventSpaceController extends Controller
             if ($typeId) {
                 $query->where('type', $typeId);
             } else {
-                // Se o tipo não for encontrado, retorna um resultado vazio
                 return Inertia::render('Search/SearchResults', [
                     'results' => [],
                 ]);

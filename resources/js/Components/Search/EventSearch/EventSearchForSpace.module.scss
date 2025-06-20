@@ -32,10 +32,12 @@
             span {
                 color: #646464;
             }
+
             h2 {
                 font-weight: 500;
                 line-height: 100%;
             }
+
             b {
                 font-weight: 800;
                 color: #0C9C95;
@@ -55,6 +57,7 @@
             color: #0C9C95;
             border-radius: 40px;
         }
+
         button.filterActive {
             background-color: #0C9C95;
             color: #fff;
@@ -68,7 +71,8 @@
         width: 100%;
 
         select,
-        input {
+        input:not([type="checkbox"]),
+        .inputLike {
             background-color: #EFEFEF;
             color: #6A6A6A;
             width: 100%;
@@ -154,4 +158,16 @@
             }
         }
     }
+}
+
+.inputLike {
+    background-color: #EFEFEF;
+    color: #6A6A6A;
+    width: 100%;
+    padding: 20px 40px;
+    font-weight: 500;
+    border: none;
+    border-radius: 80px;
+    text-align: left;
+    cursor: pointer;
 }

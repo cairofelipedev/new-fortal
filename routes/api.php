@@ -14,6 +14,7 @@ use App\Http\Controllers\EquipeConselhoController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\EventTypeController;
 use App\Http\Controllers\SessaoController;
+use App\Models\SpaceStructure;
 use App\Models\Testimonial;
 
 /*
@@ -83,3 +84,7 @@ Route::get('/events-calendar', [EventCalendarController::class, 'index']);
 Route::get('/events-calendar/{slug}', [EventCalendarController::class, 'show']);
 
 Route::get('/apoiadores', [ApoiadoresController::class, 'index']);
+
+Route::get('/space-structures', function () {
+    return response()->json(SpaceStructure::select('id', 'name')->get());
+});

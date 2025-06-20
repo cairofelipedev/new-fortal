@@ -21,6 +21,13 @@ class AssociadoController extends AdminController
         $grid->column('categoria', 'Categoria')->sortable();
         $grid->column('type', 'Tipo')->sortable();
         $grid->column('imagem', 'Imagem')->image('', 100, 100);
+        $grid->column('link', 'Link')->display(function ($value) {
+            return $value ? "<a href='{$value}' target='_blank'>Abrir</a>" : '-';
+        })->sortable()->style('max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;');
+
+        $grid->column('whatsapp', 'WhatsApp')->sortable();
+        $grid->column('instagram', 'Instagram')->sortable();
+
         $grid->column('created_at', 'Criado em')->display(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
@@ -50,9 +57,18 @@ class AssociadoController extends AdminController
         $show->field('content', 'Conteúdo')->unescape()->as(function ($content) {
             return $content;
         });
+
+        $show->field('link', 'Link')->as(function ($value) {
+            return $value ? "<a href='{$value}' target='_blank'>{$value}</a>" : '-';
+        })->unescape();
+
+        $show->field('whatsapp', 'WhatsApp');
+        $show->field('instagram', 'Instagram');
+
         $show->field('created_at', 'Criado em')->as(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
+
         $show->field('updated_at', 'Atualizado em')->as(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
@@ -81,6 +97,10 @@ class AssociadoController extends AdminController
             'receptivo-e-transporte' => 'Receptivo e Transporte',
             'limpeza-geral' => 'Limpeza Geral',
             'equipamentos-para-eventos' => 'Equipamentos para Eventos',
+            // ✅ Novas categorias
+            'praia-de-meireles' => 'Praia de Meireles',
+            'praia-do-mucuripe' => 'Praia do Mucuripe',
+            'praia-de-iracema' => 'Praia de Iracema',
         ])->rules('required');
 
         $form->select('type', 'Tipo')->options([
@@ -95,11 +115,15 @@ class AssociadoController extends AdminController
                 return $form->isCreating() ? 'required|image' : 'nullable|image';
             })
             ->customFormat(function ($value) {
-                return $value; // mantém a imagem durante a edição
+                return $value;
             })
             ->help('Selecione uma imagem válida. Este campo é obrigatório ao cadastrar.');
 
         $form->ckeditor('content', 'Conteúdo')->rules('nullable');
+
+        $form->url('link', 'Link do site')->rules('nullable|url');
+        $form->text('whatsapp', 'WhatsApp')->rules('nullable|string|max:255');
+        $form->text('instagram', 'Instagram')->rules('nullable|string|max:255');
 
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
         $form->datetime('updated_at', 'Atualizado em')->default(now())->readonly();
