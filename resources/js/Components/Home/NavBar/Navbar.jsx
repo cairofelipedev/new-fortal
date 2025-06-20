@@ -92,7 +92,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href='/proximos-eventos' className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaCalendar  className="text-xl" />
+                                                <FaCalendar className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Próximos Eventos</h2>
@@ -162,19 +162,27 @@ export default function NavBar({ scrollEffect = false }) {
                                     <FaLinkedinIn className="text-lg" />
                                 </a>
                             </div>
-                            <a href="https://visiteceara.com">
-                                <div className="flex space-x-2">
+
+                            <div className="flex space-x-2 items-center">
+                                {/* Link Visite Ceará */}
+                                <a
+                                    href="https://visiteceara.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <div className={`${style.buttonVisite} text-white items-center lg:flex flex font-criteria hidden lg:block text-[13px] h-max box-border bg-[#0C9C95] rounded-full border border-transparent hover:bg-orange-600 hover:border-orange-800 hover:text-white duration-[.3s]`}>
                                         Visite Ceará
                                         <div className={`${style.iconArea}`}>
                                             <FaArrowRightLong className="text-lg text-[#0C9C95]" />
                                         </div>
                                     </div>
-                                    <button className={style.menuButton} onClick={toggleMenu}>
-                                        {isMenuOpen ? <FaTimesCircle className="text-2xl" /> : <FiMenu className="text-2xl" />}
-                                    </button>
-                                </div>
-                            </a>
+                                </a>
+
+                                {/* Botão do menu mobile */}
+                                <button className={`${style.menuButton} lg:hidden`} onClick={toggleMenu}>
+                                    {isMenuOpen ? <FaTimesCircle className="text-2xl" /> : <FiMenu className="text-2xl" />}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -242,6 +250,12 @@ export default function NavBar({ scrollEffect = false }) {
                             </div>
                             <h1>Fale Conosco</h1>
                         </Link>
+                        <a className={style.linkMobile} href="https://visiteceara.com" target='_blank'>
+                            <div className={style.areaIcon}>
+                                <FaRegSun className="text-xl" />
+                            </div>
+                            <h1>Visite Ceará</h1>
+                        </a>
                     </div>
                 </div>
             </nav>
