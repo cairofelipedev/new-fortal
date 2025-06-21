@@ -51,7 +51,39 @@ export default function NavBar({ scrollEffect = false }) {
                     <div className="flex gap-10 uppercase text-gray-500">
                         <div className={`${style.listLink}`}>
                             <Link href="/" className={`tracking-widest ${style.linkHoverUnderline}`}>Home</Link>
-                            <Link href="/conheca-fortaleza" className={`tracking-widest ${style.linkHoverUnderline}`}>Conheça Fortaleza</Link>
+                            <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
+                                <p className={`${style.link} ${style.linkHoverUnderline}`}>
+                                   Fortaleza
+                                </p>
+                                <div className={`${style.capulseDrop}`}>
+                                    <div className={style.dropDown}>
+                                        <a href='/conheca-fortaleza' className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaExclamation className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Conheça Fortaleza</h2>
+                                            </div>
+                                        </a>
+                                        <a href={`/porque-fortaleza`} className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaQuestion className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Porque Fortaleza</h2>
+                                            </div>
+                                        </a>
+                                        <a href={`/escolas-nauticas`} className={style.columnDrop}>
+                                            <div className={style.iconArea}>
+                                                <FaPhoneAlt className="text-xl" />
+                                            </div>
+                                            <div className={style.textArea}>
+                                                <h2>Escolas Náuticas</h2>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                                 <p className={style.link}>Eventos</p>
                                 <div className={`${style.capulseDrop}`}>
@@ -123,14 +155,6 @@ export default function NavBar({ scrollEffect = false }) {
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Associe-se</h2>
-                                            </div>
-                                        </a>
-                                        <a href={`/porque-fortaleza`} className={style.columnDrop}>
-                                            <div className={style.iconArea}>
-                                                <FaQuestion className="text-xl" />
-                                            </div>
-                                            <div className={style.textArea}>
-                                                <h2>Porque Fortaleza</h2>
                                             </div>
                                         </a>
                                         <a href={`/contato`} className={style.columnDrop}>
