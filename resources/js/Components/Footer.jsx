@@ -6,13 +6,13 @@ import { LinkMap } from "./LinksMap";
 export default function Footer() {
     return (
         <>
-            <footer className="bg-white pt-5" aria-labelledby="footer-heading">
+            <footer className="bg-gray-100 pt-5" aria-labelledby="footer-heading">
                 <h2 id="footer-heading" className="sr-only">Footer</h2>
                 <div className="lg:mx-auto lg:max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-2">
                     <div className="">
                         {/* <div className="xl:grid xl:grid-cols-5 xl:gap-8 mt-16  gap-8 xl:mt-0"> */}
                         <div className="flex justify-center md:justify-between items-center flex-col md:flex-row w-full gap-8">
-                            <div className="lg:flex lg:flex-row md:flex-col gap-8 text-center">
+                            <div className="md:flex-col gap-8 text-center">
                                 <img className="h-18" src="https://fortalezameetings.com.br/images/logoFooter.png" alt="Company name" />
                                 <p className="text-sm leading-6 text-[#fff] max-w-[250px] min-w-36 text-black">O <span className="font-bold text-[#ea580c]">destino</span> perfeito para o evento <span className="font-bold text-[#0C9C95]">perfeito</span>!</p>
                                 <SocialMedia/>

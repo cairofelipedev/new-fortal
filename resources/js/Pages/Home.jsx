@@ -77,8 +77,12 @@ export default function Welcome() {
 
       {/* <OtherFortal /> */}
 
-      <BannerDestak pagina="HOME" posicao={3} centerText={true} />
-      <SimpleSlider page="HOME" />
+      {/* <BannerDestak pagina="HOME" posicao={3} centerText={true} /> */}
+      <div className="bg-gray-100 py-10">
+        <div className="max-w-7xl mx-auto">
+          <SimpleSlider page="HOME" />
+        </div>
+      </div>
       <Apoiadores />
       <Footer />
     </>

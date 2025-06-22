@@ -60,7 +60,7 @@ class EventSpaceController extends AdminController
         $show->field('description', 'Descrição');
         $show->field('image', 'Imagem Principal')->image();
         $show->field('images', 'Imagens')->json();
-        $show->field('floor_plan', 'Planta Baixa')->image();
+        $show->field('floor_plan', 'Quadro de Salas')->file();
         $show->field('status', 'Status')->using(['active' => 'Ativo', 'inactive' => 'Inativo']);
         // $show->field('publish', 'Publicado')->as(function ($publish) {
         //     return $publish ? 'Sim' : 'Não';
@@ -124,7 +124,7 @@ class EventSpaceController extends AdminController
         $form->textarea('description', 'Descrição')->rows(10)->rules('nullable');
         $form->image('image', 'Imagem Principal')->uniqueName()->removable()->downloadable();
         $form->multipleImage('images', 'Imagens')->uniqueName()->removable()->downloadable();
-        $form->image('floor_plan', 'Planta Baixa')->uniqueName()->removable()->downloadable();
+        $form->file('floor_plan', 'Quadro de Salas')->uniqueName()->removable()->downloadable();
         $form->select('status', 'Status')
             ->options(['active' => 'Ativo', 'inactive' => 'Inativo'])
             ->default('active')

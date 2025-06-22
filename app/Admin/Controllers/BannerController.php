@@ -24,6 +24,11 @@ class BannerController extends AdminController
         $grid->column('image_desktop', 'Imagem Desktop')->image('', 100, 50);
         $grid->column('image_mobile', 'Imagem Mobile')->image('', 100, 50);
         $grid->column('page', 'Página');
+        $grid->column('link', 'Link')->display(function ($value) {
+            return $value ? "<a href='{$value}' target='_blank'>Link</a>" : '-';
+        });
+
+        $grid->column('titulo_visivel', 'Título Visível')->bool();
         $grid->column('created_at', 'Criado em')->display(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
@@ -31,9 +36,6 @@ class BannerController extends AdminController
         return $grid;
     }
 
-    /**
-     * Detalhes do banner.
-     */
     protected function detail($id)
     {
         $show = new Show(Banner::findOrFail($id));
@@ -43,6 +45,8 @@ class BannerController extends AdminController
         $show->field('image_desktop', 'Imagem Desktop')->image();
         $show->field('image_mobile', 'Imagem Mobile')->image();
         $show->field('page', 'Página');
+        $show->field('link', 'Link')->link();
+        $show->field('titulo_visivel', 'Título Visível')->bool();
         $show->field('created_at', 'Criado em')->as(function ($value) {
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
@@ -53,9 +57,6 @@ class BannerController extends AdminController
         return $show;
     }
 
-    /**
-     * Formulário de criação/edição do banner.
-     */
     protected function form()
     {
         $form = new Form(new Banner);
@@ -76,6 +77,10 @@ class BannerController extends AdminController
                 'SERVICOS ' => 'SERVIÇOS',
             ])
             ->rules('required');
+
+        $form->text('link', 'Link')->rules('nullable|url|max:512');
+        $form->switch('titulo_visivel', 'Título Visível')->default(1);
+
         $form->datetime('created_at', 'Criado em')->default(now())->readonly();
         $form->datetime('updated_at', 'Atualizado em')->default(now())->readonly();
 

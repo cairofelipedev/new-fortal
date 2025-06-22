@@ -50,7 +50,7 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                 height: isMobile ? "30px" : "50px"
             }}
         >
-            <IoIosArrowBack color="#602380" size={16} />
+            <IoIosArrowBack color="#fff" size={16} />
         </div>
     );
 
@@ -65,12 +65,12 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                 height: isMobile ? "30px" : "50px"
             }}
         >
-            <IoIosArrowForward color="#602380" size={16} />
+            <IoIosArrowForward color="#fff" size={16} />
         </div>
     );
 
     const arrowStyle = {
-        background: "#fff",
+        background: "#F57C29",
         borderRadius: "50%",
         display: "flex",
         justifyContent: "center",
@@ -101,49 +101,43 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                 </div>
             ) : (
                 <Slider {...settings}>
-                    {banners.map((banner) => (
-                        <div key={banner.id}>
-                            {isMobile ? (
-                                <section className="relative lg:h-[600px] overflow-hidden">
-                                    <img
-                                        className="absolute object-cover w-full h-full"
-                                        src={`/uploads/${banner.image_mobile}`}
-                                    />
+                    {banners.map((banner) => {
+                        const content = (
+                            <section className="relative lg:h-[600px] overflow-hidden">
+                                <img
+                                    className="absolute object-cover w-full h-full rounded-lg"
+                                    src={`/uploads/${isMobile ? banner.image_mobile : banner.image_desktop}`}
+                                    alt={banner.name}
+                                />
 
-                                    {/* Overlay escuro */}
-                                    <div className="absolute inset-0 bg-black opacity-10"></div>
+                                {/* Overlay escuro */}
+                                <div className="absolute inset-0 bg-black opacity-10"></div>
 
-                                    {/* Conteúdo */}
-                                    <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
-                                        <div className="lg:px-20 px-5">
-                                            <p className="lg:text-7xl text-5xl text-white font-bold lg:pt-2 pt-16">{banner.name}</p>
-                                            {/* <p className="lg:text-7xl text-5xl text-white font-bold">Os principais segmentos estão aqui</p> */}
-                                        </div>
+                                {/* Conteúdo */}
+                                <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
+                                    <div className="lg:px-20 px-5">
+                                        {banner.titulo_visivel && (
+                                            <p className="lg:text-7xl text-5xl text-white font-bold">
+                                                {banner.name}
+                                            </p>
+                                        )}
                                     </div>
-                                </section>
+                                </div>
+                            </section>
+                        );
 
-                            ) : (
-                                <section className="relative lg:h-[600px] overflow-hidden">
-                                    <img
-                                        className="absolute object-cover w-full h-full"
-                                        src={`/uploads/${banner.image_desktop}`}
-                                    />
-
-                                    {/* Overlay escuro */}
-                                    <div className="absolute inset-0 bg-black opacity-10"></div>
-
-                                    {/* Conteúdo */}
-                                    <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
-                                        <div className="lg:px-20 px-5">
-                                            <p className="lg:text-7xl text-5xl text-white font-bold">{banner.name}</p>
-                                            {/* <p className="lg:text-7xl text-5xl text-white font-bold">Os principais segmentos estão aqui</p> */}
-                                        </div>
-                                    </div>
-                                </section>
-
-                            )}
-                        </div>
-                    ))}
+                        return (
+                            <div key={banner.id}>
+                                {banner.link ? (
+                                    <a href={banner.link} target="_blank" rel="noopener noreferrer">
+                                        {content}
+                                    </a>
+                                ) : (
+                                    content
+                                )}
+                            </div>
+                        );
+                    })}
                 </Slider>
             )}
         </section>
