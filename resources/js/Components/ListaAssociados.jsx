@@ -51,9 +51,9 @@ const ListaAssociados = ({ type }) => {
 
   return (
     <div className="bg-gray-50">
-      <div className="p-5 min-h-screen lg:px-20 max-w-7xl mx-auto">
+      <div className="p-5 min-h-screen lg:px-20 max-w-7xl mx-auto pt-40">
         <p className="lg:text-4xl text-4xl text-center mb-6">
-          {type === "escola" ? (
+          {type === "escolas" ? (
             <>Conheça nossas <b>Escolas Náuticas</b></>
           ) : (
             <>Conheça nossas empresas <b>{type === "organizador" ? "organizadoras" : "associadas"}</b></>
