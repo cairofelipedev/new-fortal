@@ -24,7 +24,7 @@ export default function Show() {
   const { nome, imagem, content, link, whatsapp, instagram } = associete;
 
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg pt-20">
+    <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg lg:pt-40 pt-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Coluna da imagem */}
         <div className="col-span-1">
