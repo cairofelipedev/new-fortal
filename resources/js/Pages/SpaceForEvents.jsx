@@ -15,7 +15,7 @@ export default function ResultSearch() {
             <NavBar />
             <SimpleSlider page="EVENTOS" />
             <EventSearchForSpace />
-            <section className={style.container}>
+            <section className={`px-4 ${style.container}`}>
                 {/* Título e resumo */}
                 <div className={style.titleArea}>
                     <div className={style.textArea}>

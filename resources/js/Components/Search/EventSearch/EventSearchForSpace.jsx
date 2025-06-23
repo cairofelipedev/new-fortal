@@ -133,7 +133,7 @@ const EventSearchForSpace = () => {
 
                         <button
                             type="submit"
-                            className="border text-xl bg-fortalorange font-semibold text-white px-5 py-2 rounded-full flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300"
+                            className="border text-xl bg-fortalorange font-semibold text-white px-5 py-2 rounded-full flex gap-3 items-center hover:bg-white hover:text-fortalorange hover:border-fortalorange transition-colors duration-300 justify-between"
                         >
                             Buscar
                             <span className="duration-300 w-12 h-12 flex items-center justify-center rounded-lg">

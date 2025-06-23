@@ -6,7 +6,7 @@ import { LinkMap } from "./LinksMap";
 export default function Footer() {
     return (
         <>
-            <footer className="bg-gray-100 pt-5" aria-labelledby="footer-heading">
+            <footer className="bg-gray-100 pt-5 mt-5" aria-labelledby="footer-heading">
                 <h2 id="footer-heading" className="sr-only">Footer</h2>
                 <div className="lg:mx-auto lg:max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-2">
                     <div className="">

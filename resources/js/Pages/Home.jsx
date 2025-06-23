@@ -79,7 +79,7 @@ export default function Welcome() {
 
       {/* <BannerDestak pagina="HOME" posicao={3} centerText={true} /> */}
       <div className="bg-gray-100 py-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4">
           <SimpleSlider page="HOME" />
         </div>
       </div>

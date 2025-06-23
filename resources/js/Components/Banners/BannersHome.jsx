@@ -103,7 +103,7 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                 <Slider {...settings}>
                     {banners.map((banner) => {
                         const content = (
-                            <section className="relative lg:h-[600px] overflow-hidden">
+                            <section className="relative lg:h-[600px] h-[300px] overflow-hidden">
                                 <img
                                     className="absolute object-cover w-full h-full rounded-lg"
                                     src={`/uploads/${isMobile ? banner.image_mobile : banner.image_desktop}`}
@@ -113,16 +113,19 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
                                 {/* Overlay escuro */}
                                 <div className="absolute inset-0 bg-black opacity-10"></div>
 
-                                {/* Conteúdo */}
-                                <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
-                                    <div className="lg:px-20 px-5">
-                                        {banner.titulo_visivel && (
+                                {banner.titulo_visivel && (
+                                    <div className="lg:pt-0 pt-10 lg:pb-0 pb-10 relative flex flex-col justify-center h-full">
+
+                                        <div className="lg:px-20 px-5">
+
                                             <p className="lg:text-7xl text-5xl text-white font-bold">
                                                 {banner.name}
                                             </p>
-                                        )}
+
+                                        </div>
+
                                     </div>
-                                </div>
+                                )}
                             </section>
                         );
 
