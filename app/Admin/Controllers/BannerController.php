@@ -75,6 +75,7 @@ class BannerController extends AdminController
                 'ASSOCIESE ' => 'ASSOCIE-SE',
                 'QUEMS0MOS ' => 'QUEM SOMOS',
                 'SERVICOS ' => 'SERVIÇOS',
+                'ESCOLAS ' => 'ESCOLAS',
             ])
             ->rules('required');
 

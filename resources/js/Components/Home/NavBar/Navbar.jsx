@@ -5,7 +5,7 @@ import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaSearchLocation, F
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiHome2Fill } from "react-icons/ri";
-import { FaHandsHelping } from "react-icons/fa";
+import { FaShip  } from "react-icons/fa";
 
 
 import style from './Navbar.module.scss'
@@ -75,7 +75,7 @@ export default function NavBar({ scrollEffect = false }) {
                                         </a>
                                         <a href={`/escolas-nauticas`} className={style.columnDrop}>
                                             <div className={style.iconArea}>
-                                                <FaPhoneAlt className="text-xl" />
+                                                <FaShip className="text-xl" />
                                             </div>
                                             <div className={style.textArea}>
                                                 <h2>Escolas Náuticas</h2>
