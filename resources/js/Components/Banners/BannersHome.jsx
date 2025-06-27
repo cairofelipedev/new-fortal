@@ -82,7 +82,7 @@ export default function SimpleSlider({ page = 'sobrefortaleza' }) {
     };
 
     const settings = {
-        dots: false,
+        dots: true,
         infinite: banners.length > 1,
         speed: 500,
         slidesToShow: 1,

@@ -266,7 +266,7 @@ export default function EventSpaceDetails({ setEventName }) {
                         {eventSpace.direct_event_services && (
                             <div className="bg-white rounded-lg shadow p-4">
                                 <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-2">Serviços Diretos para Eventos</h1>
-                                <p className="mb-4 text-sm">SERVIÇOS DE EVENTOS DISPONÍVEIS PARA EVENTOS COM CONTRATAÇÃO DIRETA COM O ESTABELECIMENTO</p>
+                                <p className="mb-4 text-sm italic">Disponíveis para contratação diretamente com espaço.</p>
 
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                                     {eventSpace.direct_event_services

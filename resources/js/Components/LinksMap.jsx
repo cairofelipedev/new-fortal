@@ -40,19 +40,22 @@ export const LinkMap = () => {
                 <TitleItem href="https://fortalezameetings.com.br/contato" title="Contato" icon={<MdPhone className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4 text-[#905d36] text-sm leading-6">
                     <li className="flex items-center gap-2">
-                        <span>Av. Washington Soares 999. Pavilhão Leste - Portão E - 2º andar - Sala do Visite Ceará - Edson Queiroz</span>
+                        <a href="https://www.google.com/maps/place/Fortaleza+Convention+%26+Visitors+Bureau%2F+Visite+Cear%C3%A1/@-3.7646075,-38.4837558,17z/data=!4m7!3m6!1s0x7c748827f4d9519:0xc0c9ef2b97430388!8m2!3d-3.7646386!4d-38.4811741!15sCmpBdi4gV2FzaGluZ3RvbiBTb2FyZXMgOTk5LiBQYXZpbGjDo28gTGVzdGUgLSBQb3J0w6NvIEUgLSAywrogYW5kYXIgLSBTYWxhIGRvIFZpc2l0ZSBDZWFyw6EgLSBFZHNvbiBRdWVpcm96kgENcGFydHlfcGxhbm5lcqoB9gEKCC9tLzAzYzc5CgkvbS8wMWhkbGYKCS9tLzA0d2pxdxABKksiR3BhdmlsaMOjbyBsZXN0ZSBwb3J0w6NvIGUgMsK6IGFuZGFyIHNhbGEgZG8gdmlzaXRlIGNlYXLDoSBlZHNvbiBxdWVpcm96KAwyHxABIhsP2AeNmJjsPLCp8beGL1T-fRYdRUrsnp_piJYyZBACImBhdiB3YXNoaW5ndG9uIHNvYXJlcyA5OTkgcGF2aWxow6NvIGxlc3RlIHBvcnTDo28gZSAywrogYW5kYXIgc2FsYSBkbyB2aXNpdGUgY2VhcsOhIGVkc29uIHF1ZWlyb3rgAQA!16s%2Fg%2F11c1s3h5qq?entry=tts&g_ep=EgoyMDI1MDYyMi4wIPu8ASoASAFQAw%3D%3D&skid=ba116bfc-b420-4892-ad3d-f1d0c840f246" target="_blank"
+                        >
+                            <span>Av. Washington Soares 999. Pavilhão Leste - Portão E - 2º andar - Sala do Visite Ceará - Edson Queiroz</span>
+                        </a>
                     </li>
                     <li className="flex items-center gap-2">
                         <MdPhone className="text-lg" />
-                        <span>+55 85 3258-5888</span>
+                        <span><a href="tel:+55 85 3258-5888"> +55 85 3258-5888</a></span>
                     </li>
                     <li className="flex items-center gap-2">
                         <MdEmail className="text-lg" />
-                        <span>captacao@visiteceara.com</span>
+                        <span><a href="mailto:captacao@visiteceara.com">captacao@visiteceara.com</a></span>
                     </li>
                     <li className="flex items-center gap-2">
                         <MdLanguage className="text-lg" />
-                        <span>visiteceara.com.br</span>
+                        <span><a href="https://visiteceara.com" target="_blank">visiteceara.com.br</a></span>
                     </li>
                     <li className="flex items-center gap-2">
                         <MdAccessTime className="text-lg" />

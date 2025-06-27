@@ -104,32 +104,38 @@ class EventSpaceController extends AdminController
     protected function form()
     {
         $form = new Form(new EventSpace);
-
+    
         $form->display('id', __('ID'));
+    
         $form->select('company_id', 'Empresa')
             ->options(\App\Models\Company::pluck('name', 'id'))
             ->rules('required');
+    
         $form->text('name', 'Nome')->rules('required|min:3|max:255');
-        // $form->text('slug', 'Slug')->rules('required|min:3|max:255');
         $form->text('city', 'Cidade')->rules('required');
         $form->text('state', 'Estado');
         $form->text('zip_code', 'CEP');
         $form->text('address', 'Endereço')->rules('required|min:3|max:255');
         $form->number('capacity', 'Capacidade')->rules('integer|min:1');
         $form->text('phone', 'Telefone');
+    
         $form->select('type', 'Tipo')->options(EventType::pluck('name', 'id'));
+    
         $form->multipleSelect('space_structures', 'Estruturas Disponíveis')
             ->options(SpaceStructure::pluck('name', 'id'))
             ->rules('nullable|array');
+    
         $form->textarea('description', 'Descrição')->rows(10)->rules('nullable');
+    
         $form->image('image', 'Imagem Principal')->uniqueName()->removable()->downloadable();
         $form->multipleImage('images', 'Imagens')->uniqueName()->removable()->downloadable();
         $form->file('floor_plan', 'Quadro de Salas')->uniqueName()->removable()->downloadable();
+    
         $form->select('status', 'Status')
             ->options(['active' => 'Ativo', 'inactive' => 'Inativo'])
             ->default('active')
             ->rules('required');
-        // $form->switch('publish', 'Publicado')->default(false);
+    
         $form->text('linkedin', 'LinkedIn');
         $form->text('instagram', 'Instagram');
         $form->text('facebook', 'Facebook');
@@ -143,9 +149,16 @@ class EventSpaceController extends AdminController
         $form->text('room_count', 'Número de Quartos');
         $form->text('bed_count', 'Número de Camas');
         $form->text('distance_to_sea', 'Distância ao Mar');
-        $form->text('dining_facilities', 'Instalações para Refeições');
-        $form->text('other_facilities', 'Outras Instalações');
-        $form->text('services', 'Serviços');
+    
+        $form->text('dining_facilities', 'Instalações para Refeições')
+            ->help('Separe cada item por vírgula. Ex: Restaurante, Bar, Buffet');
+    
+        $form->text('other_facilities', 'Outras Instalações')
+            ->help('Separe cada item por vírgula. Ex: Piscina, Sauna, Academia');
+    
+        $form->text('services', 'Serviços')
+            ->help('Separe cada item por vírgula. Ex: Wi-Fi, Estacionamento, Ar-condicionado');
+    
         $form->text('accessible_rooms', 'Quartos Acessíveis');
         $form->text('accessible_type', 'Tipo de Acessibilidade');
         $form->text('total_event_area', 'Área Total para Eventos');
@@ -154,15 +167,26 @@ class EventSpaceController extends AdminController
         $form->text('pavilion_ceiling_height', 'Altura do Teto do Pavilhão');
         $form->text('smallest_event_room_area', 'Menor Sala para Eventos');
         $form->text('total_rentable_event_rooms', 'Total de Salas Alugáveis');
-        $form->text('direct_event_services', 'Serviços Diretos para Eventos');
-        $form->text('other_rentable_spaces', 'Outros Espaços Alugáveis');
+    
+        $form->text('direct_event_services', 'Serviços Diretos para Eventos')
+            ->help('Separe cada item por vírgula. Ex: Iluminação, Sonorização, Palco');
+    
+        $form->text('other_rentable_spaces', 'Outros Espaços Alugáveis')
+            ->help('Separe cada item por vírgula. Ex: Salão VIP, Auditório, Terraço');
+    
         $form->text('parking_capacity', 'Capacidade de Estacionamento');
-        $form->textarea('top_5_events', 'Top 5 Eventos');
+    
+        $form->textarea('top_5_events', 'Top 5 Eventos')
+            ->help('Separe cada evento por vírgula. Ex: Congresso ABC, Feira XYZ, Evento Corporativo');
+    
         $form->textarea('accessibility_comments', 'Comentários sobre Acessibilidade');
-        $form->textarea('sustainable_practices', 'Práticas Sustentáveis');
+    
+        $form->textarea('sustainable_practices', 'Práticas Sustentáveis')
+            ->help('Separe cada prática por vírgula. Ex: Coleta seletiva, Energia solar, Reaproveitamento de água');
+    
         $form->text('pet_friendly', 'Aceita Animais');
         $form->textarea('pet_friendly_policy', 'Política de Animais');
-
+    
         return $form;
     }
-}
+}    

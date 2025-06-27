@@ -63,8 +63,15 @@ class BannerController extends AdminController
 
         $form->display('id', __('ID'));
         $form->text('name', 'Nome')->rules('required|min:3|max:255');
-        $form->image('image_desktop', 'Imagem Desktop')->uniqueName()->removable();
-        $form->image('image_mobile', 'Imagem Mobile')->uniqueName()->removable();
+        $form->image('image_desktop', 'Imagem Desktop')
+            ->uniqueName()
+            ->removable()
+            ->help('Tamanho recomendado: 600x1800 pixels.');
+
+        $form->image('image_mobile', 'Imagem Mobile')
+            ->uniqueName()
+            ->removable()
+            ->help('Tamanho recomendado: 500x500 pixels.');
         $form->select('page', 'Página')
             ->options([
                 'HOME' => 'HOME',
