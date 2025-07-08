@@ -24,7 +24,7 @@ const ContactForm = ({ optionalFields = [], companyId, isOpen, onClose, query })
         // Adiciona o campo "tags" fixo
         const dataToSend = {
             ...formData,
-            tags: ["site"],  // Adicionando as tags fixas
+            tags: ["site - eventos"],  // Adicionando as tags fixas
         };
 
         try {

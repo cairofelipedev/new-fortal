@@ -202,7 +202,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                 {eventSpace.description.length > maxChars && (
                                     <button
                                         onClick={() => setShowFullDescription(prev => !prev)}
-                                        className="text-sm mt-2 text-orange-600 hover:underline"
+                                        className="lg:text-lg text-sm mt-2 text-orange-600 hover:underline"
                                     >
                                         {showFullDescription ? "Ver menos" : "Ver mais"}
                                     </button>
@@ -215,7 +215,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                 <a
                                     href={`/uploads/${eventSpace.floor_plan}`}
                                     download
-                                    className="inline-flex items-center bg-orange-500 text-white px-4 py-2 rounded-full shadow hover:bg-orange-600 transition text-sm max-w-max"
+                                    className="inline-flex items-center bg-orange-500 text-white px-4 py-2 rounded-full shadow hover:bg-orange-600 transition lg:text-lg text-sm max-w-max"
                                 >
                                     <MdEventSeat className="mr-2" size={18} />
                                     Quadro de Salas
@@ -236,8 +236,8 @@ export default function EventSpaceDetails({ setEventName }) {
                                         .join(",") // junta tudo
                                         .split(",") // separa cada item
                                         .map((item, index) => (
-                                            <div key={index} className="flex items-start gap-2 text-gray-700 text-sm">
-                                                <FaCheck className="text-green-600 mt-1" />
+                                            <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))
@@ -254,8 +254,8 @@ export default function EventSpaceDetails({ setEventName }) {
                                     {eventSpace.top_5_events
                                         .split(",")
                                         .map((item, index) => (
-                                            <div key={index} className="flex items-start gap-2 text-gray-700 text-sm">
-                                                <FaCheck className="text-green-600 mt-1" />
+                                            <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -266,14 +266,14 @@ export default function EventSpaceDetails({ setEventName }) {
                         {eventSpace.direct_event_services && (
                             <div className="bg-white rounded-lg shadow p-4">
                                 <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-2">Serviços Diretos para Eventos</h1>
-                                <p className="mb-4 text-sm italic">Disponíveis para contratação diretamente com espaço.</p>
+                                <p className="mb-4 lg:text-lg text-sm italic">Disponíveis para contratação diretamente com espaço.</p>
 
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                                     {eventSpace.direct_event_services
                                         .split(",")
                                         .map((item, index) => (
-                                            <div key={index} className="flex items-start gap-2 text-gray-700 text-sm">
-                                                <FaCheck className="text-green-600 mt-1" />
+                                            <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -289,8 +289,8 @@ export default function EventSpaceDetails({ setEventName }) {
                                     {eventSpace.other_rentable_spaces
                                         .split(",")
                                         .map((item, index) => (
-                                            <div key={index} className="flex items-start gap-2 text-gray-700 text-sm">
-                                                <FaCheck className="text-green-600 mt-1" />
+                                            <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -306,15 +306,15 @@ export default function EventSpaceDetails({ setEventName }) {
                                     {eventSpace.accessible_type
                                         .split(",")
                                         .map((item, index) => (
-                                            <div key={index} className="flex items-start gap-2 text-gray-700 text-sm">
-                                                <FaCheck className="text-green-600 mt-1" />
+                                            <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
                                 </div>
 
                                 {eventSpace.accessibility_comments && (
-                                    <p className="text-gray-700 text-sm whitespace-pre-line">
+                                    <p className="text-gray-700 lg:text-lg text-sm whitespace-pre-line">
                                         {eventSpace.accessibility_comments}
                                     </p>
                                 )}
@@ -329,8 +329,8 @@ export default function EventSpaceDetails({ setEventName }) {
                                     {eventSpace.sustainable_practices
                                         .split(",")
                                         .map((item, index) => (
-                                            <div key={index} className="flex items-start gap-2 text-gray-700 text-sm">
-                                                <FaCheck className="text-green-600 mt-1" />
+                                            <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -342,16 +342,16 @@ export default function EventSpaceDetails({ setEventName }) {
                             <div className="bg-white rounded-lg shadow p-4">
                                 <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-4">Pet Friendly</h1>
 
-                                <div className="text-gray-700 text-sm flex items-start gap-2 mb-2">
-                                    <FaCheck className="text-green-600 mt-1" />
+                                <div className="text-gray-700 lg:text-lg text-sm flex items-start gap-2 mb-2">
+                                      <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                     <span>
                                         {eventSpace.pet_friendly ? "Este espaço aceita animais de estimação." : "Este espaço não permite animais de estimação."}
                                     </span>
                                 </div>
 
                                 {eventSpace.pet_friendly && eventSpace.pet_friendly_policy && (
-                                    <div className="text-gray-700 text-sm flex items-start gap-2">
-                                        <FaCheck className="text-green-600 mt-1" />
+                                    <div className="text-gray-700 lg:text-lg text-sm flex items-start gap-2">
+                                        <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
                                         <span><strong>Política:</strong> {eventSpace.pet_friendly_policy}</span>
                                     </div>
                                 )}
@@ -398,7 +398,7 @@ export default function EventSpaceDetails({ setEventName }) {
                         {/* Controles de zoom */}
                         <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex gap-2 bg-white rounded-full shadow px-4 py-2 items-center">
                             <button onClick={zoomOutImage} className="text-xl font-bold px-2">−</button>
-                            <span className="text-sm text-gray-700">{Math.round(zoomLevel * 100)}%</span>
+                            <span className="lg:text-lg text-sm text-gray-700">{Math.round(zoomLevel * 100)}%</span>
                             <button onClick={zoomInImage} className="text-xl font-bold px-2">+</button>
                         </div>
                     </div>

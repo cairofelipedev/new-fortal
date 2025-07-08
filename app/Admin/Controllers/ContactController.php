@@ -23,10 +23,10 @@ class ContactController extends AdminController
         $grid->column('id', __('ID'))->sortable();
         $grid->column('name', 'Nome');
         $grid->column('email', 'E-mail');
-        $grid->column('job_title', 'Cargo');
-        $grid->column('city', 'Cidade');
-        $grid->column('state', 'Estado');
-        $grid->column('country', 'País');
+        $grid->column('bio', 'Empresa (RD)');
+        // $grid->column('city', 'Cidade');
+        // $grid->column('state', 'Estado');
+        // $grid->column('country', 'País');
         $grid->column('id_company', 'Empresa')->display(function ($idCompany) {
             return $this->company->name ?? 'N/A';
         });

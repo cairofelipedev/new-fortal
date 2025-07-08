@@ -14,6 +14,7 @@ use App\Http\Controllers\EquipeConselhoController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\EventTypeController;
 use App\Http\Controllers\SessaoController;
+use App\Http\Controllers\WhatsAppButtonController;
 use App\Models\SpaceStructure;
 use App\Models\Testimonial;
 
@@ -88,3 +89,5 @@ Route::get('/apoiadores', [ApoiadoresController::class, 'index']);
 Route::get('/space-structures', function () {
     return response()->json(SpaceStructure::select('id', 'name')->get());
 });
+
+Route::get('/whatsapp-button', [WhatsAppButtonController::class, 'show']);

@@ -67,7 +67,7 @@ export const LinkMap = () => {
                 <TitleItem href="https://visiteceara.com" title="Visite Ceará" icon={<FaRegSun className="text-xl" />} />
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
-                        <a href="www.visiteceara.com" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Site</a>
+                        <a href="https://visiteceara.com" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Site</a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/c/VisiteCear%C3%A1" className="text-sm leading-6 text-[#905d36] hover:text-teal-900 transition-colors ease-in-out">Youtube</a>
