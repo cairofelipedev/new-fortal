@@ -20,7 +20,9 @@ const Contact = () => {
             <ContactFields
                 optionalFields={optionalFields}
                 companyId={company_id}
-                title="Contato" />
+                title="Contato"
+                tag="contato"
+            />
             <Footer />
         </>
     );

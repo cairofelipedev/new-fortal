@@ -17,7 +17,9 @@ export default function IndexAssociete() {
             <ContactFields
                 optionalFields={optionalFields}
                 companyId={company_id}
-                   title="Quero me associar!"  />
+                title="Quero me associar!"
+                tag="associese"
+            />
             <Footer />
         </>
     );

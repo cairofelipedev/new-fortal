@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import style from "@/Components/Search/videoArea/videoArea.module.scss";
 
-const ContactFields = ({ optionalFields = [], companyId, title }) => {
+const ContactFields = ({ optionalFields = [], companyId, title, tag }) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -21,7 +21,7 @@ const ContactFields = ({ optionalFields = [], companyId, title }) => {
 
         const dataToSend = {
             ...formData,
-            tags: ["site_contato"],
+            tags: [`site_${tag}`],
         };
         console.log("Dados sendo enviados:", dataToSend);
         try {
