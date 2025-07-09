@@ -21,7 +21,7 @@ const ContactFields = ({ optionalFields = [], companyId, title }) => {
 
         const dataToSend = {
             ...formData,
-            tags: ["site - contato"],
+            tags: ["site_contato"],
         };
         console.log("Dados sendo enviados:", dataToSend);
         try {

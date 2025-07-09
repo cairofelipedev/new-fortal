@@ -12,9 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('rdstation:update-token')->everyTwelveHours();
+        $schedule->command('rdstation:update-token')->cron('0 */12 * * *');
     }
-    
+
     /**
      * Register the commands for the application.
      */
