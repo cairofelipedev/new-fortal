@@ -67,12 +67,20 @@ const ListaAssociados = ({ type }) => {
             className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
           >
             <option value="todos">Todos</option>
-            {Array.from(new Set(associados.map((a) => a.categoria))).map((categoria) => (
-              <option key={categoria} value={categoria}>
-                {categoriasTraduzidas[categoria] ||
-                  categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-              </option>
-            ))}
+            {Array.from(new Set(associados.map((a) => a.categoria)))
+              .sort((a, b) => {
+                const nomeA = categoriasTraduzidas[a] ||
+                  a.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+                const nomeB = categoriasTraduzidas[b] ||
+                  b.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+                return nomeA.localeCompare(nomeB);
+              })
+              .map((categoria) => (
+                <option key={categoria} value={categoria}>
+                  {categoriasTraduzidas[categoria] ||
+                    categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                </option>
+              ))}
           </select>
 
           <input
@@ -100,10 +108,10 @@ const ListaAssociados = ({ type }) => {
               >
                 <Link
                   href={`/${type === "organizador"
-                      ? "organizadoras"
-                      : type === "escolas"
-                        ? "escolas-nauticas"
-                        : "associados"
+                    ? "organizadoras"
+                    : type === "escolas"
+                      ? "escolas-nauticas"
+                      : "associados"
                     }/${associado.slug}`}
                 >
                   <img
