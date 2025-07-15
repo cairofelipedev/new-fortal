@@ -13,7 +13,7 @@ export default function AboutFortal() {
             <BannerDestak pagina="SOBREFORTALEZA" posicao={1} grid="true" />
             <BannerDestak pagina="SOBREFORTALEZA" posicao={2} />
             <div className="max-w-7xl mx-auto py-10">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1Na3SrnTk8RMwtFILvilnvSkoMhqp-E0&hl=pt-BR&ehbc=2E312F" width="100%" height="480"></iframe>
+                <iframe src="https://www.google.com/maps/d/embed?mid=1Na3SrnTk8RMwtFILvilnvSkoMhqp-E0&ehbc=2E312F&noprof=1" width="100%" height="480"></iframe>
             </div>
             <Footer />
         </>
