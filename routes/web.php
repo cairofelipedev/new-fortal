@@ -156,3 +156,10 @@ Route::get('/proximos-eventos', function () {
 
 Route::get('/proximos-eventos/{slug}', [EventCalendarController::class, 'showNextEvent']);
 
+Route::group(['prefix' => '{lang?}', 'where' => ['lang' => 'en|es|pt']], function () {
+    Route::get('/', function () {
+        return Inertia::render('Home');
+    })->name('home');
+
+    // Adicione aqui outras rotas com React/Inertia
+});

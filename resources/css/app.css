@@ -32,3 +32,13 @@ h3 {
     color: #4b5563!important;
     font-weight: 400!important;
 }
+
+iframe.skiptranslate,
+iframe[class*="VIpgJd"] {
+  display: none !important;
+}
+
+.navmain {
+    position: fixed;
+    top: 0%;
+}

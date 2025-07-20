@@ -5,11 +5,12 @@ import { FaTimesCircle, FaRegSun, FaBuilding, FaCalendarAlt, FaSearchLocation, F
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiHome2Fill } from "react-icons/ri";
-import { FaShip  } from "react-icons/fa";
+import { FaShip } from "react-icons/fa";
 
 
 import style from './Navbar.module.scss'
 import WhatsAppButton from '@/Components/WhatsAppButton';
+import LanguageSelector from '@/Components/LanguageSelector';
 
 export default function NavBar({ scrollEffect = false }) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +40,7 @@ export default function NavBar({ scrollEffect = false }) {
 
     return (
         <>
-            <nav className={`shadow fixed w-full transition-colors duration-300 ${isMenuOpen ? 'bg-white' : scrollEffect ? (isScrolled ? 'bg-white' : 'bg-transparent') : 'bg-white'} z-20`}>
+            <nav className={`navmain shadow w-full transition-colors duration-300 ${isMenuOpen ? 'bg-white' : scrollEffect ? (isScrolled ? 'bg-white' : 'bg-transparent') : 'bg-white'} z-20`}>
                 {/* <div className="h-4 bg-gradient-to-r from-[#F57C29] to-[#FFCC00]"></div> */}
 
                 <div className={`${style.internalNav} max-w-7xl`}>
@@ -53,7 +54,7 @@ export default function NavBar({ scrollEffect = false }) {
                             <Link href="/" className={`tracking-widest ${style.linkHoverUnderline}`}>Home</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                                 <p className={`${style.link} ${style.linkHoverUnderline}`}>
-                                   Fortaleza
+                                    Fortaleza
                                 </p>
                                 <div className={`${style.capulseDrop}`}>
                                     <div className={style.dropDown}>
@@ -206,6 +207,7 @@ export default function NavBar({ scrollEffect = false }) {
                                 <button className={`${style.menuButton} lg:hidden`} onClick={toggleMenu}>
                                     {isMenuOpen ? <FaTimesCircle className="text-2xl" /> : <FiMenu className="text-2xl" />}
                                 </button>
+                                <LanguageSelector />
                             </div>
                         </div>
                     </div>

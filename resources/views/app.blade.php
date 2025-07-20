@@ -57,6 +57,68 @@
     @viteReactRefresh
     @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
     @inertiaHead
+
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',
+                includedLanguages: 'pt,en,es',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-99999999;';
+        }
+
+        function applyLanguageByUrl() {
+            const path = window.location.pathname;
+
+            const map = {
+                '/en': 'en',
+                '/es': 'es',
+                '/pt': 'reset', // Forçar reset da tradução
+            };
+
+            const lang = map[path];
+
+            const tryTranslate = () => {
+                const select = document.querySelector('.goog-te-combo');
+                if (!select) return false;
+
+                if (lang === 'reset') {
+                    const hasTranslation = document.cookie.includes('googtrans=/pt');
+                    if (hasTranslation) {
+                        eraseCookie('googtrans');
+                        location.reload();
+                    }
+                    return true;
+                }
+
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+                return true;
+            };
+
+            let attempts = 0;
+            const interval = setInterval(() => {
+                if (tryTranslate() || attempts > 20) {
+                    clearInterval(interval);
+                }
+                attempts++;
+            }, 100);
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(applyLanguageByUrl, 1000);
+        });
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </head>
 
 <body class="font-sans antialiased">
