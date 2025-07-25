@@ -160,6 +160,4 @@ Route::group(['prefix' => '{lang?}', 'where' => ['lang' => 'en|es|pt']], functio
     Route::get('/', function () {
         return Inertia::render('Home');
     })->name('home');
-
-    // Adicione aqui outras rotas com React/Inertia
 });

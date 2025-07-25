@@ -20,7 +20,7 @@ export default function BannerHero() {
 
       {/* Conteúdo */}
       <div className="relative flex flex-col justify-center h-full lg:px-40 px-5 pt-10 lg:pt-0 pb-10 lg:pb-0">
-        <p className="lg:text-7xl text-6xl text-white font-black uppercase">Fortaleza</p>
+        <p className="lg:text-7xl text-6xl text-white font-black uppercase">A Cidade de Fortaleza</p>
         <p className="lg:text-6xl text-5xl text-white font-black uppercase">Um evento pra se viver</p>
 
         <a href="/planejador-de-eventos" className="lg:mt-10 mt-5">

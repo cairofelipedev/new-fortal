@@ -34,8 +34,11 @@ export default function LanguageSelector() {
 
   useEffect(() => {
     const path = window.location.pathname;
-    if (path.startsWith('/en')) setCurrentLang('en');
-    else if (path.startsWith('/es')) setCurrentLang('es');
+
+    const firstSegment = path.split('/')[1];
+
+    if (firstSegment === 'en') setCurrentLang('en');
+    else if (firstSegment === 'es') setCurrentLang('es');
     else setCurrentLang('pt');
   }, []);
 
@@ -74,9 +77,8 @@ export default function LanguageSelector() {
               <button
                 key={lang}
                 onClick={() => handleSelect(lang)}
-                className={`flex items-center justify-center w-full py-2 px-2 hover:bg-gray-100 ${
-                  lang === currentLang ? 'bg-gray-200' : ''
-                }`}
+                className={`flex items-center justify-center w-full py-2 px-2 hover:bg-gray-100 ${lang === currentLang ? 'bg-gray-200' : ''
+                  }`}
                 type="button"
               >
                 {flagImg}

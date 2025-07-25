@@ -38,6 +38,18 @@ export default function NavBar({ scrollEffect = false }) {
         window.location.href = '/conheca-fortaleza'; // substitua pela sua rota desejada
     }
 
+    const [currentLang, setCurrentLang] = useState('pt');
+
+    useEffect(() => {
+        const path = window.location.pathname;
+        const firstSegment = path.split('/')[1]; // captura 'en', 'es' etc.
+        if (firstSegment === 'en') setCurrentLang('en');
+        else if (firstSegment === 'es') setCurrentLang('es');
+        else setCurrentLang('pt');
+    }, []);
+
+    const fortalezaText = currentLang === 'en' ? 'Fortaleza City' : 'Fortaleza';
+
     return (
         <>
             <nav className={`navmain shadow w-full transition-colors duration-300 ${isMenuOpen ? 'bg-white' : scrollEffect ? (isScrolled ? 'bg-white' : 'bg-transparent') : 'bg-white'} z-20`}>
@@ -54,7 +66,7 @@ export default function NavBar({ scrollEffect = false }) {
                             <Link href="/" className={`tracking-widest ${style.linkHoverUnderline}`}>Home</Link>
                             <div className={`${style.linkNav} ${style.linkNavDropDown}`}>
                                 <p className={`${style.link} ${style.linkHoverUnderline}`}>
-                                    Fortaleza
+                                    {fortalezaText}
                                 </p>
                                 <div className={`${style.capulseDrop}`}>
                                     <div className={style.dropDown}>
