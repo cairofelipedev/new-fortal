@@ -41,4 +41,9 @@ class Associado extends Model
             }
         });
     }
+
+    public function categoria()
+    {
+        return $this->belongsTo(AssociadoCategoria::class, 'categoria_id');
+    }
 }

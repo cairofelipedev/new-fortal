@@ -30,4 +30,5 @@ Route::group([
     $router->resource('apoiadores', 'ApoiadoresController');
     $router->resource('estrutura-de-salas', 'SpaceStructureController');
     $router->resource('chat', 'WhatsAppButtonController');
+    $router->resource('associados-categorias', 'AssociadoCategoriaController');
 });

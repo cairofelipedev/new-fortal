@@ -7,6 +7,7 @@ use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
 use App\Models\Associado;
+use App\Models\AssociadoCategoria;
 
 class AssociadoController extends AdminController
 {
@@ -16,11 +17,23 @@ class AssociadoController extends AdminController
     {
         $grid = new Grid(new Associado);
 
+        // 🔥 IMPORTANTE: eager loading
+        $grid->model()->with('categoria');
+
         $grid->column('id', __('ID'))->sortable();
         $grid->column('nome', 'Nome')->sortable();
-        $grid->column('categoria', 'Categoria')->sortable();
+
+        // ✅ RELACIONAMENTO
+        $grid->column('categoria.nome', 'Categoria')
+            ->display(function ($value) {
+                return $value ?? '-';
+            })
+            ->sortable();
+
         $grid->column('type', 'Tipo')->sortable();
+
         $grid->column('imagem', 'Imagem')->image('', 100, 100);
+
         $grid->column('link', 'Link')->display(function ($value) {
             return $value ? "<a href='{$value}' target='_blank'>Abrir</a>" : '-';
         })->sortable()->style('max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;');
@@ -32,14 +45,21 @@ class AssociadoController extends AdminController
             return \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s');
         });
 
+        // 🔎 FILTROS
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
+
             $filter->like('nome', 'Nome');
+
             $filter->equal('type', 'Tipo')->select([
                 'associado' => 'Associado',
                 'organizador' => 'Organizador',
                 'escolas' => 'Escolas Náuticas',
             ]);
+
+            // ✅ FILTRO DINÂMICO
+            $filter->equal('categoria_id', 'Categoria')
+                ->select(AssociadoCategoria::pluck('nome', 'id'));
         });
 
         return $grid;
@@ -47,13 +67,17 @@ class AssociadoController extends AdminController
 
     protected function detail($id)
     {
-        $show = new Show(Associado::findOrFail($id));
+        $show = new Show(Associado::with('categoria')->findOrFail($id));
 
         $show->field('id', __('ID'));
         $show->field('nome', 'Nome');
-        $show->field('categoria', 'Categoria');
+
+        // ✅ RELACIONAMENTO
+        $show->field('categoria.nome', 'Categoria');
+
         $show->field('type', 'Tipo');
         $show->field('imagem', 'Imagem')->image();
+
         $show->field('content', 'Conteúdo')->unescape()->as(function ($content) {
             return $content;
         });
@@ -81,27 +105,13 @@ class AssociadoController extends AdminController
         $form = new Form(new Associado);
 
         $form->display('id', __('ID'));
-        $form->text('nome', 'Nome')->rules('required|min:3|max:255');
 
-        $form->select('categoria', 'Categoria')->options([
-            'agencia-de-viagem' => 'Agência de Viagem',
-            'assessoria-de-imprensa' => 'Assessoria de Imprensa',
-            'agencia-de-marketing-digital' => 'Agência de Marketing Digital',
-            'buffet' => 'Buffet',
-            'mestre-de-cerimonia' => 'Mestre de Cerimônia',
-            'montagem' => 'Montagem',
-            'traducao-simultanea' => 'Tradução Simultânea',
-            'seguranca-para-eventos' => 'Segurança para Eventos',
-            'restaurantes' => 'Restaurantes',
-            'organizadora-de-eventos' => 'Organizadora de Eventos',
-            'receptivo-e-transporte' => 'Receptivo e Transporte',
-            'limpeza-geral' => 'Limpeza Geral',
-            'equipamentos-para-eventos' => 'Equipamentos para Eventos',
-            // ✅ Novas categorias
-            'praia-de-meireles' => 'Praia de Meireles',
-            'praia-do-mucuripe' => 'Praia do Mucuripe',
-            'praia-de-iracema' => 'Praia de Iracema',
-        ])->rules('required');
+        $form->text('nome', 'Nome')
+            ->rules('required|min:3|max:255');
+
+        $form->select('categoria_id', 'Categoria')
+            ->options(AssociadoCategoria::pluck('nome', 'id'))
+            ->rules('required');
 
         $form->select('type', 'Tipo')->options([
             'associado' => 'Associado',
