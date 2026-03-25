@@ -65,6 +65,8 @@ Route::get('/event-types', [EventTypeController::class, 'index']);
 
 Route::get('/associados', [AssociadoController::class, 'index']);
 
+Route::get('/categorias', [AssociadoController::class, 'categorias']);
+
 Route::get('/associados/{slug}', [AssociadoController::class, 'show']);
 
 Route::get('/posts', [PostController::class, 'index']);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Associado;
+use App\Models\AssociadoCategoria;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -10,7 +11,8 @@ class AssociadoController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Associado::query()->orderBy('nome', 'asc');
+        $query = Associado::with('categoria') // 🔥 AQUI É O AJUSTE
+            ->orderBy('nome', 'asc');
 
         if ($request->has('type')) {
             $query->where('type', $request->input('type'));
@@ -19,10 +21,19 @@ class AssociadoController extends Controller
         return response()->json($query->get());
     }
 
+    public function categorias()
+    {
+        return response()->json(
+            AssociadoCategoria::orderBy('nome', 'asc')->get()
+        );
+    }
+
     public function show($slug)
     {
-        $post = Associado::where('slug', $slug)
+        $post = Associado::with('categoria') // 🔥 mantém padrão
+            ->where('slug', $slug)
             ->firstOrFail();
+
         return response()->json($post);
     }
 

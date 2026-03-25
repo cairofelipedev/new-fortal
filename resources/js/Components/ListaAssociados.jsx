@@ -3,55 +3,47 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { Link } from "@inertiajs/react";
 
-const categoriasTraduzidas = {
-  "agencia-de-viagem": "Agência de Viagem",
-  "assessoria-de-imprensa": "Assessoria de Imprensa",
-  "agencia-de-marketing-digital": "Agência de Marketing Digital",
-  "buffet": "Buffet",
-  "mestre-de-cerimonia": "Mestre de Cerimônia",
-  "montagem": "Montagem",
-  "traducao-simultanea": "Tradução Simultânea",
-  "seguranca-para-eventos": "Segurança para Eventos",
-  "restaurantes": "Restaurantes",
-  "organizadora-de-eventos": "Organizadora de Eventos",
-  "receptivo-e-transporte": "Receptivo e Transporte",
-  "limpeza-geral": "Limpeza Geral",
-  "equipamentos-para-eventos": "Equipamentos para Eventos",
-  "praia-de-meireles": "Praia de Meireles",
-  "praia-do-mucuripe": "Praia do Mucuripe",
-  "praia-de-iracema": "Praia de Iracema",
-};
-
 const ListaAssociados = ({ type }) => {
   const [associados, setAssociados] = useState([]);
+  const [categorias, setCategorias] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("todos");
   const [termoBusca, setTermoBusca] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/associados", {
-          params: { type },
-        });
-        setAssociados(response.data);
+        const [associadosRes, categoriasRes] = await Promise.all([
+          axios.get("/api/associados", { params: { type } }),
+          axios.get("/api/categorias"),
+        ]);
+
+        setAssociados(associadosRes.data);
+        setCategorias(categoriasRes.data);
       } catch (error) {
-        console.error("Erro ao buscar associados:", error);
+        console.error("Erro ao buscar dados:", error);
       }
     };
 
     fetchData();
   }, [type]);
 
+
   const associadosFiltrados = associados.filter((associado) => {
     const correspondeCategoria =
-      categoriaSelecionada === "todos" || associado.categoria === categoriaSelecionada;
-    const correspondeNome = associado.nome.toLowerCase().includes(termoBusca.toLowerCase());
+      categoriaSelecionada === "todos" ||
+      associado.categoria?.slug === categoriaSelecionada;
+
+    const correspondeNome = associado.nome
+      .toLowerCase()
+      .includes(termoBusca.toLowerCase());
+
     return correspondeCategoria && correspondeNome;
   });
 
   return (
     <div className="bg-gray-50">
       <div className="p-5 min-h-screen lg:px-20 max-w-7xl mx-auto pt-40">
+        
         <p className="lg:text-4xl text-4xl text-center mb-6">
           {type === "escolas" ? (
             <>Conheça nossas <b>Escolas Náuticas</b></>
@@ -59,30 +51,24 @@ const ListaAssociados = ({ type }) => {
             <>Conheça nossas empresas <b>{type === "organizador" ? "organizadoras" : "associadas"}</b></>
           )}
         </p>
-        {/* Filtros */}
-        <div className="grid grid-cols-2 justify-center items-center gap-4 mb-8 p-4 bg-[#0C9C95] lg:rounded-full shadow-lg rounded-lg">
+
+        <div className="grid grid-cols-2 gap-4 mb-8 p-4 bg-[#0C9C95] lg:rounded-full shadow-lg rounded-lg">
+          
           <select
             value={categoriaSelecionada}
             onChange={(e) => setCategoriaSelecionada(e.target.value)}
             className="px-5 py-3 rounded-full bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
           >
-            <option value="todos">Todos</option>
-            {Array.from(new Set(associados.map((a) => a.categoria)))
-              .sort((a, b) => {
-                const nomeA = categoriasTraduzidas[a] ||
-                  a.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-                const nomeB = categoriasTraduzidas[b] ||
-                  b.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-                return nomeA.localeCompare(nomeB);
-              })
-              .map((categoria) => (
-                <option key={categoria} value={categoria}>
-                  {categoriasTraduzidas[categoria] ||
-                    categoria.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-                </option>
-              ))}
+            <option value="todos">Todas categorias</option>
+
+            {categorias.map((categoria) => (
+              <option key={categoria.id} value={categoria.slug}>
+                {categoria.nome}
+              </option>
+            ))}
           </select>
 
+  
           <input
             type="text"
             placeholder="Buscar por nome..."
@@ -96,35 +82,35 @@ const ListaAssociados = ({ type }) => {
           {associadosFiltrados.length > 0 ? (
             associadosFiltrados.map((associado, index) => (
               <motion.div
-                key={index}
+                key={associado.id}
                 className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.4,
-                  delay: index < 6 ? 0 : index * 0.08,
-                }}
+                transition={{ duration: 0.4 }}
               >
                 <Link
-                  href={`/${type === "organizador"
-                    ? "organizadoras"
-                    : type === "escolas"
+                  href={`/${
+                    type === "organizador"
+                      ? "organizadoras"
+                      : type === "escolas"
                       ? "escolas-nauticas"
                       : "associados"
-                    }/${associado.slug}`}
+                  }/${associado.slug}`}
                 >
                   <img
                     src={`./uploads/${associado.imagem}`}
                     alt={associado.nome}
                     className="w-full rounded-t-lg object-cover h-[300px]"
-                    loading={index < 6 ? "eager" : "lazy"}
-                    fetchpriority={index < 6 ? "high" : "low"}
                   />
+
                   <div className="p-4 text-center">
-                    <h3 className="text-xl font-semibold text-gray-800">{associado.nome}</h3>
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      {associado.nome}
+                    </h3>
+
                     <p className="text-gray-600 text-sm">
-                      {categoriasTraduzidas[associado.categoria] || associado.categoria}
+                      {associado.categoria?.nome || "Sem categoria"}
                     </p>
                   </div>
                 </Link>
@@ -132,11 +118,7 @@ const ListaAssociados = ({ type }) => {
             ))
           ) : (
             <p className="text-gray-600 col-span-3 text-center">
-              {type === "escola"
-                ? "Nenhuma escola encontrada."
-                : type === "organizador"
-                  ? "Nenhuma organizadora encontrada."
-                  : "Nenhum associado encontrado."}
+              Nenhum resultado encontrado.
             </p>
           )}
         </div>
