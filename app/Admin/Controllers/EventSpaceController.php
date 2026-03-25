@@ -128,7 +128,11 @@ class EventSpaceController extends AdminController
         $form->textarea('description', 'Descrição')->rows(10)->rules('nullable');
 
         $form->file('image', 'Imagem Principal')
-            ->rules('required|image|mimes:jpg,jpeg,png,webp|max:2048');
+            ->rules(function ($form) {
+                return $form->isCreating()
+                    ? 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
+                    : 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048';
+            });
 
         $form->multipleImage('images', 'Imagens')
             ->uniqueName()
