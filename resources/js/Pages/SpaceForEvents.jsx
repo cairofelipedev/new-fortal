@@ -1,4 +1,5 @@
 import { Head, usePage } from "@inertiajs/react";
+import { useState, useRef, useEffect } from "react";
 import style from '@/Components/SearchResults/ResultSpaceForEvent.module.scss';
 import NavBar from "@/Components/Home/NavBar/Navbar";
 import Footer from "@/Components/Footer";
@@ -7,7 +8,7 @@ import SimpleSlider from "@/Components/Banners/BannersHome";
 
 export default function ResultSearch() {
     const { props } = usePage();
-    const results = props.results || []; // Obter resultados da API
+    const results = props.results || [];
 
     return (
         <>
@@ -15,19 +16,19 @@ export default function ResultSearch() {
             <NavBar />
             <SimpleSlider page="EVENTOS" />
             <EventSearchForSpace />
+
             <section className={`px-4 ${style.container}`}>
-                {/* Título e resumo */}
                 <div className={style.titleArea}>
                     <div className={style.textArea}>
                         <h2>Resultados da sua <b>busca.</b></h2>
                         <p>{`Espaços encontrados: ${results.length}`}</p>
                     </div>
+
                     <span className={style.numberResults}>
                         {results.length}
                     </span>
                 </div>
 
-                {/* Área dos resultados */}
                 <div className={style.AreaResults}>
                     {results.length > 0 ? (
                         results.map((space) => (
@@ -38,7 +39,7 @@ export default function ResultSearch() {
                                 location={`${space.city}, ${space.state}, ${space.address}`}
                                 cep={`${space.zip_code}`}
                                 capacity={space.capacity || 'N/A'}
-                                services="Acessibilidade, Aceita animais" // Valor estático
+                                services={space.services}
                                 tel={space.phone || 'Não disponível'}
                                 slug={space.slug}
                             />
@@ -48,52 +49,89 @@ export default function ResultSearch() {
                     )}
                 </div>
             </section>
+
             <Footer />
         </>
     );
 }
 
-// Componente CardResult para cada espaço
+/* 🔥 COMPONENTE DE SERVIÇOS COM "VER MAIS" */
+function ServicesText({ services }) {
+    const [expanded, setExpanded] = useState(false);
+    const [showButton, setShowButton] = useState(false);
+    const textRef = useRef(null);
+
+    useEffect(() => {
+        const el = textRef.current;
+        if (el) {
+            if (el.scrollHeight > el.clientHeight) {
+                setShowButton(true);
+            }
+        }
+    }, [services]);
+
+    if (!services || services.trim() === '') return null;
+
+    return (
+        <li className={style.listItem}>
+            <h2>Serviços</h2>
+
+            <div style={{ position: 'relative' }}>
+                <p
+                    ref={textRef}
+                    className={`${style.servicesText} ${expanded ? style.expanded : ''}`}
+                >
+                    {services}
+                </p>
+
+                {showButton && (
+                    <span
+                        className={style.moreButton}
+                        onClick={(e) => {
+                            e.preventDefault(); // não navegar
+                            setExpanded(!expanded);
+                        }}
+                    >
+                        {expanded ? '−' : '+'}
+                    </span>
+                )}
+            </div>
+        </li>
+    );
+}
+
+/* CARD */
 export function CardResult({ img, name, location, cep, capacity, services, tel, slug }) {
     return (
-        <>
-            <a href={`/espaco-para-seu-evento/${slug}`}>
-                <article className={style.card}>
-                    {/* Área da imagem */}
+        <a href={`/espaco-para-seu-evento/${slug}`}>
+            <article className={style.card}>
+                <div className={style.areaImage}>
+                    <img src={img} alt={`Imagem de ${name}`} />
+                </div>
 
-                    <div className={style.areaImage}>
-                        <img src={img} alt={`Imagem de ${name}`} />
+                <div className={`${style.infoArea} lg:h-[220px]`}>
+                    <div className={style.nameArea}>
+                        <h1>{name}</h1>
+                        <a href={`/espaco-para-seu-evento/${slug}`}>Mais detalhes</a>
                     </div>
 
-                    {/* Área de informações */}
+                    <ul className={`${style.generalInfoArea} grid grid-cols-2 gap-10`}>
+                        <li className={style.listItem}>
+                            <h2>Localização</h2>
+                            <p>{location}</p>
+                        </li>
 
-                    <div className={`${style.infoArea} lg:h-[200px]`}>
-                        {/* Nome e link */}
-                        <div className={style.nameArea}>
-                            <h1>{name}</h1>
-                            <a href={`/espaco-para-seu-evento/${slug}`}>Mais detalhes</a>
-                        </div>
+                        <div>
+                            <ServicesText services={services} />
 
-                        {/* Informações gerais */}
-                        <ul className={`${style.generalInfoArea} grid grid-cols-2 gap-10`}>
                             <li className={style.listItem}>
-                                <h2>Localização</h2>
-                                <p>{location}</p>
+                                <h2>Capacidade</h2>
+                                <p>{capacity}</p>
                             </li>
-                            <div>
-                                <li className={style.listItem}>
-                                    <h2>Serviços</h2>
-                                    <p>{services}</p>
-                                </li>
-                                <li className={style.listItem}>
-                                    <h2>Capacidade</h2>
-                                    <p>{capacity}</p>
-                                </li>
-                            </div>
-                        </ul>
-                    </div>
-                </article>
-            </a>
-        </>
+                        </div>
+                    </ul>
+                </div>
+            </article>
+        </a>
     );
 }

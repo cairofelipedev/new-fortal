@@ -357,6 +357,113 @@ export default function EventSpaceDetails({ setEventName }) {
                                 )}
                             </div>
                         )}
+
+                        {(
+                            eventSpace.room_count ||
+                            eventSpace.bed_count ||
+                            eventSpace.distance_to_sea ||
+                            eventSpace.dining_facilities ||
+                            eventSpace.other_facilities ||
+                            eventSpace.services ||
+                            eventSpace.accessible_rooms ||
+                            eventSpace.accessible_type ||
+                            eventSpace.total_event_area ||
+                            eventSpace.largest_room_area ||
+                            eventSpace.largest_room_ceiling_height ||
+                            eventSpace.pavilion_ceiling_height ||
+                            eventSpace.smallest_event_room_area ||
+                            eventSpace.total_rentable_event_rooms ||
+                            eventSpace.direct_event_services ||
+                            eventSpace.other_rentable_spaces ||
+                            eventSpace.parking_capacity
+                        ) && (
+                            <div className="bg-white rounded-lg shadow p-4">
+                                <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-4">
+                                    Mais Informações
+                                </h1>
+
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+
+                                    {eventSpace.room_count && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Número de Quartos: {eventSpace.room_count}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.bed_count && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Número de Camas: {eventSpace.bed_count}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.distance_to_sea && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Distância ao Mar: {eventSpace.distance_to_sea}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.accessible_rooms && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Quartos Acessíveis: {eventSpace.accessible_rooms}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.total_event_area && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Área Total para Eventos: {eventSpace.total_event_area}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.largest_room_area && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Maior Sala - Área: {eventSpace.largest_room_area}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.largest_room_ceiling_height && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Altura do Teto (Maior Sala): {eventSpace.largest_room_ceiling_height}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.pavilion_ceiling_height && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Altura do Teto do Pavilhão: {eventSpace.pavilion_ceiling_height}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.smallest_event_room_area && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Menor Sala para Eventos: {eventSpace.smallest_event_room_area}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.total_rentable_event_rooms && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Total de Salas Alugáveis: {eventSpace.total_rentable_event_rooms}</span>
+                                        </div>
+                                    )}
+
+                                    {eventSpace.parking_capacity && (
+                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                            <span>Capacidade de Estacionamento: {eventSpace.parking_capacity}</span>
+                                        </div>
+                                    )}
+
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 

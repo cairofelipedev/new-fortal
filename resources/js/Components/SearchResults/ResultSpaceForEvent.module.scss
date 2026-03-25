@@ -142,3 +142,25 @@
         }
     }
 }
+
+.servicesText {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.expanded {
+  -webkit-line-clamp: unset;
+}
+
+.moreButton {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #0C9C95;
+//   background: white;
+  padding-left: 6px;
+}

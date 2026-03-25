@@ -38,7 +38,7 @@ export default function ResultSearch() {
                                 location={`${space.city}, ${space.state}, ${space.address}`}
                                 cep={`${space.zip_code}`}
                                 capacity={space.capacity || 'N/A'}
-                                services="Acessibilidade, Aceita animais" // Valor estático
+                                services={space.services}
                                 tel={space.phone || 'Não disponível'}
                                 slug={space.slug}
                             />
@@ -96,10 +96,12 @@ export function CardResult({ img, name, location, cep, capacity, services, tel, 
                         <h2>CEP</h2>
                         <p>{cep}</p>
                     </li> */}
-                            <li className={style.listItem}>
-                                <h2>Serviços</h2>
-                                <p>{services}</p>
-                            </li>
+                           {services && (
+                                <li className={style.listItem}>
+                                    <h2>Serviços</h2>
+                                    <p>{services}</p>
+                                </li>
+                            )}
                             <li className={style.listItem}>
                                 <h2>Capacidade</h2>
                                 <p>{capacity}</p>
