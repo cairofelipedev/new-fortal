@@ -94,4 +94,9 @@ class EventSpace extends Model
     protected $casts = [
         'space_structures' => 'array',
     ];
+
+    public function spaceStructures()
+    {
+        return $this->belongsToMany(SpaceStructure::class);
+    }
 }

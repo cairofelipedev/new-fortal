@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use App\Imports\EventSpacesImport;
+use App\Models\SpaceStructure;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -212,6 +213,11 @@ class EventSpaceController extends Controller
     public function show(string $slug)
     {
         $eventSpace = EventSpace::where('slug', $slug)->firstOrFail();
+
+        $eventSpace->space_structures = SpaceStructure::whereIn(
+            'id',
+            $eventSpace->space_structures ?? []
+        )->pluck('name');
 
         return response()->json([
             'success' => true,

@@ -8,11 +8,13 @@
     background-color: #FF5607 !important;
 }
 
-.custom-menu ul li, .custom-menu ul li a {
-    color: black!important
+.custom-menu ul li,
+.custom-menu ul li a {
+    color: black !important
 }
 
-.sidebar-form .input-group input, .sidebar-form .input-group button {
+.sidebar-form .input-group input,
+.sidebar-form .input-group button {
     background-color: gainsboro !important;
 }
 
@@ -26,4 +28,8 @@
 .contentchart {
     display: flex;
     justify-content: center;
+}
+
+.btn-light {
+    display: none!important;
 }

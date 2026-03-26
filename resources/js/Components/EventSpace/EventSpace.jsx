@@ -210,6 +210,25 @@ export default function EventSpaceDetails({ setEventName }) {
                             </div>
                         )}
 
+                        {eventSpace.space_structures && eventSpace.space_structures.length > 0 && (
+                            <div className="bg-white rounded-lg shadow p-4">
+                                <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-4">
+                                    Estruturas do Espaço
+                                </h1>
+
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                    {eventSpace.space_structures.map((item, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center justify-center text-center px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 lg:text-lg text-sm font-medium hover:bg-gray-100 transition"
+                                        >
+                                            {item}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {eventSpace.floor_plan && (
                             <div className="flex justify-center mt-4">
                                 <a
@@ -237,7 +256,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                         .split(",") // separa cada item
                                         .map((item, index) => (
                                             <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))
@@ -255,7 +274,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                         .split(",")
                                         .map((item, index) => (
                                             <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -273,7 +292,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                         .split(",")
                                         .map((item, index) => (
                                             <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -290,7 +309,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                         .split(",")
                                         .map((item, index) => (
                                             <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -307,7 +326,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                         .split(",")
                                         .map((item, index) => (
                                             <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -330,7 +349,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                         .split(",")
                                         .map((item, index) => (
                                             <div key={index} className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                                  <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                                 <span>{item.trim()}</span>
                                             </div>
                                         ))}
@@ -343,7 +362,7 @@ export default function EventSpaceDetails({ setEventName }) {
                                 <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-4">Pet Friendly</h1>
 
                                 <div className="text-gray-700 lg:text-lg text-sm flex items-start gap-2 mb-2">
-                                      <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                    <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                     <span>
                                         {eventSpace.pet_friendly ? "Este espaço aceita animais de estimação." : "Este espaço não permite animais de estimação."}
                                     </span>
@@ -351,7 +370,7 @@ export default function EventSpaceDetails({ setEventName }) {
 
                                 {eventSpace.pet_friendly && eventSpace.pet_friendly_policy && (
                                     <div className="text-gray-700 lg:text-lg text-sm flex items-start gap-2">
-                                        <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16}  />
+                                        <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
                                         <span><strong>Política:</strong> {eventSpace.pet_friendly_policy}</span>
                                     </div>
                                 )}
@@ -377,93 +396,93 @@ export default function EventSpaceDetails({ setEventName }) {
                             eventSpace.other_rentable_spaces ||
                             eventSpace.parking_capacity
                         ) && (
-                            <div className="bg-white rounded-lg shadow p-4">
-                                <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-4">
-                                    Mais Informações
-                                </h1>
+                                <div className="bg-white rounded-lg shadow p-4">
+                                    <h1 className="uppercase tracking-widest font-raleway font-black text-[#0C9C95] text-xl mb-4">
+                                        Mais Informações
+                                    </h1>
 
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
 
-                                    {eventSpace.room_count && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Número de Quartos: {eventSpace.room_count}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.room_count && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Número de Quartos: {eventSpace.room_count}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.bed_count && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Número de Camas: {eventSpace.bed_count}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.bed_count && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Número de Camas: {eventSpace.bed_count}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.distance_to_sea && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Distância ao Mar: {eventSpace.distance_to_sea}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.distance_to_sea && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Distância ao Mar: {eventSpace.distance_to_sea}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.accessible_rooms && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Quartos Acessíveis: {eventSpace.accessible_rooms}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.accessible_rooms && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Quartos Acessíveis: {eventSpace.accessible_rooms}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.total_event_area && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Área Total para Eventos: {eventSpace.total_event_area}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.total_event_area && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Área Total para Eventos: {eventSpace.total_event_area}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.largest_room_area && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Maior Sala - Área: {eventSpace.largest_room_area}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.largest_room_area && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Maior Sala - Área: {eventSpace.largest_room_area}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.largest_room_ceiling_height && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Altura do Teto (Maior Sala): {eventSpace.largest_room_ceiling_height}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.largest_room_ceiling_height && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Altura do Teto (Maior Sala): {eventSpace.largest_room_ceiling_height}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.pavilion_ceiling_height && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Altura do Teto do Pavilhão: {eventSpace.pavilion_ceiling_height}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.pavilion_ceiling_height && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Altura do Teto do Pavilhão: {eventSpace.pavilion_ceiling_height}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.smallest_event_room_area && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Menor Sala para Eventos: {eventSpace.smallest_event_room_area}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.smallest_event_room_area && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Menor Sala para Eventos: {eventSpace.smallest_event_room_area}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.total_rentable_event_rooms && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Total de Salas Alugáveis: {eventSpace.total_rentable_event_rooms}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.total_rentable_event_rooms && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Total de Salas Alugáveis: {eventSpace.total_rentable_event_rooms}</span>
+                                            </div>
+                                        )}
 
-                                    {eventSpace.parking_capacity && (
-                                        <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
-                                            <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
-                                            <span>Capacidade de Estacionamento: {eventSpace.parking_capacity}</span>
-                                        </div>
-                                    )}
+                                        {eventSpace.parking_capacity && (
+                                            <div className="flex items-start gap-2 text-gray-700 lg:text-lg text-sm">
+                                                <FaCheck className="text-green-600 mt-1 min-w-[16px]" size={16} />
+                                                <span>Capacidade de Estacionamento: {eventSpace.parking_capacity}</span>
+                                            </div>
+                                        )}
 
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
                     </div>
                 </div>
 
