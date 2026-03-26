@@ -121,13 +121,9 @@ class AssociadoController extends AdminController
 
         $form->image('imagem', 'Imagem')
             ->uniqueName()
-            ->rules(function ($form) {
-                return $form->isCreating() ? 'required|image' : 'nullable|image';
-            })
-            ->customFormat(function ($value) {
-                return $value;
-            })
-            ->help('Selecione uma imagem válida. Este campo é obrigatório ao cadastrar.');
+            ->move('event-spaces')
+            ->removable(false)
+            ->retainable(false);
 
         $form->ckeditor('content', 'Conteúdo')->rules('nullable');
 
